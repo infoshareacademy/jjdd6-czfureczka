@@ -18,10 +18,14 @@ public class BuildStopsObjectArray {
         StopsWithDate busStops = stopsParser(dateScope);
         //StopsWithDate busStops = stopsParser(dateScope);
 
-        busStops.getStops().forEach(Stop -> {
+        busStops.getStops().forEach(St -> {
             Stop stop = new Stop();
+            stop = St;
+            /*
             stop.setStopId(Stop.getStopId());
             stop.setStopName(Stop.getStopName());
+            stop.setStopDesc(Stop.getStopDesc());
+            */
             stopsObjectsList.add(stop);
                 }
 
