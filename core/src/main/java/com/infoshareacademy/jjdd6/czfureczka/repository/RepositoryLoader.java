@@ -26,6 +26,7 @@ public class RepositoryLoader {
             Repository.getInstance().trips = trips;
             Repository.getInstance().stopsInTrip = stopsInTrip;
             Repository.getInstance().stopTimes = stopTimes;
+
             return true;
         } catch (IOException e) {
             System.out.println("Could not read stops data: " + e.getMessage());
