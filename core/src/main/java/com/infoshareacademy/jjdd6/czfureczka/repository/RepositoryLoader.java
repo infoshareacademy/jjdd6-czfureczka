@@ -36,7 +36,7 @@ public class RepositoryLoader {
     }
 
     private static Map<String, StopsWithDate> loadStops() throws IOException {
-        File stopsFile = new File("stops.json");
+        File stopsFile = new File("data", "stops.json");
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, StopsWithDate>>() {
         };
@@ -44,7 +44,7 @@ public class RepositoryLoader {
     }
 
     private static Map<String, RoutesWithDate> loadLines() throws IOException {
-        File linesFile = new File("routes.json");
+        File linesFile = new File("data", "routes.json");
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, RoutesWithDate>>() {
         };
@@ -52,7 +52,7 @@ public class RepositoryLoader {
     }
 
     private static Map<String, TripsWithDate> loadTrips() throws IOException {
-        File tripsFile = new File("trips.json");
+        File tripsFile = new File("data","trips.json");
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, TripsWithDate>>() {
         };
@@ -60,7 +60,7 @@ public class RepositoryLoader {
     }
 
     private static Map<String, StopsInTripWithDate> loadStopsInTrip() throws IOException {
-        File stopsInTripFile = new File("stopsintrips.json");
+        File stopsInTripFile = new File("data","stopsintrips.json");
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, StopsInTripWithDate>>() {
         };
