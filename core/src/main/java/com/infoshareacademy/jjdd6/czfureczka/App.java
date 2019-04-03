@@ -1,18 +1,8 @@
-package com.infoshare.jjdd6czfureczka;
+package com.infoshareacademy.jjdd6.czfureczka;
 
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.infoshare.jjdd6czfureczka.config.RoutesConfig;
-import com.infoshare.jjdd6czfureczka.model.*;
-import com.infoshare.jjdd6czfureczka.repository.Repository;
-import com.infoshare.jjdd6czfureczka.repository.RepositoryLoader;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import com.infoshareacademy.jjdd6.czfureczka.Menu.Menu;
+import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
 public class App {
     public static void main(String[] args) {
@@ -23,6 +13,9 @@ public class App {
             System.err.println();
             return;
         }
+
+        Menu menu = new Menu();
+        menu.menu();
 
     }
 

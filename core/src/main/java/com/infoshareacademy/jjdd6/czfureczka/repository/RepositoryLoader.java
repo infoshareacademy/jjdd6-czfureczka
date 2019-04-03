@@ -1,10 +1,10 @@
-package com.infoshare.jjdd6czfureczka.repository;
+package com.infoshareacademy.jjdd6.czfureczka.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.infoshare.jjdd6czfureczka.config.RoutesConfig;
-import com.infoshare.jjdd6czfureczka.model.*;
+import com.infoshareacademy.jjdd6.czfureczka.config.RoutesConfig;
+import com.infoshareacademy.jjdd6.czfureczka.model.*;
 
 import java.io.File;
 import java.io.IOException;

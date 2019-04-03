@@ -1,4 +1,4 @@
-package com.infoshare.jjdd6czfureczka.config;
+package com.infoshareacademy.jjdd6.czfureczka.config;
 
 import java.util.Map;
 

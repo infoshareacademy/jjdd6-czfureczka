@@ -1,4 +1,4 @@
-package com.infoshare.jjdd6czfureczka;
+package com.infoshareacademy.jjdd6.czfureczka;
 
 import static org.junit.Assert.assertTrue;
 

@@ -1,7 +1,6 @@
-package com.infoshare.jjdd6czfureczka.repository;
+package com.infoshareacademy.jjdd6.czfureczka.repository;
 
-
-import com.infoshare.jjdd6czfureczka.model.*;
+import com.infoshareacademy.jjdd6.czfureczka.model.*;
 
 import java.util.HashMap;
 import java.util.Map;

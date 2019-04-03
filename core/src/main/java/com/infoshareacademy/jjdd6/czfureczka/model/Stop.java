@@ -1,4 +1,4 @@
-package com.infoshare.jjdd6czfureczka.model;
+package com.infoshareacademy.jjdd6.czfureczka.model;
 
 public class Stop {
     public int stopId;
