@@ -10,7 +10,7 @@ public class App {
         if (repositoryLoader.load()) {
             System.out.println("Data loaded");
         } else {
-            System.err.println();
+            System.err.println("Data could not be loaded");
             return;
         }
 

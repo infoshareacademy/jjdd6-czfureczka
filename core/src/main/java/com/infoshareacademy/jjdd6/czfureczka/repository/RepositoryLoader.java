@@ -21,16 +21,15 @@ public class RepositoryLoader {
             Map<String, StopsInTripWithDate> stopsInTrip = loadStopsInTrip();
             Map<String, StopTimesWithDate> stopTimes = loadStopTimes();
 
-            Repository.getInstance().routes = routes;
-            Repository.getInstance().stops = stops;
-            Repository.getInstance().trips = trips;
-            Repository.getInstance().stopsInTrip = stopsInTrip;
-            Repository.getInstance().stopTimes = stopTimes;
+            Repository.getInstance().setRoutes(routes);
+            Repository.getInstance().setStops(stops);
+            Repository.getInstance().setTrips(trips);
+            Repository.getInstance().setStopsInTrip(stopsInTrip);
+            Repository.getInstance().setStopTimes(stopTimes);
 
             return true;
         } catch (IOException e) {
-            System.out.println("Could not read stops data: " + e.getMessage());
-            e.printStackTrace();
+            System.err.println("Could not read stops data: " + e.getMessage());
             return false;
         }
     }
