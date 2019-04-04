@@ -14,8 +14,8 @@ public class App {
             return;
         }
 
-        Menu menu = new Menu();
-        menu.menu();
+//        Menu menu = new Menu();
+//        menu.menu();
 
     }
 
