@@ -1,0 +1,52 @@
+{
+  "stopTimes": [
+    {
+      "routeId": 3,
+      "file": "data/stopTimes3.json"
+    },
+    {
+      "routeId": 8,
+      "file": "data/stopTimes8.json"
+    },
+    {
+      "routeId": 167,
+      "file": "data/stopTimes167.json"
+    },
+    {
+      "routeId": 2,
+      "file": "data/stopTimes2.json"
+    },
+    {
+      "routeId": 4,
+      "file": "data/stopTimes4.json"
+    },
+    {
+      "routeId": 5,
+      "file": "data/stopTimes5.json"
+    },
+    {
+      "routeId": 6,
+      "file": "data/stopTimes6.json"
+    },
+    {
+      "routeId": 7,
+      "file": "data/stopTimes7.json"
+    },
+    {
+      "routeId": 9,
+      "file": "data/stopTimes9.json"
+    },
+    {
+      "routeId": 10,
+      "file": "data/stopTimes10.json"
+    },
+    {
+      "routeId": 11,
+      "file": "data/stopTimes11.json"
+    },
+    {
+      "routeId": 12,
+      "file": "data/stopTimes12.json"
+    }
+  ]
+}
