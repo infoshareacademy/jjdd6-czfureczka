@@ -1,5 +1,6 @@
 package com.infoshareacademy.jjdd6.czfureczka.repository;
 
+import com.infoshareacademy.jjdd6.czfureczka.config.StopTimesConfig;
 import com.infoshareacademy.jjdd6.czfureczka.model.*;
 
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class Repository {
     private Map<String, RoutesWithDate> routes = new HashMap<>();
     private Map<String, TripsWithDate> trips = new HashMap<>();
     private Map<String, StopsInTripWithDate> stopsInTrip = new HashMap();
-    private Map<String, StopTimesWithDate> stopTimes = new HashMap<>();
+    private Map<Integer, StopTimesWithDate> stopTimes = new HashMap<>();
 
     private Repository() {
 
@@ -59,11 +60,11 @@ public class Repository {
         this.stopsInTrip = stopsInTrip;
     }
 
-    public Map<String, StopTimesWithDate> getStopTimes() {
+    public Map<Integer, StopTimesWithDate> getStopTimes() {
         return stopTimes;
     }
 
-    public void setStopTimes(Map<String, StopTimesWithDate> stopTimes) {
+    public void setStopTimes(Map<Integer, StopTimesWithDate> stopTimes) {
         this.stopTimes = stopTimes;
     }
 }
