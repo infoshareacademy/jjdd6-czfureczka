@@ -1,7 +1,7 @@
 package com.infoshareacademy.jjdd6.czfureczka;
 
 
-
+import com.infoshareacademy.jjdd6.czfureczka.lookingForRouteShortName.StopIdForStopDesc;
 import com.infoshareacademy.jjdd6.czfureczka.model.AllStops;
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
@@ -15,8 +15,11 @@ public class App {
             return;
         }
 
-        AllStops allStops=new AllStops();
+        AllStops allStops = new AllStops();
         allStops.run();
+
+        StopIdForStopDesc stopIdForStopDesc = new StopIdForStopDesc();
+        stopIdForStopDesc.stopIdForStopsDesc("Budapesztańska");
 
 
     }

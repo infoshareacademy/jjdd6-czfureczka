@@ -1,40 +1,42 @@
 package com.infoshareacademy.jjdd6.czfureczka.model;
 
+import com.infoshareacademy.jjdd6.czfureczka.lookingForRouteShortName.StopIdForStopDesc;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 
-import java.awt.*;
-import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
+
 import java.util.stream.Collectors;
 
 public class AllStops {
     public void run() {
-
-        numerSłupkaPoNazwie("Bulońska");
+       aaaa();
 
     }
 
-       public void numerSłupkaPoNazwie(String nazwa){
-           String s = Repository.getInstance().stops.keySet().stream()
-                   .collect(Collectors.toList()).get(0);
 
-           StopsWithDate stops = Repository.getInstance().stops.get(s);
-
-           Stop stop1 = stops.getStops().get(0);
-
-           List<Stop> newStops = stops.getStops();
-
-           List<Integer> stopsDesc = newStops.stream()
-                   .filter(s1 -> s1.getNonpassenger() == 0)
-                   .filter(l-> l.getStopDesc().toLowerCase().equals(nazwa))
-                   .map(o -> o.getStopId())
-                   .collect(Collectors.toList());
-           System.out.println(stopsDesc);
+    public void aaaa() {
 
 
-       }
+
+
+        String k = Repository.getInstance().stopsInTrip.keySet().stream()
+                .collect(Collectors.toList()).get(0);
+
+        StopsInTripWithDate stopsInTripWithDate = Repository.getInstance().stopsInTrip.get(k);
+
+      //  StopInTrip stopInTripTimes = stopsInTripWithDate.getStopsInTrip().get(0);
+
+        List<StopInTrip> newStopInTrip = stopsInTripWithDate.getStopsInTrip();
+
+        List<Integer> aaa= new StopIdForStopDesc().stopIdForStopsDesc("Budapesztańska");
+
+      List<Integer> stopIdInTrip = newStopInTrip.stream()
+              .filter(s-> s.getStopId()== aaa.get(0))
+              .map(s->s.getRouteId())
+              .collect(Collectors.toList());
+        System.out.println(stopIdInTrip); //1380
+
+    }
 
 
 
@@ -96,5 +98,6 @@ public class AllStops {
         }
       //  List<StopInTrip>  aaa=newStopInTrip.stream()
 
-   */ }
+   */
+}
 
