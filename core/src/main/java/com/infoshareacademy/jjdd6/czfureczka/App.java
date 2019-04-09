@@ -2,7 +2,6 @@ package com.infoshareacademy.jjdd6.czfureczka;
 
 
 
-import com.infoshareacademy.jjdd6.czfureczka.model.AllStops;
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
 public class App {
@@ -14,10 +13,10 @@ public class App {
             System.err.println("Data could not be loaded");
             return;
         }
-
+/*
         AllStops allStops=new AllStops();
         allStops.run();
-
+*/
 
     }
 
