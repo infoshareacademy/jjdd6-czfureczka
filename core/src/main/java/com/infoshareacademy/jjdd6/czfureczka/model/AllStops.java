@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class AllStops {
     public void run() {
-       aaaa();
+        aaaa();
 
     }
 
@@ -17,24 +17,25 @@ public class AllStops {
     public void aaaa() {
 
 
-
-
-        String k = Repository.getInstance().stopsInTrip.keySet().stream()
+        String k = Repository.getInstance().getStopsInTrip().keySet().stream()
                 .collect(Collectors.toList()).get(0);
 
-        StopsInTripWithDate stopsInTripWithDate = Repository.getInstance().stopsInTrip.get(k);
+        StopsInTripWithDate stopsInTripWithDate = Repository.getInstance().getStopsInTrip().get(k);
 
-      //  StopInTrip stopInTripTimes = stopsInTripWithDate.getStopsInTrip().get(0);
+        //  StopInTrip stopInTripTimes = stopsInTripWithDate.getStopsInTrip().get(0);
 
         List<StopInTrip> newStopInTrip = stopsInTripWithDate.getStopsInTrip();
 
-        List<Integer> aaa= new StopIdForStopDesc().stopIdForStopsDesc("Budapesztańska");
+        List<Integer> aaa = new StopIdForStopDesc().stopIdForStopsDesc("Budapesztańska");
 
-      List<Integer> stopIdInTrip = newStopInTrip.stream()
-              .filter(s-> s.getStopId()== aaa.get(0))
-              .map(s->s.getRouteId())
-              .collect(Collectors.toList());
-        System.out.println(stopIdInTrip); //1380
+
+
+            List<Integer> stopIdInTrip = newStopInTrip.stream()
+                    .filter(s -> aaa.contains(s.getStopId()))
+                    .map(s -> s.getRouteId())
+                    .collect(Collectors.toList());
+
+        }
 
     }
 
@@ -99,5 +100,5 @@ public class AllStops {
       //  List<StopInTrip>  aaa=newStopInTrip.stream()
 
    */
-}
+
 

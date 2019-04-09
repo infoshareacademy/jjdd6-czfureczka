@@ -1,9 +1,13 @@
 package com.infoshareacademy.jjdd6.czfureczka;
 
 
+import com.infoshareacademy.jjdd6.czfureczka.lookingForRouteShortName.RouteIdForStopId;
+import com.infoshareacademy.jjdd6.czfureczka.lookingForRouteShortName.RouteShortIdForRouteId;
 import com.infoshareacademy.jjdd6.czfureczka.lookingForRouteShortName.StopIdForStopDesc;
 import com.infoshareacademy.jjdd6.czfureczka.model.AllStops;
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
+
+import java.util.List;
 
 public class App {
     public static void main(String[] args) {
@@ -15,13 +19,20 @@ public class App {
             return;
         }
 
-        AllStops allStops = new AllStops();
-        allStops.run();
+        // AllStops allStops = new AllStops();
+        //  allStops.run();
 
+        //  StopIdForStopDesc stopIdForStopDesc = new StopIdForStopDesc();
+        // stopIdForStopDesc.stopIdForStopsDesc("Budapesztańska");
         StopIdForStopDesc stopIdForStopDesc = new StopIdForStopDesc();
-        stopIdForStopDesc.stopIdForStopsDesc("Budapesztańska");
-
-
+        RouteIdForStopId routeIdForStopId = new RouteIdForStopId();
+        RouteShortIdForRouteId routeShortIdForRouteId = new RouteShortIdForRouteId();
+        List<Integer> pierwsza = stopIdForStopDesc.stopIdForStopsDesc("akademia muzyczna");
+        System.out.println(pierwsza);
+        List<Integer> druga=routeIdForStopId.routeIdForStopId(pierwsza);
+        System.out.println(druga);
+        List<String> trzecia=routeShortIdForRouteId.routeShortNameForRouteId(druga);
+        System.out.println(trzecia);
     }
 
 

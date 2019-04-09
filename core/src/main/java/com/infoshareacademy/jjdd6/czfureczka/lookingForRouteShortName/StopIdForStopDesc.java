@@ -9,14 +9,11 @@ import java.util.stream.Collectors;
 
 public class StopIdForStopDesc {
 
-
-
     public List<Integer> stopIdForStopsDesc(String nazwa) {
         String s = Repository.getInstance().getStops().keySet().stream()
                 .collect(Collectors.toList()).get(0);
 
         StopsWithDate stops = Repository.getInstance().getStops().get(s);
-       // Stop stop = stops.getStops().get(0);
 
         List<Stop> newStops = stops.getStops();
 
