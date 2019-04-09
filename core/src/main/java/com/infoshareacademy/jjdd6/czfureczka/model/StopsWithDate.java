@@ -4,6 +4,7 @@ import java.util.List;
 
 //Lista przystanków
 public class StopsWithDate {
+
     private String lastUpdate;
     private List<Stop> stops; //zasób obiektów przetrzymujących informacje o słupkach przystankowych
 
