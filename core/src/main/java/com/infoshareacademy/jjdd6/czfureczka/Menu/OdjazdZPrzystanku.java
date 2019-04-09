@@ -14,6 +14,8 @@ public class OdjazdZPrzystanku {
 
         System.out.println("Wybierz polacznie: ");
         Integer connection = scan.nextInt();
+
+        System.out.println("Najblizszy odjazd: ");
     }
 }
 

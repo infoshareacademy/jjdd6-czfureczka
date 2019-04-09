@@ -21,6 +21,8 @@ public class RelacjaP_P {
         System.out.print("Wybierz polaczenie: ");
         Integer connnection2 = scan.nextInt();
 
+        System.out.println("Najblizszy odjazd: ");
+
     }
 
 
