@@ -24,15 +24,7 @@ public class App {
 
         //  StopIdForStopDesc stopIdForStopDesc = new StopIdForStopDesc();
         // stopIdForStopDesc.stopIdForStopsDesc("Budapesztańska");
-        StopIdForStopDesc stopIdForStopDesc = new StopIdForStopDesc();
-        RouteIdForStopId routeIdForStopId = new RouteIdForStopId();
-        RouteShortIdForRouteId routeShortIdForRouteId = new RouteShortIdForRouteId();
-        List<Integer> pierwsza = stopIdForStopDesc.stopIdForStopsDesc("akademia muzyczna");
-        System.out.println(pierwsza);
-        List<Integer> druga=routeIdForStopId.routeIdForStopId(pierwsza);
-        System.out.println(druga);
-        List<String> trzecia=routeShortIdForRouteId.routeShortNameForRouteId(druga);
-        System.out.println(trzecia);
+
     }
 
 
