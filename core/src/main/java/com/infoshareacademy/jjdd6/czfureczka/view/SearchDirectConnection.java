@@ -1,6 +1,7 @@
-package com.infoshareacademy.jjdd6.czfureczka.model;
+package com.infoshareacademy.jjdd6.czfureczka.view;
 
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
+import com.infoshareacademy.jjdd6.czfureczka.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,20 @@ import java.util.stream.Collectors;
 
 public class SearchDirectConnection {
 
+
+    // Przyjmuje listę słupków, zwraca listę routeID, które przy nich stają
+
+    static List<Integer> findDirectConection(List<Integer> from, List<Integer> to) {
+
+        ArrayList<Integer> ret = new ArrayList<>();
+        for (Integer f : from) {
+            for (Integer t : to) {
+                ret.addAll(findDirectConnection(f, t));
+            }
+        }
+
+        return ret;
+    }
 
     // Przyjmuje słupekID, zwraca listę routeID, które przy nim stają
 
