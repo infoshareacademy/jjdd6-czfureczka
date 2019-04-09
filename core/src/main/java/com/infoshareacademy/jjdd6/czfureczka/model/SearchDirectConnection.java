@@ -51,7 +51,6 @@ public class SearchDirectConnection {
                 .map(a->a.getRouteShortName()+" "+a.getRouteLongName())
                 .collect(Collectors.joining())
                 ;
-
     }
 
     //Przyjmuje listę routeIDs, zwraca listę nazw z opisami tras
@@ -65,9 +64,5 @@ public class SearchDirectConnection {
         return ret;
     }
 
-
-
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 }

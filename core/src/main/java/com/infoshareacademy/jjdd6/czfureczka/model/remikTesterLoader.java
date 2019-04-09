@@ -21,7 +21,7 @@ public class remikTesterLoader {
         //System.out.println(getRoutesIdForStop(  1252));
         //GetRoutesNamesFromIDs(getRoutesIdForStop(1252)).stream().forEach(a-> System.out.println(a));
         //System.out.println(isRouteIdStoppingAtStopId(402, 1252));
-        System.out.println(GetRoutesNamesFromIDs(findDirectConnection(221, 2011)));
+        System.out.println(GetRoutesNamesFromIDs(findDirectConnection(2038, 2095)));
 
 
     }
