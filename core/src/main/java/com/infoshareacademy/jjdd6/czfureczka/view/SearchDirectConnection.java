@@ -4,6 +4,7 @@ import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +13,7 @@ public class SearchDirectConnection {
 
     // Przyjmuje listę słupków, zwraca listę routeID, które przy nich stają
 
-    static List<Integer> findDirectConection(List<Integer> from, List<Integer> to) {
+    static List<Integer> findDirectConnection(List<Integer> from, List<Integer> to) {
 
         ArrayList<Integer> ret = new ArrayList<>();
         for (Integer f : from) {
@@ -21,7 +22,7 @@ public class SearchDirectConnection {
             }
         }
 
-        return ret;
+        return ret.stream().sorted().distinct().collect(Collectors.toList());
     }
 
     // Przyjmuje słupekID, zwraca listę routeID, które przy nim stają
@@ -30,6 +31,7 @@ public class SearchDirectConnection {
 
         return getRoutesIdForStop(from)
                 .stream()
+                .sorted()
                 .filter(a -> isRouteIdStoppingAtStopId(a, to)==true)
                 .collect(Collectors.toList());
     }
