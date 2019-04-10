@@ -47,39 +47,4 @@ public class Stop {
         return nonpassenger;
     }
 
-    public void setStopId(int stopId) {
-        this.stopId = stopId;
-    }
-
-    public void setStopCode(String stopCode) {
-        this.stopCode = stopCode;
-    }
-
-    public void setStopName(String stopName) {
-        this.stopName = stopName;
-    }
-
-    public void setStopShortName(String stopShortName) {
-        this.stopShortName = stopShortName;
-    }
-
-    public void setStopDesc(String stopDesc) {
-        this.stopDesc = stopDesc;
-    }
-
-    public void setStopLat(Double stopLat) {
-        this.stopLat = stopLat;
-    }
-
-    public void setStopLon(Double stopLon) {
-        this.stopLon = stopLon;
-    }
-
-    public void setZoneId(int zoneId) {
-        this.zoneId = zoneId;
-    }
-
-    public void setNonpassenger(int nonpassenger) {
-        this.nonpassenger = nonpassenger;
-    }
 }

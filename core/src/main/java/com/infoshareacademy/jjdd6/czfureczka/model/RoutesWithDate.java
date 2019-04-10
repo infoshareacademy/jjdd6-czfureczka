@@ -15,11 +15,4 @@ public class RoutesWithDate {
         return routes;
     }
 
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public void setRoutes(List<Route> routes) {
-        this.routes = routes;
-    }
 }

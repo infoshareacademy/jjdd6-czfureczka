@@ -15,11 +15,4 @@ public class StopsInTripWithDate {
         return stopsInTrip;
     }
 
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public void setStopsInTrip(List<StopInTrip> stopsInTrip) {
-        this.stopsInTrip = stopsInTrip;
-    }
 }
