@@ -8,8 +8,6 @@ import java.util.stream.Collectors;
 
 
 public class SearchConnection {
-    
-    // Przyjmuje listę słupków, zwraca listę routeID, które przy nich stają
 
     public List<Integer> FindDirectConnection(List<Integer> from, List<Integer> to) {
 
@@ -37,13 +35,11 @@ public class SearchConnection {
                 .collect(Collectors.toList());
     }
 
-    //czy na przystanku slupekID zatrzymuje się routeID
 
     public boolean IsRouteIdStoppingAtStopId(int RouteID, int slupekID) {
         return GetRoutesIdForStop(slupekID).contains(RouteID);
     }
 
-    // Przyjmuje słupekID, zwraca listę routeID, które przy nim stają
 
     public List<Integer> GetRoutesIdForStop (int slupekID) {
 
@@ -65,7 +61,6 @@ public class SearchConnection {
                 .collect(Collectors.toList());
     }
 
-    // Przyjmuje routeID, zwraca nazwę i opis trasy
 
     public String  GetRouteNameFromID (int routeID) {
 
@@ -87,7 +82,6 @@ public class SearchConnection {
                 ;
     }
 
-    //Przyjmuje listę routeIDs, zwraca listę nazw z opisami tras
 
     public List<String> GetRoutesNamesFromIDs (List<Integer> routesIDs) {
 
