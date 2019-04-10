@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-
 public class SearchConnection {
 
-    public List<Integer> FindDirectConnection(List<Integer> from, List<Integer> to) {
+
+    public List<Integer> findDirectConnection(List<Integer> from, List<Integer> to) {
 
         ArrayList<Integer> ret = new ArrayList<>();
         for (Integer f : from) {
             for (Integer t : to) {
-                ret.addAll(FindDirectConnection(f, t));
+                ret.addAll(findDirectConnection(f, t));
             }
         }
 
@@ -25,23 +25,21 @@ public class SearchConnection {
                 .collect(Collectors.toList());
     }
 
+    public List<Integer> findDirectConnection(int from, int to) {
 
-    public List<Integer> FindDirectConnection(int from, int to) {
-
-        return GetRoutesIdForStop(from)
+        return getRoutesIdForStop(from)
                 .stream()
                 .sorted()
-                .filter(a -> IsRouteIdStoppingAtStopId(a, to)==true)
+                .filter(a -> isRouteIdStoppingAtStopId(a, to)==true)
                 .collect(Collectors.toList());
     }
 
-
-    public boolean IsRouteIdStoppingAtStopId(int RouteID, int slupekID) {
-        return GetRoutesIdForStop(slupekID).contains(RouteID);
+    public boolean isRouteIdStoppingAtStopId(int RouteID, int slupekID) {
+        return getRoutesIdForStop(slupekID).contains(RouteID);
     }
 
 
-    public List<Integer> GetRoutesIdForStop (int slupekID) {
+    public List<Integer> getRoutesIdForStop (int slupekID) {
 
         String someDate= Repository
                 .getInstance()
@@ -51,7 +49,10 @@ public class SearchConnection {
                 .collect(Collectors.toList())
                 .get(0);
 
-        return Repository.getInstance().getStopsInTrip().get(someDate)
+        return Repository
+                .getInstance()
+                .getStopsInTrip()
+                .get(someDate)
                 .getStopsInTrip()
                 .stream()
                 .filter(a -> a.getStopId() == slupekID)
@@ -62,7 +63,7 @@ public class SearchConnection {
     }
 
 
-    public String  GetRouteNameFromID (int routeID) {
+    public String  getRouteNameFromID (int routeID) {
 
         String someDate = Repository
                 .getInstance()
@@ -72,23 +73,23 @@ public class SearchConnection {
                 .collect(Collectors.toList())
                 .get(0);
 
-        return   Repository.getInstance().getRoutes().get(someDate).getRoutes()
+        return   Repository
+                .getInstance()
+                .getRoutes()
+                .get(someDate)
+                .getRoutes()
                 .stream()
                 .filter(a->a.getRouteId()==routeID)
                 .sorted()
                 .distinct()
                 .map(a->a.getRouteShortName()+" "+a.getRouteLongName())
-                .collect(Collectors.joining())
-                ;
+                .collect(Collectors.joining());
     }
 
+    public List<String> getRoutesNamesFromIDs (List<Integer> routesIDs) {
 
-    public List<String> GetRoutesNamesFromIDs (List<Integer> routesIDs) {
-
-        ArrayList<String> ret = new ArrayList<>();
-        for (Integer routesID : routesIDs) {
-            ret.add(GetRouteNameFromID(routesID));
-        }
-        return ret;
+        return routesIDs
+                .stream().map(a -> getRouteNameFromID(a))
+                .collect(Collectors.toList());
     }
 }
