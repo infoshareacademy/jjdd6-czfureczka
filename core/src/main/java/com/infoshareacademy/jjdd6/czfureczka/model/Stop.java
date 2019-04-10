@@ -11,7 +11,7 @@ public class Stop {
     private int zoneId; //unikalny identyfikator miasta/gminy
     private int nonpassenger; // 1 = true => nie dla pasazera; sprawdzic mapowanie na boolean
 
-    public int getStopId() {
+    public  int getStopId() {
         return stopId;
     }
 

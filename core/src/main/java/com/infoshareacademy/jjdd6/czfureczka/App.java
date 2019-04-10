@@ -1,7 +1,6 @@
 package com.infoshareacademy.jjdd6.czfureczka;
 
 
-
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
 public class App {
