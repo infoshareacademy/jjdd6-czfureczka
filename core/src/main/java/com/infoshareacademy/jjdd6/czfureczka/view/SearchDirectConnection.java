@@ -1,13 +1,29 @@
-package com.infoshareacademy.jjdd6.czfureczka.model;
+package com.infoshareacademy.jjdd6.czfureczka.view;
 
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
+import com.infoshareacademy.jjdd6.czfureczka.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class SearchDirectConnection {
 
+
+    // Przyjmuje listę słupków, zwraca listę routeID, które przy nich stają
+
+    static List<Integer> findDirectConnection(List<Integer> from, List<Integer> to) {
+
+        ArrayList<Integer> ret = new ArrayList<>();
+        for (Integer f : from) {
+            for (Integer t : to) {
+                ret.addAll(findDirectConnection(f, t));
+            }
+        }
+
+        return ret.stream().sorted().distinct().collect(Collectors.toList());
+    }
 
     // Przyjmuje słupekID, zwraca listę routeID, które przy nim stają
 
@@ -15,6 +31,7 @@ public class SearchDirectConnection {
 
         return getRoutesIdForStop(from)
                 .stream()
+                .sorted()
                 .filter(a -> isRouteIdStoppingAtStopId(a, to)==true)
                 .collect(Collectors.toList());
     }
@@ -51,7 +68,6 @@ public class SearchDirectConnection {
                 .map(a->a.getRouteShortName()+" "+a.getRouteLongName())
                 .collect(Collectors.joining())
                 ;
-
     }
 
     //Przyjmuje listę routeIDs, zwraca listę nazw z opisami tras
@@ -65,9 +81,5 @@ public class SearchDirectConnection {
         return ret;
     }
 
-
-
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 }
