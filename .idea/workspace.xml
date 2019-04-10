@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ead91a2f-ca99-4001-b63f-d72dffcd7686" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jjdd6-czfureczka.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/core/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/remikTesterLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>public</find>
+      <find>stopsObjectsList</find>
+      <find>slupekID</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>private</replace>
+      <replace>stopID</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="RemikA &lt;11580041+dijx@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Remik-p1" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/repository/RepositoryLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/StopsWithDate.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/Stop.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/przystankiBuild_test.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/BuildStopsObjectArray.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/GetLinesIDsPerStop.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/remikTesterLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/SearchDirectConnection.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/SearchConnection/remikTesterLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/SearchConnection/SearchConnection.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="200" />
+    <option name="y" value="108" />
+    <option name="width" value="1190" />
+    <option name="height" value="659" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="jjdd6-czfureczka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jjdd6-czfureczka" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554926315397" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.other" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.idea" />
+      <recent name="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/SearchConnection" />
+      <recent name="$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/ignore" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.remikTesterLoader (1)">
+    <configuration name="BuildStopsObjectArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.infoshareacademy.jjdd6.czfureczka.model.BuildStopsObjectArray" />
+      <module name="core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.infoshareacademy.jjdd6.czfureczka.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchDirectConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.infoshareacademy.jjdd6.czfureczka.model.SearchDirectConnection" />
+      <module name="core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.infoshareacademy.jjdd6.czfureczka.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="przystankiBuild_test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.infoshareacademy.jjdd6.czfureczka.model.przystankiBuild_test" />
+      <module name="core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.infoshareacademy.jjdd6.czfureczka.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="remikTesterLoader (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.infoshareacademy.jjdd6.czfureczka.SearchConnection.remikTesterLoader" />
+      <module name="core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.infoshareacademy.jjdd6.czfureczka.SearchConnection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="remikTesterLoader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.infoshareacademy.jjdd6.czfureczka.model.remikTesterLoader" />
+      <module name="core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.infoshareacademy.jjdd6.czfureczka.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SearchDirectConnection" />
+        <item itemvalue="Application.remikTesterLoader (1)" />
+        <item itemvalue="Application.remikTesterLoader" />
+        <item itemvalue="Application.przystankiBuild_test" />
+        <item itemvalue="Application.BuildStopsObjectArray" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ead91a2f-ca99-4001-b63f-d72dffcd7686" name="Default Changelist" comment="" />
+      <created>1554308645320</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554308645320</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Merge branches 'AnnaZ' and 'Remik' of https://github.com/infoshareacademy/jjdd6-czfureczka into Remik&#10;&#10;# Conflicts:&#10;#&#9;routes.json">
+      <created>1554319762816</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1554319762816</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Merge branches 'AnnaZ' and 'Remik' of https://github.com/infoshareacademy/jjdd6-czfureczka into Remik&#10;&#10;# Conflicts:&#10;#&#9;routes.json">
+      <created>1554320974021</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1554320974021</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Merge branches 'AnnaZ' and 'Remik' of https://github.com/infoshareacademy/jjdd6-czfureczka into Remik&#10;&#10;# Conflicts:&#10;#&#9;routes.json">
+      <created>1554321904742</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1554321904742</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Merge branches 'AnnaZ' and 'Remik' of https://github.com/infoshareacademy/jjdd6-czfureczka into Remik&#10;&#10;# Conflicts:&#10;#&#9;routes.json">
+      <created>1554755381889</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1554755381890</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Merge branches 'AnnaZ' and 'Remik' of https://github.com/infoshareacademy/jjdd6-czfureczka into Remik&#10;&#10;# Conflicts:&#10;#&#9;routes.json">
+      <created>1554918257399</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1554918257400</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merge branches 'AnnaZ' and 'Remik' of https://github.com/infoshareacademy/jjdd6-czfureczka into Remik&#10;&#10;# Conflicts:&#10;#&#9;routes.json">
+      <created>1554918520422</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1554918520422</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Poprawione nazwy klas, komentarze. Jedna z metod zamieniona na deltę.">
+      <created>1554925068021</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1554925068021</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Poprawione nazwy klas, komentarze. Jedna z metod zamieniona na deltę.">
+      <created>1554925362556</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1554925362556</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1600" height="868" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Learn" order="3" weight="0.32977587" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.2117117" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.498713" visible="true" weight="0.39344263" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.501287" side_tool="true" weight="0.39237058" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.329235" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="4" sideWeight="0.498713" weight="0.329235" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32932165" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.498713" weight="0.38387978" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39934355" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Theme Preview" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32947233" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.24967825" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Learn" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.339381" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32932165" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50053364" side_tool="true" weight="0.32932165" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32932165" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="4" sideWeight="0.4994664" weight="0.32932165" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4994664" visible="true" weight="0.32932165" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39934355" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Theme Preview" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32977587" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branches 'AnnaZ' and 'Remik' of https://github.com/infoshareacademy/jjdd6-czfureczka into Remik&#10;&#10;# Conflicts:&#10;#&#9;routes.json" />
+    <MESSAGE value="Poprawione nazwy klas, komentarze. Jedna z metod zamieniona na deltę." />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((HashMap)busStops).entrySet().toArray()[12]" language="JAVA" custom="java.util.HashMap" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>((HashMap)busStops).entrySet().toArray()[12]</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>java.util.HashMap</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/stops.json" />
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk!/java.base/java/util/function/Consumer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/Menu/Menu.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/config/RoutesConfig.java" />
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk!/java.base/java/util/function/Predicate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/GetRouteNameFromID.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/Stop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/StopsInTripWithDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/StopsWithDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="e#200#201#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/przystankiBuild_test.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/BuildStopsObjectArray.java" />
+    <entry file="file://$PROJECT_DIR$/data/routes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" selection-start-column="43" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/Route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/RoutesWithDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/repository/RepositoryLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/repository/Repository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/SearchDirectConnection.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/model/remikTesterLoader.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/ignore/AllTrips.java" />
+    <entry file="file://$PROJECT_DIR$/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/lookingForRouteShortName/RoutIdForStopId.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/searchForRouteShortName/RouteIdForStopId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/SearchConnection/SearchConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/infoshareacademy/jjdd6/czfureczka/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/remikTesterLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
