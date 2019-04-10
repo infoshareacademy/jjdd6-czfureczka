@@ -27,6 +27,12 @@ public class Menu {
 
         System.out.print("Twoj wybor: ");
         Integer option = Integer.valueOf(scan.nextLine());
+        while (option != 1 && option != 2 ){
+            System.out.println("Wybrales zle, albo lecisz w chuja albo jestes glupi");
+            System.out.print("Twoj wybor: ");
+            option = Integer.valueOf(scan.nextLine());
+        }
+
 
         switch (option){
 
@@ -41,6 +47,7 @@ public class Menu {
                 RelacjaP_P relacja = new RelacjaP_P();
                 relacja.run();
                 break;
+
         }
     }
 }
