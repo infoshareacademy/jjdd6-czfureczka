@@ -12,11 +12,6 @@ public class App {
             System.err.println("Data could not be loaded");
             return;
         }
-/*
-        AllStops allStops=new AllStops();
-        allStops.run();
-*/
-
     }
 
 
