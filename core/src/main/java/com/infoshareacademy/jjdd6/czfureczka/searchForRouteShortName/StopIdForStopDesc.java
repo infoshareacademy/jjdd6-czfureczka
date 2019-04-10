@@ -1,4 +1,4 @@
-package com.infoshareacademy.jjdd6.czfureczka.lookingForRouteShortName;
+package com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName;
 
 import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
 import com.infoshareacademy.jjdd6.czfureczka.model.StopsWithDate;
@@ -9,20 +9,21 @@ import java.util.stream.Collectors;
 
 public class StopIdForStopDesc {
 
-    public List<Integer> stopIdForStopsDesc(String nazwa) {
-        String s = Repository.getInstance().getStops().keySet().stream()
+    public List<Integer> stopIdForStopsDesc(String stopDesc) {
+        String data = Repository.getInstance().getStops().keySet().stream()
                 .collect(Collectors.toList()).get(0);
 
-        StopsWithDate stops = Repository.getInstance().getStops().get(s);
+        StopsWithDate stops = Repository.getInstance().getStops().get(data);
+
 
         List<Stop> newStops = stops.getStops();
 
-        List<Integer> stopId = newStops.stream()
+        List<Integer> stopIds = newStops.stream()
                 .filter(s1 -> s1.getNonpassenger() == 0)
-                .filter(l -> l.getStopDesc().equalsIgnoreCase(nazwa))
+                .filter(l -> l.getStopDesc().equalsIgnoreCase(stopDesc))
                 .map(o -> o.getStopId())
                 .collect(Collectors.toList());
-        return stopId;
+        return stopIds;
 
     }
 
