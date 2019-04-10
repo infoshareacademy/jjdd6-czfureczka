@@ -97,6 +97,4 @@ public class SearchConnection {
         }
         return ret;
     }
-
-    public void main(String[] args) {}
 }
