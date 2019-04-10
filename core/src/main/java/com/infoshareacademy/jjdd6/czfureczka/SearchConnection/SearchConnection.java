@@ -1,4 +1,4 @@
-package com.infoshareacademy.jjdd6.czfureczka.view;
+package com.infoshareacademy.jjdd6.czfureczka.SearchConnection;
 
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import java.util.ArrayList;
