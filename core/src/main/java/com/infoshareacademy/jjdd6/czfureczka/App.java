@@ -1,6 +1,7 @@
 package com.infoshareacademy.jjdd6.czfureczka;
 
 
+import com.infoshareacademy.jjdd6.czfureczka.Menu.Menu;
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
 public class App {
@@ -13,6 +14,8 @@ public class App {
             return;
         }
 
+        Menu run = new Menu();
+        run.run();
 
     }
 
