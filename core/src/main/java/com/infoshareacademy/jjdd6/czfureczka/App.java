@@ -1,7 +1,6 @@
 package com.infoshareacademy.jjdd6.czfureczka;
 
 
-import com.infoshareacademy.jjdd6.czfureczka.Menu.Menu;
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
 public class App {
@@ -10,12 +9,10 @@ public class App {
         if (repositoryLoader.load()) {
             System.out.println("Data loaded");
         } else {
-            System.err.println();
+            System.err.println("Data could not be loaded");
             return;
         }
 
-//        Menu menu = new Menu();
-//        menu.menu();
 
     }
 
