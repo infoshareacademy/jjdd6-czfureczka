@@ -1,5 +1,8 @@
 package com.infoshareacademy.jjdd6.czfureczka.Menu;
 
+import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.SearchForRouteShortName;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class RelacjaP_P {
@@ -16,6 +19,8 @@ public class RelacjaP_P {
         String destination = scan.nextLine();
 
         System.out.println("Relacja " + start2 + "-" + destination);
+        SearchForRouteShortName searchForRouteShortName = new SearchForRouteShortName();
+        List<String> stops = searchForRouteShortName.lookingForShortName(start2);
         System.out.println("Dostepne polaczenia: ");
 
         System.out.print("Wybierz polaczenie: ");
