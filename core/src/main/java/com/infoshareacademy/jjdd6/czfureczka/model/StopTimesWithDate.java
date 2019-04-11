@@ -16,11 +16,4 @@ public class StopTimesWithDate {
         return stopTimes;
     }
 
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public void setStopTimes(List<StopTimes> stopTimes) {
-        this.stopTimes = stopTimes;
-    }
 }
