@@ -47,6 +47,11 @@
     {
       "routeId": 12,
       "file": "data/stopTimes12.json"
+    },
+    {
+      "routeId": 130,
+      "file": "data/stopTimes130.json"
     }
+
   ]
 }

@@ -23,6 +23,7 @@ public class RouteShortNamesForRouteId {
                 .filter(s -> stopIdInTrip.contains(s.getRouteId()))
                 .map(s -> s.getRouteShortName())
                 .distinct()
+                .sorted()
                 .collect(Collectors.toList());
         return routShortNames;
 
