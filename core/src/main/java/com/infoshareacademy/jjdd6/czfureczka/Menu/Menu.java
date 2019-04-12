@@ -3,11 +3,16 @@ package com.infoshareacademy.jjdd6.czfureczka.Menu;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Menu {
 
-    public void run(){
+    public void run() {
 
         LocalDate today = LocalDate.now();
         LocalTime now = LocalTime.now();
@@ -16,7 +21,7 @@ public class Menu {
 
         System.out.println(" ");
         System.out.println("Witaj w aplikacji 'Szybko do Celu'! Dzisiaj na pewno dojedziesz na czas :)");
-        System.out.println("               Data: "+today+" "+"Godzina: "+now.format(dtf) );
+        System.out.println("               Data: " + today + " " + "Godzina: " + now.format(dtf));
         System.out.println("__________________________________________________________________________");
         System.out.println(" ");
 
@@ -26,15 +31,15 @@ public class Menu {
         System.out.println(" ");
 
         System.out.print("Twoj wybor: ");
-        Integer option = Integer.valueOf(scan.nextLine());
-        while (option != 1 && option != 2 ){
+        Integer option = run2();
+        while (option != 1 && option != 2) {
             System.out.println("Wybrales zle, albo lecisz w chuja albo jestes glupi");
             System.out.print("Twoj wybor: ");
-            option = Integer.valueOf(scan.nextLine());
+            option = run2();
         }
 
 
-        switch (option){
+        switch (option) {
 
             case 1:
 
@@ -49,5 +54,35 @@ public class Menu {
                 break;
 
         }
+
     }
+
+        public Integer run2 (){
+
+        Scanner scanner = new Scanner(System.in);
+        String option = scanner.nextLine();
+        List<String> cyferki = new ArrayList<>();
+        cyferki.add("0");
+        cyferki.add("1");
+        cyferki.add("2");
+        cyferki.add("3");
+        cyferki.add("4");
+        cyferki.add("5");
+        cyferki.add("6");
+        cyferki.add("7");
+        cyferki.add("8");
+        cyferki.add("9");
+
+        String[] zamiana = option.split("");
+            List<String> test1 = Arrays.stream(zamiana)
+                    .filter(s->cyferki.contains(s))
+                    .collect(Collectors.toList());
+
+            if (zamiana.length == test1.size()){
+                return Integer.valueOf(option);
+            }
+            return 9999;
+
+        }
+
 }
