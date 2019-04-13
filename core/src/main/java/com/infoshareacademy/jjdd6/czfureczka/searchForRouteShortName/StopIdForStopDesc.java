@@ -20,7 +20,7 @@ public class StopIdForStopDesc {
 
         List<Integer> stopIds = newStops.stream()
                 .filter(s1 -> s1.getNonpassenger() == 0)
-                .filter(l -> l.getStopDesc().equalsIgnoreCase(stopDesc))
+                .filter(l -> l.getStopDesc().equals(stopDesc))
                 .map(o -> o.getStopId())
                 .collect(Collectors.toList());
         return stopIds;
