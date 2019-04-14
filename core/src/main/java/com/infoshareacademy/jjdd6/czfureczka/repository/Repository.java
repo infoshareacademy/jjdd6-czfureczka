@@ -11,11 +11,12 @@ public class Repository {
 
     private static Repository instance;
 
+    private ExpeditionDataWithDate expeditionData = new ExpeditionDataWithDate();
     private Map<String, StopsWithDate> stops = new HashMap<>();
     private Map<String, RoutesWithDate> routes = new HashMap<>();
-    private Map<String, TripsWithDate> trips = new HashMap<>();
-    private Map<String, StopsInTripWithDate> stopsInTrip = new HashMap();
-    private Map<Integer, StopTimesWithDate> stopTimes = new HashMap<>();
+    private List<Trip> trips = new ArrayList<>();
+    private List<StopInTrip> stopsInTrip = new ArrayList<>();
+    private Map<Integer, List<StopTimes>> stopTimes = new HashMap<>();
 
     private Repository() {
 
@@ -27,6 +28,14 @@ public class Repository {
         }
 
         return instance;
+    }
+
+    public ExpeditionDataWithDate getExpeditionData() {
+        return expeditionData;
+    }
+
+    public void setExpeditionData(ExpeditionDataWithDate expeditionData) {
+        this.expeditionData = expeditionData;
     }
 
     public List<Stop> getStops() {
@@ -47,30 +56,27 @@ public class Repository {
         this.routes = routes;
     }
 
-    public List<Trip> getTrips() {
-        String date = new ArrayList<>(trips.keySet()).get(0);
-        return trips.get(date).getTrips();
-    }
-
-    public void setTrips(Map<String, TripsWithDate> trips) {
+    public void setTrips(List<Trip> trips) {
         this.trips = trips;
     }
 
-    public List<StopInTrip> getStopsInTrip() {
-        String date = new ArrayList<>(stopsInTrip.keySet()).get(0);
-
-        return stopsInTrip.get(date).getStopsInTrip();
+    public List<Trip> getTrips() {
+        return trips;
     }
 
-    public void setStopsInTrip(Map<String, StopsInTripWithDate> stopsInTrip) {
+    public List<StopInTrip> getStopsInTrip() {
+        return stopsInTrip;
+    }
+
+    public void setStopsInTrip(List<StopInTrip> stopsInTrip) {
         this.stopsInTrip = stopsInTrip;
     }
 
-    public Map<Integer, StopTimesWithDate> getStopTimes() {
+    public Map<Integer, List<StopTimes>> getStopTimes() {
         return stopTimes;
     }
 
-    public void setStopTimes(Map<Integer, StopTimesWithDate> stopTimes) {
+    public void setStopTimes(Map<Integer, List<StopTimes>> stopTimes) {
         this.stopTimes = stopTimes;
     }
 }
