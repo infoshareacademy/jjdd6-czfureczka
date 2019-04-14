@@ -18,10 +18,11 @@ public class RelacjaP_P {
         System.out.println("Wpisz przystanek docelowy: ");
         String destination = scan.nextLine();
 
-        System.out.println("Relacja " + start2 + "-" + destination);
+        System.out.println("Relacja " + start2.toUpperCase() + "-" + destination.toUpperCase());
         SearchForRouteShortName searchForRouteShortName = new SearchForRouteShortName();
         List<String> stops = searchForRouteShortName.lookingForShortName(start2);
         System.out.println("Dostepne polaczenia: ");
+        System.out.println(stops);
 
         System.out.print("Wybierz polaczenie: ");
         Integer connnection2 = scan.nextInt();

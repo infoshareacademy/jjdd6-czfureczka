@@ -5,7 +5,7 @@ import com.infoshareacademy.jjdd6.czfureczka.Menu.Menu;
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         RepositoryLoader repositoryLoader = new RepositoryLoader();
         if (repositoryLoader.load()) {
             System.out.println("Data loaded");
@@ -16,6 +16,8 @@ public class App {
 
         Menu run = new Menu();
         run.run();
+
+
 
     }
 

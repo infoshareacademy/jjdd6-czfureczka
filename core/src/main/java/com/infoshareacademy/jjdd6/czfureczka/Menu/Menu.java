@@ -12,28 +12,33 @@ import java.util.stream.Stream;
 
 public class Menu {
 
-    public void run() {
+    public void run() throws InterruptedException {
 
         LocalDate today = LocalDate.now();
         LocalTime now = LocalTime.now();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
         Scanner scan = new Scanner(System.in);
 
-        System.out.println(" ");
-        System.out.println("Witaj w aplikacji 'Szybko do Celu'! Dzisiaj na pewno dojedziesz na czas :)");
-        System.out.println("               Data: " + today + " " + "Godzina: " + now.format(dtf));
-        System.out.println("__________________________________________________________________________");
-        System.out.println(" ");
-
-        System.out.println("Wybierz opcje: ");
-        System.out.println("1. Odjazd z przystanku.");
-        System.out.println("2. Relacja przystanek-przystanek. ");
+        System.out.println(" ____________________________________________________________________________");
+        System.out.println("|                                                                            |");
+        System.out.println("|                       Witaj w aplikacji 'Szybko do Celu'!                  |");
+        System.out.println("|                      Dzisiaj na pewno dojedziesz na czas :)                |");
+        System.out.println("|                               Data: " + today +"                             |");
+        System.out.println("|                               Godzina: "+" "+ now.format(dtf)+"                              |");
+        System.out.println("|____________________________________________________________________________|");
         System.out.println(" ");
 
-        System.out.print("Twoj wybor: ");
+        System.out.println("***************************** WYBIERZ OPCJE ************************************");
+        System.out.println("*   1. Odjazd z przystanku. **************** 2. Relacja przystanek-przystanek. *" );
+        System.out.println("*****************************              *************************************") ;
+        System.out.println(" ");
+
+        System.out.print("                             WPISZ NUMER: ");
         Integer option = run2();
+
+
         while (option != 1 && option != 2) {
-            System.out.println("Wybrales zle, albo lecisz w chuja albo jestes glupi");
+            System.out.println("Wybrales zle, sprobuj ponownie");
             System.out.print("Twoj wybor: ");
             option = run2();
         }
