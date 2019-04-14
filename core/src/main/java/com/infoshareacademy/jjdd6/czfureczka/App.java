@@ -14,8 +14,8 @@ public class App {
             return;
         }
 
-        Menu run = new Menu();
-        run.run();
+        Menu menu = new Menu();
+        menu.run();
 
 
 
