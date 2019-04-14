@@ -3,8 +3,6 @@ package com.infoshareacademy.jjdd6.czfureczka.Transfer;
 import com.infoshareacademy.jjdd6.czfureczka.directconnection.DirectConnection;
 import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
 import com.infoshareacademy.jjdd6.czfureczka.model.StopInTrip;
-import com.infoshareacademy.jjdd6.czfureczka.model.StopsInTripWithDate;
-import com.infoshareacademy.jjdd6.czfureczka.model.StopsWithDate;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.StopIdForStopDesc;
 
@@ -84,10 +82,7 @@ public class Transfer {
     }
 
     private List<Integer> convertRouteIdIntoTripId(Integer routId, List<Integer> stopId) {
-        String data = new ArrayList<>(Repository.getInstance().getStopsInTrip().keySet()).get(0);
-        StopsInTripWithDate stops = Repository.getInstance().getStopsInTrip().get(data);
-        List<StopInTrip> newStopsInTrip = stops.getStopsInTrip();
-
+        List<StopInTrip> newStopsInTrip = Repository.getInstance().getStopsInTrip();
         return newStopsInTrip.stream()
                 .filter(s -> s.getRouteId() == routId)
                 .filter(s1 -> stopId.contains(s1.getStopId()))
@@ -97,9 +92,7 @@ public class Transfer {
     }
 
     private List<Integer> convertTripIdIntoAllStopsId(Integer tripId) {
-        String data = new ArrayList<>(Repository.getInstance().getStopsInTrip().keySet()).get(0);
-        StopsInTripWithDate stops = Repository.getInstance().getStopsInTrip().get(data);
-        List<StopInTrip> newStopsInTrip = stops.getStopsInTrip();
+        List<StopInTrip> newStopsInTrip = Repository.getInstance().getStopsInTrip();
         return newStopsInTrip.stream()
                 .filter(s -> s.getTripId() == tripId)
                 .map(StopInTrip::getStopId)
@@ -116,9 +109,7 @@ public class Transfer {
     }
 
     private String convertStopIdIntoStopDesc(Integer stopsId) {
-        String data = new ArrayList<>(Repository.getInstance().getStops().keySet()).get(0);
-        StopsWithDate stops = Repository.getInstance().getStops().get(data);
-        List<Stop> newStops = stops.getStops();
+        List<Stop> newStops = Repository.getInstance().getStops();
         return newStops.stream()
                 .filter(s -> s.getStopId() == stopsId)
                 .map(Stop::getStopDesc)
