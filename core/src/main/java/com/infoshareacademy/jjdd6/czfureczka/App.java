@@ -4,19 +4,28 @@ package com.infoshareacademy.jjdd6.czfureczka;
 import com.infoshareacademy.jjdd6.czfureczka.Menu.Menu;
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class App {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+        LocalDate today = LocalDate.now();
+        LocalTime now = LocalTime.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+
+        menu.hello(today, now, dtf);
+        menu.requestForPatience();
+
         RepositoryLoader repositoryLoader = new RepositoryLoader();
         if (repositoryLoader.load()) {
             System.out.println("Data loaded");
         } else {
             System.err.println("Data could not be loaded");
+            return;
         }
 
-        Menu menu = new Menu();
         menu.run();
-
-
-
     }
 }

@@ -8,62 +8,67 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Menu {
 
-    public void run() throws InterruptedException {
+    public void run() {
 
-        LocalDate today = LocalDate.now();
-        LocalTime now = LocalTime.now();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
-        Scanner scan = new Scanner(System.in);
+        boolean loop = false;
+        while (!loop) {
+            for (int i = 0; i < 10; i++) {
+                System.out.println(" ");
+            }
 
+            LocalDate today = LocalDate.now();
+            LocalTime now = LocalTime.now();
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+
+            hello(today, now, dtf);
+
+            System.out.println("***************************** WYBIERZ OPCJE ************************************");
+            System.out.println("*   1. Odjazd z przystanku. **************** 2. Relacja przystanek-przystanek. *");
+            System.out.println("*****************************              *************************************");
+            System.out.println(" ");
+            System.out.println("****************************** 3. Wyjście **************************************");
+            System.out.println(" ");
+            System.out.print("                             WPISZ NUMER: ");
+
+            Integer option = run2();
+
+            while (option != 1 && option != 2 && option != 3) {
+                System.out.println("Wybrales zle, sprobuj ponownie");
+                System.out.print("Twoj wybor: ");
+                option = run2();
+            }
+            switch (option) {
+                case 1:
+                    OdjazdZPrzystanku odjazd = new OdjazdZPrzystanku();
+                    loop = odjazd.run();
+                    break;
+                case 2:
+                    RelacjaP_P relacja = new RelacjaP_P();
+                    loop = relacja.run();
+                    break;
+                case 3:
+                    loop = true;
+                    break;
+            }
+        }
+    }
+
+    public void hello(LocalDate today, LocalTime now, DateTimeFormatter dtf) {
         System.out.println(" ____________________________________________________________________________");
         System.out.println("|                                                                            |");
         System.out.println("|                       Witaj w aplikacji 'Szybko do Celu'!                  |");
         System.out.println("|                      Dzisiaj na pewno dojedziesz na czas :)                |");
-        System.out.println("|                               Data: " + today +"                             |");
-        System.out.println("|                               Godzina: "+" "+ now.format(dtf)+"                              |");
+        System.out.println("|                               Data: " + today + "                             |");
+        System.out.println("|                               Godzina: " + " " + now.format(dtf) + "                              |");
         System.out.println("|____________________________________________________________________________|");
         System.out.println(" ");
-
-        System.out.println("***************************** WYBIERZ OPCJE ************************************");
-        System.out.println("*   1. Odjazd z przystanku. **************** 2. Relacja przystanek-przystanek. *" );
-        System.out.println("*****************************              *************************************") ;
         System.out.println(" ");
-
-        System.out.print("                             WPISZ NUMER: ");
-        Integer option = run2();
-
-
-        while (option != 1 && option != 2) {
-            System.out.println("Wybrales zle, sprobuj ponownie");
-            System.out.print("Twoj wybor: ");
-            option = run2();
-        }
-
-
-        switch (option) {
-
-            case 1:
-
-                OdjazdZPrzystanku odjazd = new OdjazdZPrzystanku();
-                odjazd.run();
-                break;
-
-            case 2:
-
-                RelacjaP_P relacja = new RelacjaP_P();
-                relacja.run();
-                break;
-
-        }
-
     }
 
-        public Integer run2 (){
-
+    public Integer run2() {
         Scanner scanner = new Scanner(System.in);
         String option = scanner.nextLine();
         List<String> cyferki = new ArrayList<>();
@@ -77,17 +82,25 @@ public class Menu {
         cyferki.add("7");
         cyferki.add("8");
         cyferki.add("9");
-
         String[] zamiana = option.split("");
-            List<String> test1 = Arrays.stream(zamiana)
-                    .filter(s->cyferki.contains(s))
-                    .collect(Collectors.toList());
-
-            if (zamiana.length == test1.size()){
-                return Integer.valueOf(option);
-            }
-            return 9999;
-
+        List<String> test1 = Arrays.stream(zamiana)
+                .filter(cyferki::contains)
+                .collect(Collectors.toList());
+        if (zamiana.length == test1.size()) {
+            return Integer.valueOf(option);
         }
+        return 9999;
+    }
 
+    public void requestForPatience() {
+
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("****************************** Proszę czekać ***********************************");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("****************************** Ładuję dane *************************************");
+        System.out.println(" ");
+        System.out.println(" ");
+    }
 }

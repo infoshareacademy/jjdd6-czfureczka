@@ -44,7 +44,7 @@ public class Transfer {
                     transfer.addAll(firstStepTrip.get(change));
                     transfer.add("przesiadka na:");
                     transfer.add(change);
-                    transfer.add("Następnie pojedź:");
+                    transfer.add("następnie pojedź:");
                     transfer.addAll(secondStepTrip.get(change));
                     transfer.add("Jesteś u celu!");
                     result.put(numberResult, transfer);
