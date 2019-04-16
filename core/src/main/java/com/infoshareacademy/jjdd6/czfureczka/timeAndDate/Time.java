@@ -9,13 +9,19 @@ import java.util.List;
 
 public class Time {
 
-    public static List<Date> stringConvertToTime(List<String > string){
+    public static List<String> stringConvertToTime(List<String > string){
 
        List <String> time = Arrays.asList("18:15:18","09:00:18","15:30:18");
 
         DateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
-        time.forEach(s -> sdf.parse(String.valueOf(time));
+         time.forEach(s -> {
+            try {
+                sdf.parse(String.valueOf(time));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        });
 
 
 
@@ -27,10 +33,6 @@ public class Time {
      //   Date date = sdf.parse(time);
 
 
-
-
-
-
-        return timeee;
+        return time;
     }
 }
