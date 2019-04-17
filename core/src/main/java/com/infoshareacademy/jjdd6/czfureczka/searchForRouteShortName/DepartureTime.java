@@ -2,10 +2,7 @@ package com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName;
 
 import com.infoshareacademy.jjdd6.czfureczka.config.StopTimesConfig;
 import com.infoshareacademy.jjdd6.czfureczka.config.Timetable;
-import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
-import com.infoshareacademy.jjdd6.czfureczka.model.StopTimes;
-import com.infoshareacademy.jjdd6.czfureczka.model.StopTimesWithDate;
-import com.infoshareacademy.jjdd6.czfureczka.model.StopsWithDate;
+import com.infoshareacademy.jjdd6.czfureczka.model.*;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 
 import java.sql.Time;
@@ -20,12 +17,12 @@ public class DepartureTime {
 
         List<Integer> data = Repository.getInstance().getStopTimes().keySet().stream()
                 .collect(Collectors.toList());
+
         StopIdForStopDesc stopIdForStopDesc = new StopIdForStopDesc();
         RouteIdForStopId routeIdForStopId = new RouteIdForStopId();
-        List<Integer> stopIds = stopIdForStopDesc.stopIdForStopsDesc(stopDesc);
-       // stopIds.forEach(System.out::println);
-        List<Integer> routeIds = routeIdForStopId.routeIdForStopId(stopIds);
 
+        List<Integer> stopIds = stopIdForStopDesc.stopIdForStopsDesc(stopDesc);
+        List<Integer> routeIds = routeIdForStopId.routeIdForStopId(stopIds);
 
         List<Integer> routShortNames = data.stream()
                 .filter(routeIds::contains)
@@ -67,7 +64,6 @@ public class DepartureTime {
                     .collect(Collectors.toList());
 
 
-
             if(listOfDeparture.size()<5){
 
                 Time timmmm2 = Time.valueOf("00:00:00");
@@ -79,13 +75,43 @@ public class DepartureTime {
                         .collect(Collectors.toList());
 
                 listOfDeparture.addAll(listOfDeparture2);
+
             }
 
+
+            String dodawac="1899-12-30T";
+
+            List<String> dziwneGodziny=listOfDeparture.stream()
+                    .map(s->dodawac+s)
+                    .collect(Collectors.toList());
+
+            List<Integer> routeId = news.stream()
+                    .filter(s -> stopIds.contains(s.getStopId()) && dziwneGodziny.contains(s.getDepartureTime()))
+                    .map(StopTimes::getTripId)
+                    .collect(Collectors.toList());
+
+
+            String data2 = Repository.getInstance().getStops().keySet().stream()
+                    .collect(Collectors.toList()).get(0);
+
+            TripsWithDate tripsWithDate = Repository.getInstance().getTrips().get(data2);
+
+            List<Trip> newTrip = tripsWithDate.getTrips();
+
+            List<String> stopIdss = newTrip.stream()
+                    .filter(l -> routeId.contains(l.getRouteId()))
+                    .map(o -> o.getTripHeadsign())
+                    .collect(Collectors.toList());
+            stopIdss.forEach(System.out::println);
+
+
+
+            al.addAll(listOfDeparture);
 
             System.out.println("5 najbliższych odjazdów nr " + routShortNames.get(i));
             listOfDeparture.forEach(System.out::println);
 
-            al.addAll(listOfDeparture);
+
         }
 
         return al;
