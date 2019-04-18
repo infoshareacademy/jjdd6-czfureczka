@@ -15,6 +15,7 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("Hello from ride to hell!");
+        resp.getWriter().println("Bylem tu i tam");
 
         Stop stop = new Stop();
 
