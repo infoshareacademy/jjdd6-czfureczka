@@ -42,11 +42,11 @@ public class Menu {
             }
             switch (option) {
                 case 1:
-                    OdjazdZPrzystanku odjazd = new OdjazdZPrzystanku();
+                    DepartureFromStation odjazd = new DepartureFromStation();
                     loop = odjazd.run();
                     break;
                 case 2:
-                    RelacjaP_P relacja = new RelacjaP_P();
+                    ConnectionsBetweenStops relacja = new ConnectionsBetweenStops();
                     loop = relacja.run();
                     break;
                 case 3:

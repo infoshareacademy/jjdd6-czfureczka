@@ -5,7 +5,7 @@ import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.SearchForRo
 import java.util.List;
 import java.util.Scanner;
 
-public class OdjazdZPrzystanku {
+public class DepartureFromStation {
 
     public boolean run() {
 
@@ -17,10 +17,6 @@ public class OdjazdZPrzystanku {
         List<String> stops = searchForRouteShortName.lookingForShortName(start);
         System.out.println("Przystanek " + start.toUpperCase() + " - dostepne polaczenia: ");
         System.out.println(String.join(", ", stops));
-
-//        System.out.println("Wybierz polacznie: ");
-//        Integer connection = scan.nextInt();
-//        System.out.println("Najblizszy odjazd: ");
 
         System.out.println(" ");
         System.out.println(" ");
@@ -36,11 +32,7 @@ public class OdjazdZPrzystanku {
             System.out.print("Twoj wybor: ");
             option = menu.run2();
         }
-        if (option == 1) {
-            return false;
-        } else {
-            return true;
-        }
+        return option !=1;
 
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class RelacjaP_P {
+public class ConnectionsBetweenStops {
 
     public boolean run() {
         Scanner scan = new Scanner(System.in);
@@ -51,9 +51,6 @@ public class RelacjaP_P {
             System.out.println("Dostepne polaczenia: ");
             System.out.println(String.join(", ", trip));
 
-//            System.out.print("Wybierz polaczenie: ");
-//            Integer connnection2 = scan.nextInt();
-//            System.out.println("Najblizszy odjazd: ");
         }
 
         System.out.println(" ");
@@ -70,10 +67,8 @@ public class RelacjaP_P {
             System.out.print("Twoj wybor: ");
             option = menu.run2();
         }
-        if (option == 1) {
-            return false;
-        } else {
-            return true;
-        }
+
+        return option !=1;
+
     }
 }
