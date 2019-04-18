@@ -15,11 +15,4 @@ public class TripsWithDate {
         return trips;
     }
 
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public void setTrips(List<Trip> trips) {
-        this.trips = trips;
-    }
 }

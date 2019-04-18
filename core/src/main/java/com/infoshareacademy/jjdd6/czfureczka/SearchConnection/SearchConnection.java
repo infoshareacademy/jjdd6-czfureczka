@@ -40,18 +40,8 @@ public class SearchConnection {
 
     public List<Integer> getRoutesIdForStop(int stopId) {
 
-        String dateSelected = Repository
-                .getInstance()
-                .getStopsInTrip()
-                .keySet()
-                .stream()
-                .collect(Collectors.toList())
-                .get(0);
-
         return Repository
                 .getInstance()
-                .getStopsInTrip()
-                .get(dateSelected)
                 .getStopsInTrip()
                 .stream()
                 .filter(a -> a.getStopId() == stopId)
@@ -64,18 +54,8 @@ public class SearchConnection {
 
     public String getRouteNameFromId(int routeId) {
 
-        String dateSelected = Repository
-                .getInstance()
-                .getRoutes()
-                .keySet()
-                .stream()
-                .collect(Collectors.toList())
-                .get(0);
-
         return Repository
                 .getInstance()
-                .getRoutes()
-                .get(dateSelected)
                 .getRoutes()
                 .stream()
                 .filter(a -> a.getRouteId() == routeId)
@@ -88,7 +68,8 @@ public class SearchConnection {
     public List<String> getRoutesNamesFromIDs(List<Integer> routesIDs) {
 
         return routesIDs
-                .stream().map(a -> getRouteNameFromId(a))
+                .stream()
+                .map(a -> getRouteNameFromId(a))
                 .collect(Collectors.toList());
     }
 }

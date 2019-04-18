@@ -22,19 +22,4 @@ public class Route {
         return routeLongName;
     }
 
-    public void setRouteId(int routeId) {
-        this.routeId = routeId;
-    }
-
-    public void setAgencyId(int agencyId) {
-        this.agencyId = agencyId;
-    }
-
-    public void setRouteShortName(String routeShortName) {
-        this.routeShortName = routeShortName;
-    }
-
-    public void setRouteLongName(String routeLongName) {
-        this.routeLongName = routeLongName;
-    }
 }

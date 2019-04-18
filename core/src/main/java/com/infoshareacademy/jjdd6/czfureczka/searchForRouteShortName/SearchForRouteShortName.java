@@ -14,9 +14,7 @@ public class SearchForRouteShortName {
 
         List<Integer> routeIds = routeIdForStopId.routeIdForStopId(stopIds);
 
-        List<String> routeShortIds = routeShortIdForRouteId.routeShortNameForRouteId(routeIds);
-
-        return routeShortIds;
+        return routeShortIdForRouteId.routeShortNameForRouteId(routeIds);
     }
 }
 
