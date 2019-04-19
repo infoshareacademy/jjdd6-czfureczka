@@ -47,6 +47,22 @@
     {
       "routeId": 12,
       "file": "data/stopTimes12.json"
+    },
+    {
+      "routeId": 122,
+      "file": "data/stopTimes122.json"
+    },
+    {
+      "routeId": 127,
+      "file": "data/stopTimes127.json"
+    },
+    {
+      "routeId": 168,
+      "file": "data/stopTimes168.json"
+    },
+    {
+      "routeId": 210,
+      "file": "data/stopTimes210.json"
     }
   ]
 }
