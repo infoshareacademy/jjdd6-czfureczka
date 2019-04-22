@@ -36,6 +36,12 @@ public class FakeData {
         s4.setStopDesc("Brama Wyżynna");
         stops.add(s4);
 
+        Stop s5 = new Stop();
+        s5.setStopId(5);
+        s5.setNonpassenger(0);
+        s5.setStopDesc("Reja");
+        stops.add(s5);
+
         return stops;
     }
 
@@ -95,6 +101,13 @@ public class FakeData {
         s4.setTripId(2);
         s4.setStopSequence(2);
         stopInTrips.add(s4);
+
+        StopInTrip s5 = new StopInTrip();
+        s5.setRouteId(1000);
+        s5.setStopId(5);
+        s5.setTripId(2);
+        s5.setStopSequence(1);
+        stopInTrips.add(s5);
 
         return stopInTrips;
     }

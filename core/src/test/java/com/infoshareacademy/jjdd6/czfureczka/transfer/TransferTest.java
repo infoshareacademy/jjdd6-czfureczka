@@ -26,7 +26,7 @@ class TransferTest {
     private Transfer transfer = new Transfer();
 
     @Test
-    void transfer() {
+    void transferTestWithCorrectStops() {
         Map<Integer, List<String>> result = new HashMap<>();
         List<String> stringResult = new ArrayList<>();
         stringResult.add("2");
@@ -39,5 +39,11 @@ class TransferTest {
         Assertions.assertThat(transfer.transfer("Akademia Muzyczna", "Sikorskiego"))
                 .isNotNull()
                 .isEqualTo(result);
+    }
+    @Test
+    void transferTestWithIncorrectStops() {
+        Assertions.assertThat(transfer.transfer("Reja", "Sikorskiego"))
+                .isNotNull()
+                .isEmpty();
     }
 }
