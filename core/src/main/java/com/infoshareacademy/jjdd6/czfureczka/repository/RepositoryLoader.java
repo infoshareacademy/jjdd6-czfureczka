@@ -21,8 +21,8 @@ public class RepositoryLoader {
         try {
 
             ExpeditionDataWithDate expeditionData = loadExpeditionData();
-            Map<String, StopsWithDate> stops = loadStops();
-            Map<String, RoutesWithDate> routes = loadLines();
+            List<Stop> stops = loadStops();
+            List<Route> routes = loadLines();
             Map<String, TripsWithDate> trips = loadTrips();
             Map<String, StopsInTripWithDate> stopsInTrip = loadStopsInTrip();
             Map<Integer, StopTimesWithDate> stopTimes = loadStopTimes();
@@ -49,20 +49,24 @@ public class RepositoryLoader {
         return mapper.readValue(expeditionDataFile, ExpeditionDataWithDate.class);
     }
 
-    private Map<String, StopsWithDate> loadStops() throws IOException {
+    private List<Stop> loadStops() throws IOException {
         File stopsFile = new File("data", "stops.json");
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, StopsWithDate>>() {
         };
-        return mapper.readValue(stopsFile, mapType);
+        Map<String, StopsWithDate> stops = mapper.readValue(stopsFile, mapType);
+        String date = new ArrayList<>(stops.keySet()).get(0);
+        return stops.get(date).getStops();
     }
 
-    private Map<String, RoutesWithDate> loadLines() throws IOException {
+    private List<Route> loadLines() throws IOException {
         File linesFile = new File("data", "routes.json");
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, RoutesWithDate>>() {
         };
-        return mapper.readValue(linesFile, mapType);
+        Map<String, RoutesWithDate> routes = mapper.readValue(linesFile, mapType);
+        String date = new ArrayList<>(routes.keySet()).get(0);
+        return routes.get(date).getRoutes();
     }
 
     private Map<String, TripsWithDate> loadTrips() throws IOException {

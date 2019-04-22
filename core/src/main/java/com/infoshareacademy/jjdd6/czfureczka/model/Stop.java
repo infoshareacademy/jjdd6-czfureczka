@@ -47,4 +47,15 @@ public class Stop {
         return nonpassenger;
     }
 
+    public void setStopId(int stopId) {
+        this.stopId = stopId;
+    }
+
+    public void setStopDesc(String stopDesc) {
+        this.stopDesc = stopDesc;
+    }
+
+    public void setNonpassenger(int nonpassenger) {
+        this.nonpassenger = nonpassenger;
+    }
 }

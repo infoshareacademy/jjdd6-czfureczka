@@ -12,8 +12,8 @@ public class Repository {
     private static Repository instance;
 
     private ExpeditionDataWithDate expeditionData = new ExpeditionDataWithDate();
-    private Map<String, StopsWithDate> stops = new HashMap<>();
-    private Map<String, RoutesWithDate> routes = new HashMap<>();
+    private List<Stop> stops = new ArrayList<>();
+    private List<Route> routes = new ArrayList<>();
     private List<Trip> trips = new ArrayList<>();
     private List<StopInTrip> stopsInTrip = new ArrayList<>();
     private Map<Integer, List<StopTimes>> stopTimes = new HashMap<>();
@@ -39,20 +39,18 @@ public class Repository {
     }
 
     public List<Stop> getStops() {
-        String date = new ArrayList<>(stops.keySet()).get(0);
-        return stops.get(date).getStops();
+        return stops;
     }
 
-    public void setStops(Map<String, StopsWithDate> stops) {
+    public void setStops(List<Stop> stops) {
         this.stops = stops;
     }
 
     public List<Route> getRoutes() {
-        String date = new ArrayList<>(routes.keySet()).get(0);
-        return routes.get(date).getRoutes();
+        return routes;
     }
 
-    public void setRoutes(Map<String, RoutesWithDate> routes) {
+    public void setRoutes(List<Route> routes) {
         this.routes = routes;
     }
 

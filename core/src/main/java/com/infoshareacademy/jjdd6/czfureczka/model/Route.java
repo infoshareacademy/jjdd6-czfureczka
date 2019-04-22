@@ -22,4 +22,11 @@ public class Route {
         return routeLongName;
     }
 
+    public void setRouteId(int routeId) {
+        this.routeId = routeId;
+    }
+
+    public void setRouteShortName(String routeShortName) {
+        this.routeShortName = routeShortName;
+    }
 }
