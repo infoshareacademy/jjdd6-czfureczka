@@ -1,4 +1,4 @@
-package com.infoshareacademy.jjdd6.czfureczka.Transfer;
+package com.infoshareacademy.jjdd6.czfureczka.transfer;
 
 import com.infoshareacademy.jjdd6.czfureczka.directconnection.DirectConnection;
 import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
@@ -14,7 +14,7 @@ public class Transfer {
     public Map<Integer, List<String>> transfer(String startingStop, String endingStop) {
         Map<Integer, List<String>> result = new TreeMap<>();
         DirectConnection directConnection = new DirectConnection();
-        List<Integer> transferStopsId = transferStops(startingStop, endingStop);
+        List<Integer> transferStopsId = transferStops(startingStop.trim(), endingStop.trim());
         if (transferStopsId.size() == 0) {
             return new HashMap<>();
         }
@@ -24,11 +24,11 @@ public class Transfer {
                 .map(this::convertStopIdIntoStopDesc)
                 .collect(Collectors.toList());
         for (String s : transferStopsDesc) {
-            if (directConnection.checkSharedTrip(startingStop, s).size() != 0) {
-                firstStepTrip.put(s, directConnection.checkSharedTrip(startingStop, s));
+            if (directConnection.checkSharedTrip(startingStop.trim(), s).size() != 0) {
+                firstStepTrip.put(s, directConnection.checkSharedTrip(startingStop.trim(), s));
             }
-            if (directConnection.checkSharedTrip(s, endingStop).size() != 0) {
-                secondStepTrip.put(s, directConnection.checkSharedTrip(s, endingStop));
+            if (directConnection.checkSharedTrip(s, endingStop.trim()).size() != 0) {
+                secondStepTrip.put(s, directConnection.checkSharedTrip(s, endingStop.trim()));
             }
         }
         List<String> firstStepTransferStopsNames = firstStepTrip.keySet().stream().distinct().collect(Collectors.toList());
