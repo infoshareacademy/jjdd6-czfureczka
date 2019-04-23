@@ -1,20 +1,22 @@
 package com.infoshareacademy.jjdd6.czfureczka.repository;
 
-import com.infoshareacademy.jjdd6.czfureczka.config.StopTimesConfig;
 import com.infoshareacademy.jjdd6.czfureczka.model.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Repository {
 
     private static Repository instance;
 
-    private Map<String, StopsWithDate> stops = new HashMap<>();
-    private Map<String, RoutesWithDate> routes = new HashMap<>();
-    private Map<String, TripsWithDate> trips = new HashMap<>();
-    private Map<String, StopsInTripWithDate> stopsInTrip = new HashMap();
-    private Map<Integer, StopTimesWithDate> stopTimes = new HashMap<>();
+    private ExpeditionDataWithDate expeditionData = new ExpeditionDataWithDate();
+    private List<Stop> stops = new ArrayList<>();
+    private List<Route> routes = new ArrayList<>();
+    private List<Trip> trips = new ArrayList<>();
+    private List<StopInTrip> stopsInTrip = new ArrayList<>();
+    private Map<Integer, List<StopTimes>> stopTimes = new HashMap<>();
 
     private Repository() {
 
@@ -28,43 +30,51 @@ public class Repository {
         return instance;
     }
 
-    public Map<String, StopsWithDate> getStops() {
+    public ExpeditionDataWithDate getExpeditionData() {
+        return expeditionData;
+    }
+
+    public void setExpeditionData(ExpeditionDataWithDate expeditionData) {
+        this.expeditionData = expeditionData;
+    }
+
+    public List<Stop> getStops() {
         return stops;
     }
 
-    public void setStops(Map<String, StopsWithDate> stops) {
+    public void setStops(List<Stop> stops) {
         this.stops = stops;
     }
 
-    public Map<String, RoutesWithDate> getRoutes() {
+    public List<Route> getRoutes() {
         return routes;
     }
 
-    public void setRoutes(Map<String, RoutesWithDate> routes) {
+    public void setRoutes(List<Route> routes) {
         this.routes = routes;
     }
 
-    public Map<String, TripsWithDate> getTrips() {
-        return trips;
-    }
-
-    public void setTrips(Map<String, TripsWithDate> trips) {
+    public void setTrips(List<Trip> trips) {
         this.trips = trips;
     }
 
-    public Map<String, StopsInTripWithDate> getStopsInTrip() {
+    public List<Trip> getTrips() {
+        return trips;
+    }
+
+    public List<StopInTrip> getStopsInTrip() {
         return stopsInTrip;
     }
 
-    public void setStopsInTrip(Map<String, StopsInTripWithDate> stopsInTrip) {
+    public void setStopsInTrip(List<StopInTrip> stopsInTrip) {
         this.stopsInTrip = stopsInTrip;
     }
 
-    public Map<Integer, StopTimesWithDate> getStopTimes() {
+    public Map<Integer, List<StopTimes>> getStopTimes() {
         return stopTimes;
     }
 
-    public void setStopTimes(Map<Integer, StopTimesWithDate> stopTimes) {
+    public void setStopTimes(Map<Integer, List<StopTimes>> stopTimes) {
         this.stopTimes = stopTimes;
     }
 }

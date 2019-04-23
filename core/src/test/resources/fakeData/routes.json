@@ -1,0 +1,31 @@
+{
+  "2019-04-16": {
+    "lastUpdate": "2019-04-16 06:05:03",
+    "routes": [
+      {
+        "routeId": 107,
+        "agencyId": 18,
+        "routeShortName": "107",
+        "routeLongName": "Pruszcz Gdański Komarowo - Pruszcz Gd. Rondo Kaszubskie",
+        "routeDesc": "",
+        "routeType": "",
+        "routeUrl": "",
+        "routeColor": "",
+        "routeTextColor": "",
+        "activationDate": "2019-04-12"
+      },
+      {
+        "routeId": 117,
+        "agencyId": 18,
+        "routeShortName": "117",
+        "routeLongName": "Sopot Hestii - Sopot Osiedle Przylesie",
+        "routeDesc": "",
+        "routeType": "",
+        "routeUrl": "",
+        "routeColor": "",
+        "routeTextColor": "",
+        "activationDate": "2019-04-12"
+      }
+    ]
+  }
+}

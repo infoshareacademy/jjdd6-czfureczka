@@ -8,7 +8,6 @@ public class Stop {
     private String stopDesc; //nazwa przystanku pochodząca z systemu TRISTAR
     private Double stopLat; //współrzędne geograficzne
     private Double stopLon; //współrzędne geograficzne
-    private int zoneId; //unikalny identyfikator miasta/gminy
     private int nonpassenger; // 1 = true => nie dla pasazera; sprawdzic mapowanie na boolean
 
     public  int getStopId() {
@@ -39,10 +38,6 @@ public class Stop {
         return stopLon;
     }
 
-    public int getZoneId() {
-        return zoneId;
-    }
-
     public int getNonpassenger() {
         return nonpassenger;
     }
@@ -51,32 +46,8 @@ public class Stop {
         this.stopId = stopId;
     }
 
-    public void setStopCode(String stopCode) {
-        this.stopCode = stopCode;
-    }
-
-    public void setStopName(String stopName) {
-        this.stopName = stopName;
-    }
-
-    public void setStopShortName(String stopShortName) {
-        this.stopShortName = stopShortName;
-    }
-
     public void setStopDesc(String stopDesc) {
         this.stopDesc = stopDesc;
-    }
-
-    public void setStopLat(Double stopLat) {
-        this.stopLat = stopLat;
-    }
-
-    public void setStopLon(Double stopLon) {
-        this.stopLon = stopLon;
-    }
-
-    public void setZoneId(int zoneId) {
-        this.zoneId = zoneId;
     }
 
     public void setNonpassenger(int nonpassenger) {

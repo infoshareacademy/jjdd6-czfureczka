@@ -1,0 +1,12 @@
+{
+  "stopTimes": [
+    {
+      "routeId": 2,
+      "file": "stopTimes2.json"
+    },
+    {
+      "routeId": 3,
+      "file": "stopTimes3.json"
+    }
+  ]
+}

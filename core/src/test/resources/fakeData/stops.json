@@ -1,0 +1,55 @@
+{
+  "2019-04-16": {
+    "lastUpdate": "2019-04-16 06:05:03",
+    "stops": [
+      {
+        "stopId": 8,
+        "stopCode": "02",
+        "stopName": "Dąbrowa Centrum",
+        "stopShortName": "8227",
+        "stopDesc": "Gdynia Dąbrowa Centrum",
+        "subName": " ",
+        "date": "2019-04-12",
+        "zoneId": 5,
+        "zoneName": "Gdynia",
+        "stopUrl": "",
+        "locationType": null,
+        "parentStation": null,
+        "stopTimezone": "",
+        "wheelchairBoarding": null,
+        "virtual": 0,
+        "nonpassenger": 0,
+        "depot": 0,
+        "ticketZoneBorder": 0,
+        "onDemand": 0,
+        "activationDate": "2019-04-12",
+        "stopLat": 54.47317,
+        "stopLon": 18.46509
+      },
+      {
+        "stopId": 9,
+        "stopCode": "02",
+        "stopName": "Kameliowa",
+        "stopShortName": "8228",
+        "stopDesc": "Gdynia Kameliowa",
+        "subName": " ",
+        "date": "2019-04-12",
+        "zoneId": 5,
+        "zoneName": "Gdynia",
+        "stopUrl": "",
+        "locationType": null,
+        "parentStation": null,
+        "stopTimezone": "",
+        "wheelchairBoarding": null,
+        "virtual": 0,
+        "nonpassenger": 0,
+        "depot": 0,
+        "ticketZoneBorder": 0,
+        "onDemand": 0,
+        "activationDate": "2019-04-12",
+        "stopLat": 54.47018,
+        "stopLon": 18.4682
+      }
+    ]
+  }
+}

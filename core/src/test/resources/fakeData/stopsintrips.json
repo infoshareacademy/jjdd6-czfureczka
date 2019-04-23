@@ -1,0 +1,27 @@
+{
+  "2019-04-16": {
+    "lastUpdate": "2019-04-16 06:05:34",
+    "stopsInTrip": [
+      {
+        "routeId": 12,
+        "tripId": 22,
+        "stopId": 2137,
+        "stopSequence": 22,
+        "agencyId": 2,
+        "topologyVersionId": 776,
+        "tripActivationDate": "2019-04-12",
+        "stopActivationDate": "2019-04-12"
+      },
+      {
+        "routeId": 283,
+        "tripId": 41,
+        "stopId": 1374,
+        "stopSequence": 1,
+        "agencyId": 1,
+        "topologyVersionId": 777,
+        "tripActivationDate": "2019-04-12",
+        "stopActivationDate": "2019-04-12"
+      }
+    ]
+  }
+}

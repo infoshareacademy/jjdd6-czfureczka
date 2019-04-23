@@ -10,16 +10,11 @@ public class SearchForRouteShortName {
         RouteIdForStopId routeIdForStopId = new RouteIdForStopId();
         RouteShortNamesForRouteId routeShortIdForRouteId = new RouteShortNamesForRouteId();
 
-        List<Integer> stopIds = stopIdForStopDesc.stopIdForStopsDesc(stopDesc);
+        List<Integer> stopIds = stopIdForStopDesc.stopIdForStopsDesc(stopDesc.trim());
 
         List<Integer> routeIds = routeIdForStopId.routeIdForStopId(stopIds);
 
-        List<String> routeShortIds = routeShortIdForRouteId.routeShortNameForRouteId(routeIds);
-
-        return routeShortIds;
+        return routeShortIdForRouteId.routeShortNameForRouteId(routeIds);
     }
-
-
-
 }
 

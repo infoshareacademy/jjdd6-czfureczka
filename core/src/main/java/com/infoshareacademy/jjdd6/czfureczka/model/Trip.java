@@ -28,23 +28,4 @@ public class Trip {
         return directionId;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setRouteId(int routeId) {
-        this.routeId = routeId;
-    }
-
-    public void setTripId(int tripId) {
-        this.tripId = tripId;
-    }
-
-    public void setTripHeadsign(String tripHeadsign) {
-        this.tripHeadsign = tripHeadsign;
-    }
-
-    public void setDirectionId(int directionId) {
-        this.directionId = directionId;
-    }
 }
