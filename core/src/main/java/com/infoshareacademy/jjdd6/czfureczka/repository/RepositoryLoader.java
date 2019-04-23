@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 
 public class RepositoryLoader {
 
+    private static final String date = "2019-04-18";
+
     public boolean load(String path) {
         try {
 
@@ -55,7 +57,6 @@ public class RepositoryLoader {
         TypeReference mapType = new TypeReference<HashMap<String, StopsWithDate>>() {
         };
         Map<String, StopsWithDate> stops = mapper.readValue(stopsFile, mapType);
-        String date = new ArrayList<>(stops.keySet()).get(0);
         return stops.get(date).getStops();
     }
 
@@ -65,7 +66,6 @@ public class RepositoryLoader {
         TypeReference mapType = new TypeReference<HashMap<String, RoutesWithDate>>() {
         };
         Map<String, RoutesWithDate> routes = mapper.readValue(linesFile, mapType);
-        String date = new ArrayList<>(routes.keySet()).get(0);
         return routes.get(date).getRoutes();
     }
 
@@ -116,7 +116,6 @@ public class RepositoryLoader {
     }
 
     private List<Trip> getMainTripForTrip(Map<String, TripsWithDate> tripsWithDate, List<RouteTrip> mainTrips) {
-        String date = new ArrayList<>(tripsWithDate.keySet()).get(0);
         return tripsWithDate.get(date).getTrips().stream()
                 .filter(t ->
                         mainTrips.stream().anyMatch(rt ->
@@ -127,7 +126,6 @@ public class RepositoryLoader {
     }
 
     private List<StopInTrip> getMainTripForStopInTrip(Map<String, StopsInTripWithDate> stopsInTrip, List<RouteTrip> mainTrips) {
-        String date = new ArrayList<>(stopsInTrip.keySet()).get(0);
         return stopsInTrip.get(date).getStopsInTrip().stream()
                 .filter(s -> mainTrips.stream().anyMatch(rt ->
                                 rt.getRouteID() == s.getRouteId() && rt.getTripID() == s.getTripId()
