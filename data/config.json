@@ -2,67 +2,67 @@
   "stopTimes": [
     {
       "routeId": 3,
-      "file": "data/stopTimes3.json"
+      "file": "stopTimes3.json"
     },
     {
       "routeId": 8,
-      "file": "data/stopTimes8.json"
+      "file": "stopTimes8.json"
     },
     {
       "routeId": 167,
-      "file": "data/stopTimes167.json"
+      "file": "stopTimes167.json"
     },
     {
       "routeId": 2,
-      "file": "data/stopTimes2.json"
+      "file": "stopTimes2.json"
     },
     {
       "routeId": 4,
-      "file": "data/stopTimes4.json"
+      "file": "stopTimes4.json"
     },
     {
       "routeId": 5,
-      "file": "data/stopTimes5.json"
+      "file": "stopTimes5.json"
     },
     {
       "routeId": 6,
-      "file": "data/stopTimes6.json"
+      "file": "stopTimes6.json"
     },
     {
       "routeId": 7,
-      "file": "data/stopTimes7.json"
+      "file": "stopTimes7.json"
     },
     {
       "routeId": 9,
-      "file": "data/stopTimes9.json"
+      "file": "stopTimes9.json"
     },
     {
       "routeId": 10,
-      "file": "data/stopTimes10.json"
+      "file": "stopTimes10.json"
     },
     {
       "routeId": 11,
-      "file": "data/stopTimes11.json"
+      "file": "stopTimes11.json"
     },
     {
       "routeId": 12,
-      "file": "data/stopTimes12.json"
+      "file": "stopTimes12.json"
     },
     {
       "routeId": 122,
-      "file": "data/stopTimes122.json"
+      "file": "stopTimes122.json"
     },
     {
       "routeId": 127,
-      "file": "data/stopTimes127.json"
+      "file": "stopTimes127.json"
     },
     {
       "routeId": 168,
-      "file": "data/stopTimes168.json"
+      "file": "stopTimes168.json"
     },
     {
       "routeId": 210,
-      "file": "data/stopTimes210.json"
+      "file": "stopTimes210.json"
     }
   ]
 }

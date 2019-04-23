@@ -1,0 +1,33 @@
+{
+  "2019-04-16": {
+    "lastUpdate": "2019-04-16 06:05:17",
+    "trips": [
+      {
+        "id": "R107T11",
+        "routeId": 2,
+        "tripId": 1,
+        "serviceId": null,
+        "tripHeadsign": "Pruszcz Komarowo(171) - Pruszcz Rondo Kociewskie(5831)",
+        "tripShortName": "11",
+        "blockId": null,
+        "shapeId": null,
+        "bikesAllowed": null,
+        "directionId": 1,
+        "activationDate": "2019-04-12"
+      },
+      {
+        "id": "R107T12",
+        "routeId": 3,
+        "tripId": 2,
+        "serviceId": null,
+        "tripHeadsign": "Pruszcz Rondo Kaszubskie(5703) - Pruszcz Komarowo(171)",
+        "tripShortName": "12",
+        "blockId": null,
+        "shapeId": null,
+        "bikesAllowed": null,
+        "directionId": 2,
+        "activationDate": "2019-04-12"
+      }
+    ]
+  }
+}

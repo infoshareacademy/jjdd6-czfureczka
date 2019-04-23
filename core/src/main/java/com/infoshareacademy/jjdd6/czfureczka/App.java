@@ -19,7 +19,7 @@ public class App {
         menu.requestForPatience();
 
         RepositoryLoader repositoryLoader = new RepositoryLoader();
-        if (repositoryLoader.load()) {
+        if (repositoryLoader.load("data")) {
             System.out.println("Data loaded");
         } else {
             System.err.println("Data could not be loaded");
