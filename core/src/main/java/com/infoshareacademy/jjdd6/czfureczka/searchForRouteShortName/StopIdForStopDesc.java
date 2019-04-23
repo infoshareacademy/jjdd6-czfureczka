@@ -9,11 +9,12 @@ import java.util.stream.Collectors;
 public class StopIdForStopDesc {
 
     public List<Integer> stopIdForStopsDesc(String stopDesc) {
+        String nameStop = stopDesc.trim().toLowerCase();
         List<Stop> newStops = Repository.getInstance().getStops();
 
         List<Integer> stopIds = newStops.stream()
                 .filter(s1 -> s1.getNonpassenger() == 0)
-                .filter(l -> l.getStopDesc().equals(stopDesc))
+                .filter(l -> l.getStopDesc().toLowerCase().equals(nameStop))
                 .map(o -> o.getStopId())
                 .collect(Collectors.toList());
         return stopIds;

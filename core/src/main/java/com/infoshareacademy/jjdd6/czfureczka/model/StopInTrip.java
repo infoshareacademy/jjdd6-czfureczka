@@ -23,4 +23,19 @@ public class StopInTrip {
         return stopId;
     }
 
+    public void setRouteId(int routeId) {
+        this.routeId = routeId;
+    }
+
+    public void setTripId(int tripId) {
+        this.tripId = tripId;
+    }
+
+    public void setStopId(int stopId) {
+        this.stopId = stopId;
+    }
+
+    public void setStopSequence(int stopSequence) {
+        this.stopSequence = stopSequence;
+    }
 }

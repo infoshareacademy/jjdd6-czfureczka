@@ -70,7 +70,7 @@ public class Menu {
 
     public Integer run2() {
         Scanner scanner = new Scanner(System.in);
-        String option = scanner.nextLine();
+        String option = scanner.nextLine().trim();
         List<String> cyferki = new ArrayList<>();
         cyferki.add("0");
         cyferki.add("1");

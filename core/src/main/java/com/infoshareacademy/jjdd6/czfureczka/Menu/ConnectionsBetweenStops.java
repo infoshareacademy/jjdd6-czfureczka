@@ -1,7 +1,8 @@
 package com.infoshareacademy.jjdd6.czfureczka.Menu;
 
-import com.infoshareacademy.jjdd6.czfureczka.Transfer.Transfer;
+import com.infoshareacademy.jjdd6.czfureczka.transfer.Transfer;
 import com.infoshareacademy.jjdd6.czfureczka.directconnection.DirectConnection;
+import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +12,25 @@ import java.util.Scanner;
 public class ConnectionsBetweenStops {
 
     public boolean run() {
+        Validation validation = new Validation();
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Wpisz przystanek startowy: ");
-        String start2 = scan.nextLine();
+        String start2 = scan.nextLine().trim();
+
+        while (!validation.validationOfStopName(start2)) {
+            System.out.println("Błędna nazwa przystanku!");
+            System.out.println("Wpisz przystanek startowy: ");
+            start2 = scan.nextLine().trim();
+        }
 
         System.out.println("Wpisz przystanek docelowy: ");
-        String destination = scan.nextLine();
+        String destination = scan.nextLine().trim();
+        while (!validation.validationOfStopName(destination)) {
+            System.out.println("Błędna nazwa przystanku!");
+            System.out.println("Wpisz przystanek docelowy: ");
+            destination = scan.nextLine().trim();
+        }
 
         System.out.println("Relacja " + start2.toUpperCase() + "-" + destination.toUpperCase());
         DirectConnection directConnection = new DirectConnection();

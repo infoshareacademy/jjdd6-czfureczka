@@ -1,6 +1,7 @@
 package com.infoshareacademy.jjdd6.czfureczka.Menu;
 
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.SearchForRouteShortName;
+import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 
 import java.util.List;
 import java.util.Scanner;
@@ -12,7 +13,13 @@ public class DepartureFromStation {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Wpisz przystanek startowy: ");
-        String start = scan.nextLine();
+        String start = scan.nextLine().trim();
+        Validation validation = new Validation();
+        while (!validation.validationOfStopName(start)) {
+            System.out.println("Błędna nazwa przystanku!");
+            System.out.println("Wpisz przystanek startowy: ");
+            start = scan.nextLine().trim();
+        }
         SearchForRouteShortName searchForRouteShortName = new SearchForRouteShortName();
         List<String> stops = searchForRouteShortName.lookingForShortName(start);
         System.out.println("Przystanek " + start.toUpperCase() + " - dostepne polaczenia: ");
