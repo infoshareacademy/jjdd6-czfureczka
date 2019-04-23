@@ -9,7 +9,9 @@ import java.util.stream.Collectors;
 public class StopIdForStopDesc {
 
     public List<Integer> stopIdForStopsDesc(String stopDesc) {
+
         String nameStop = stopDesc.trim().toLowerCase();
+
         List<Stop> newStops = Repository.getInstance().getStops();
 
         List<Integer> stopIds = newStops.stream()
