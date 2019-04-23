@@ -1,0 +1,28 @@
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.expanded {
+    width: 100%;
+    display: block;
+}
+
+.margin {
+    margin-top: 16px;
+}
+
+.button {
+    display: block;
+    max-width: 10ch;
+    padding: 8px;
+    margin: 32px;
+    background-color: #f5d020;
+    margin: 32px auto;
+    background-color: pink;
+    border: 0;
+}
