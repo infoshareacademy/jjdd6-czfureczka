@@ -22,7 +22,6 @@ public class DepartureTimes {
 
     private Map<String, List<String>> departureTime(String stopDesc, String departurTime) {
 
-
         StopIdForStopDesc stopIdForStopDesc = new StopIdForStopDesc();
         RouteIdForStopId routeIdForStopId = new RouteIdForStopId();
 

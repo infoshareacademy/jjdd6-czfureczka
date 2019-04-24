@@ -3,13 +3,14 @@ package com.infoshareacademy.jjdd6.czfureczka.fakeData;
 import com.infoshareacademy.jjdd6.czfureczka.model.Route;
 import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
 import com.infoshareacademy.jjdd6.czfureczka.model.StopInTrip;
+import com.infoshareacademy.jjdd6.czfureczka.model.StopTimes;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FakeData {
 
-    public List<Stop> fakeStops(){
+    public List<Stop> fakeStops() {
         List<Stop> stops = new ArrayList<>();
 
         Stop s1 = new Stop();
@@ -45,7 +46,7 @@ public class FakeData {
         return stops;
     }
 
-    public List<Route> fakeRoutes(){
+    public List<Route> fakeRoutes() {
         List<Route> routes = new ArrayList<>();
 
         Route r1 = new Route();
@@ -71,7 +72,7 @@ public class FakeData {
         return routes;
     }
 
-    public List<StopInTrip> fakeStopInTrip(){
+    public List<StopInTrip> fakeStopInTrip() {
         List<StopInTrip> stopInTrips = new ArrayList<>();
 
         StopInTrip s1 = new StopInTrip();
@@ -110,5 +111,18 @@ public class FakeData {
         stopInTrips.add(s5);
 
         return stopInTrips;
+    }
+
+    public List<StopTimes> fakeStopTimes() {
+        List<StopTimes> stopTimes = new ArrayList<>();
+
+        StopTimes st1 = new StopTimes();
+        st1.setDepartureTime("19:00:00");
+        st1.setDepartureTime("19:10:00");
+        st1.setDepartureTime("19:20:00");
+        st1.setRouteId(12);
+
+        return stopTimes;
+
     }
 }
