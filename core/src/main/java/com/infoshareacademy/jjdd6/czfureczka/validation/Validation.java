@@ -2,6 +2,10 @@ package com.infoshareacademy.jjdd6.czfureczka.validation;
 
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class Validation {
 
     public boolean validationOfStopName(String stopName) {
@@ -30,4 +34,19 @@ public class Validation {
         return false;
     }
 
+    public boolean validationOfTimeDeparture(String departure) {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        dateFormat.setLenient(false);
+        try {
+            dateFormat.parse(departure.trim());
+        } catch (ParseException pe) {
+            return false;
+        }
+        return true;
+    }
 }
+
+
+
+

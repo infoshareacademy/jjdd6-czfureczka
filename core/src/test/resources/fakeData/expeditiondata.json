@@ -10,6 +10,14 @@
       "mainRoute": 1
     },
     {
+      "startDate": "2019-04-18",
+      "endDate": "2019-04-18",
+      "routeId": 2,
+      "tripId": 1,
+      "technicalTrip": 0,
+      "mainRoute": 0
+    },
+    {
       "startDate": "2019-04-24",
       "endDate": "2019-04-24",
       "routeId": 3,

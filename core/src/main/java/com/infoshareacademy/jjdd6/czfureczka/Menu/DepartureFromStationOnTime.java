@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class DepartureFromStation {
+public class DepartureFromStationOnTime {
 
     public boolean run() {
 
@@ -23,13 +23,23 @@ public class DepartureFromStation {
             System.out.println("Wpisz przystanek startowy: ");
             start = scan.nextLine().trim();
         }
+
+        System.out.println("Wpisz godzinę odjazdu: ");
+        String time = scan.nextLine().trim();
+        while (!validation.validationOfTimeDeparture(time)) {
+            System.out.println("Błędna godzina!");
+            System.out.println("Wpisz godzinę odjazdu: ");
+            time = scan.nextLine().trim();
+        }
+
+
         SearchForRouteShortName searchForRouteShortName = new SearchForRouteShortName();
         List<String> stops = searchForRouteShortName.lookingForShortName(start);
         System.out.println("Przystanek " + start.toUpperCase() + " - dostepne polaczenia: ");
         System.out.println(String.join(", ", stops));
         System.out.println("Rozkład");
         DepartureTimes departureTimes = new DepartureTimes();
-        Map<String, List<String>> departure = departureTimes.departureTimes(start);
+        Map<String, List<String>> departure = departureTimes.departureTimes(start, time);
         System.out.println(Collections.singletonList(departure));
 
         System.out.println(" ");
@@ -50,4 +60,5 @@ public class DepartureFromStation {
 
     }
 }
+
 

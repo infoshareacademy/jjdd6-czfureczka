@@ -31,15 +31,16 @@ public class Menu {
             System.out.println("***************************** WYBIERZ OPCJE ************************************");
             System.out.println("*   1. Odjazd z przystanku. **************** 2. Relacja przystanek-przystanek. *");
             System.out.println("*****************************              *************************************");
+            System.out.println("*                3. Odjazd z przystanku o danej godzinie.                      *");
             System.out.println(" ");
-            System.out.println("****************************** 3. Wyjście **************************************");
+            System.out.println("****************************** 4. Wyjście **************************************");
             System.out.println(" ");
-            System.out.print("                             WPISZ NUMER: ");
+            System.out.print("                               WPISZ NUMER: ");
 
             Integer option = run2();
             logger.fine("Selected option: " + option);
 
-            while (option != 1 && option != 2 && option != 3) {
+            while (option != 1 && option != 2 && option != 3 && option != 4) {
                 System.out.println("Wybrałeś źle, spróbuj ponownie");
                 System.out.print("Twoj wybor: ");
                 option = run2();
@@ -55,6 +56,9 @@ public class Menu {
                     loop = relacja.run();
                     break;
                 case 3:
+                    DepartureFromStationOnTime times = new DepartureFromStationOnTime();
+                    loop = times.run();
+                case 4:
                     loop = true;
                     break;
             }
