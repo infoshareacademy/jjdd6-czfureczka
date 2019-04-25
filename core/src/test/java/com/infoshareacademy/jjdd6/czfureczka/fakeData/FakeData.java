@@ -6,7 +6,9 @@ import com.infoshareacademy.jjdd6.czfureczka.model.StopInTrip;
 import com.infoshareacademy.jjdd6.czfureczka.model.StopTimes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FakeData {
 
@@ -113,16 +115,31 @@ public class FakeData {
         return stopInTrips;
     }
 
-    public List<StopTimes> fakeStopTimes() {
-        List<StopTimes> stopTimes = new ArrayList<>();
+
+
+    public Map<Integer, List<StopTimes>> fakeStopTimes() {
+        Map<Integer, List<StopTimes>> stopTimes =new HashMap<>();
+        List<StopTimes> stops = new ArrayList<>();
+        List<StopTimes> stops1 = new ArrayList<>();
 
         StopTimes st1 = new StopTimes();
         st1.setDepartureTime("19:00:00");
         st1.setDepartureTime("19:10:00");
-        st1.setDepartureTime("19:20:00");
-        st1.setRouteId(12);
+
+        StopTimes st2 = new StopTimes();
+        st2.setDepartureTime("19:20:00");
+        st2.setDepartureTime("19:30:00");
+
+        stops.add(st1);
+        stops.add(st2);
+
+        stopTimes.put(2, stops );
 
         return stopTimes;
-
     }
+
+  //  public Map<String, List<String>> fakeStops(){
+  //      Map<String, List<String>>
+
+
 }
