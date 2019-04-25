@@ -1,9 +1,6 @@
 package com.infoshareacademy.jjdd6.czfureczka.fakeData;
 
-import com.infoshareacademy.jjdd6.czfureczka.model.Route;
-import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
-import com.infoshareacademy.jjdd6.czfureczka.model.StopInTrip;
-import com.infoshareacademy.jjdd6.czfureczka.model.StopTimes;
+import com.infoshareacademy.jjdd6.czfureczka.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -124,11 +121,16 @@ public class FakeData {
 
         StopTimes st1 = new StopTimes();
         st1.setDepartureTime("19:00:00");
-        st1.setDepartureTime("19:10:00");
+        st1.setRouteId(2);
+        st1.setStopId(1);
+        st1.setTripId(1);
 
         StopTimes st2 = new StopTimes();
-        st2.setDepartureTime("19:20:00");
-        st2.setDepartureTime("19:30:00");
+        st2.setDepartureTime("19:10:00");
+        st2.setRouteId(2);
+        st2.setStopId(1);
+        st2.setTripId(1);
+
 
         stops.add(st1);
         stops.add(st2);
@@ -138,8 +140,18 @@ public class FakeData {
         return stopTimes;
     }
 
-  //  public Map<String, List<String>> fakeStops(){
-  //      Map<String, List<String>>
+    public List<Trip> fakeTrip() {
+        List<Trip> trips = new ArrayList<>();
+
+        Trip s1 = new Trip();
+        s1.setRouteId(2);
+        s1.setTripId(1);
+        s1.setTripHeadsign("Pruszcz Komarowo(171) - Pruszcz Rondo Kociewskie(5831)");
+        trips.add(s1);
+
+        return trips;
+
+    }
 
 
 }

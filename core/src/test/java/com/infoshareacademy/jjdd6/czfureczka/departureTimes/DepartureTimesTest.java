@@ -22,6 +22,7 @@ class DepartureTimesTest {
         Repository.getInstance().setRoutes(fake.fakeRoutes());
         Repository.getInstance().setStopsInTrip(fake.fakeStopInTrip());
         Repository.getInstance().setStopTimes(fake.fakeStopTimes());
+        Repository.getInstance().setTrips(fake.fakeTrip());
     }
 
     private DepartureTimes departureTimes = new DepartureTimes();
@@ -33,7 +34,7 @@ class DepartureTimesTest {
         List<String> times = new ArrayList<>();
         times.add("19:00:00");
         times.add("19:10:00");
-        result.put("2[Pruszcz Komarowo - Pruszcz Rondo Kociewskiego]", times);
+        result.put("2[Pruszcz Komarowo - Pruszcz Rondo Kociewskie]", times);
         Assertions.assertThat(departureTimes.departureTimes("Akademia Muzyczna"))
                 .isNotNull()
                 .isEqualTo(result);
