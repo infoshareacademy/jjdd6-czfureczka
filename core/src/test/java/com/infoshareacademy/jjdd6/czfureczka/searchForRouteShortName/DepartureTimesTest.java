@@ -1,6 +1,6 @@
 package com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName;
 
-import com.infoshareacademy.jjdd6.czfureczka.directconnection.DirectConnection;
+import com.infoshareacademy.jjdd6.czfureczka.departureTimes.DepartureTimes;
 import com.infoshareacademy.jjdd6.czfureczka.fakeData.FakeData;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import org.assertj.core.api.Assertions;
@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DepartureTimesTest {
 

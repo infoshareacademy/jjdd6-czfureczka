@@ -1,10 +1,13 @@
-package com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName;
+package com.infoshareacademy.jjdd6.czfureczka.departureTimes;
 
 import com.infoshareacademy.jjdd6.czfureczka.model.*;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
+import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.RouteIdForStopId;
+import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.StopIdForStopDesc;
 
 import java.sql.Time;
 import java.util.*;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class DepartureTimes {
@@ -19,6 +22,8 @@ public class DepartureTimes {
         Map<String, List<String>> departureTimes = departureTime(stopDesc);
         return departureTimes;
     }
+
+    private Logger logger = Logger.getLogger(DepartureTimes.class.getName());
 
     private Map<String, List<String>> departureTime(String stopDesc, String departurTime) {
 
@@ -57,7 +62,7 @@ public class DepartureTimes {
 
                 List<String> firstTime = firstTime(stops, stopIds, trip);
 
-                List<String> secondTime = time(firstTime);
+                List<String> secondTime = secondTime(firstTime);
 
                 List<Time> times = secondTime.stream()
                         .map(Time::valueOf)
@@ -87,7 +92,7 @@ public class DepartureTimes {
                 departure.put(routeId + tripHeadsign, timeOfDeparture);
             }
         }
-        System.out.println(Collections.singletonList(departure));
+
         return departure;
     }
 
@@ -128,13 +133,13 @@ public class DepartureTimes {
 
                 List<String> firstTime = firstTime(stops, stopIds, trip);
 
-                List<String> secondTime = time(firstTime);
+                List<String> secondTime = secondTime(firstTime);
 
                 departure.put(routeId + tripHeadsign, secondTime);
             }
         }
 
-        System.out.println(Collections.singletonList(departure));
+        // System.out.println(Collections.singletonList(departure));
         return departure;
     }
 
@@ -186,7 +191,7 @@ public class DepartureTimes {
         return firstTime;
     }
 
-    private List<String> time(List<String> firstTime) {
+    private List<String> secondTime(List<String> firstTime) {
 
         final String date = "1899-12-30";
         final String date1 = "1899-12-31";
