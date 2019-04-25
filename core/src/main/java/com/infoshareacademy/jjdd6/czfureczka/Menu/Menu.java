@@ -51,8 +51,8 @@ public class Menu {
                     loop = relacja.run();
                     break;
                 case 3:
-                    DepartureFromStationOnTime czasy = new DepartureFromStationOnTime();
-                    loop = czasy.run();
+                    DepartureFromStationOnTime times = new DepartureFromStationOnTime();
+                    loop = times.run();
                 case 4:
                     loop = true;
                     break;
