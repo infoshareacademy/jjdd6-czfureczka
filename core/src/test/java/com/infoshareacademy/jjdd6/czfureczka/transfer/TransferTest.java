@@ -21,6 +21,7 @@ class TransferTest {
         Repository.getInstance().setStops(fake.fakeStops());
         Repository.getInstance().setRoutes(fake.fakeRoutes());
         Repository.getInstance().setStopsInTrip(fake.fakeStopInTrip());
+
     }
 
     private Transfer transfer = new Transfer();

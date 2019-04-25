@@ -1,9 +1,12 @@
 package com.infoshareacademy.jjdd6.czfureczka.Menu;
 
+import com.infoshareacademy.jjdd6.czfureczka.departureTimes.DepartureTimes;
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.SearchForRouteShortName;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class DepartureFromStation {
@@ -24,6 +27,10 @@ public class DepartureFromStation {
         List<String> stops = searchForRouteShortName.lookingForShortName(start);
         System.out.println("Przystanek " + start.toUpperCase() + " - dostepne polaczenia: ");
         System.out.println(String.join(", ", stops));
+        System.out.println("Rozkład");
+        DepartureTimes departureTimes = new DepartureTimes();
+        Map<String, List<String>> departure = departureTimes.departureTimes(start);
+        System.out.println(Collections.singletonList(departure));
 
         System.out.println(" ");
         System.out.println(" ");
@@ -39,7 +46,7 @@ public class DepartureFromStation {
             System.out.print("Twoj wybor: ");
             option = menu.run2();
         }
-        return option !=1;
+        return option != 1;
 
     }
 }
