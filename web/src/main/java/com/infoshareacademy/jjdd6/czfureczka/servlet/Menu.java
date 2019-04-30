@@ -2,6 +2,10 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
 import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
+import com.infoshareacademy.jjdd6.czfureczka.database.RouteStatistic;
+import com.infoshareacademy.jjdd6.czfureczka.database.RouteStatisticDao;
+import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
+import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import freemarker.template.Template;
@@ -15,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +39,11 @@ public class Menu extends HttpServlet {
     @Inject
     ListRoute listRoute;
 
+    @Inject
+    StopStatisticDao stopStatisticDao;
+
+    @Inject
+    RouteStatisticDao routeStatisticDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -51,14 +61,20 @@ public class Menu extends HttpServlet {
             String stop = req.getParameter("stop");
             Boolean result = listStops.checkNameOfStop(stop);
             model.put("stopDesc", result);
-
+            if (result){
+                LocalDate now = LocalDate.now();
+                stopStatisticDao.save(new StopStatistic(stop, now));
+            }
         }
 
         if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
             String routeId = req.getParameter("routeId");
-            Boolean result2 = listRoute.checkNameOfRoute(routeId);
-            model.put("routeId", result2);
-
+            Boolean result = listRoute.checkNameOfRoute(routeId);
+            model.put("routeId", result);
+            if (result){
+                LocalDate now = LocalDate.now();
+                routeStatisticDao.save(new RouteStatistic(routeId, now));
+            }
         }
 
         List<String> names = listStops.getListAllStops();

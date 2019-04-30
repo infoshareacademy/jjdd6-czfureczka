@@ -1,12 +1,10 @@
 package com.infoshareacademy.jjdd6.czfureczka.core;
 
-import com.infoshareacademy.jjdd6.czfureczka.interceptors.StatisticSearchedStops;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.interceptor.Interceptors;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +14,6 @@ public class ListStops {
     @Inject
     Validation validation;
 
-    @Interceptors(StatisticSearchedStops.class)
     public boolean checkNameOfStop(String name){
 
         return validation.validationOfStopName(name);
