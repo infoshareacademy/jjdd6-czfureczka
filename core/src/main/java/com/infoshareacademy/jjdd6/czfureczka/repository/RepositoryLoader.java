@@ -63,7 +63,7 @@ public class RepositoryLoader {
 
     private List<Stop> loadStops(String path) throws IOException {
         File stopsFile = new File(path, "stops.json");
-        logger.info("Loading expedition data from file: " + stopsFile.getAbsolutePath());
+        logger.info("Loading stops data from file: " + stopsFile.getAbsolutePath());
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, StopsWithDate>>() {
         };
@@ -73,7 +73,7 @@ public class RepositoryLoader {
 
     private List<Route> loadLines(String path) throws IOException {
         File linesFile = new File(path, "routes.json");
-        logger.info("Loading expedition data from file: " + linesFile.getAbsolutePath());
+        logger.info("Loading routes data from file: " + linesFile.getAbsolutePath());
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, RoutesWithDate>>() {
         };
@@ -83,7 +83,7 @@ public class RepositoryLoader {
 
     private Map<String, TripsWithDate> loadTrips(String path) throws IOException {
         File tripsFile = new File(path, "trips.json");
-        logger.info("Loading expedition data from file: " + tripsFile.getAbsolutePath());
+        logger.info("Loading trips data from file: " + tripsFile.getAbsolutePath());
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, TripsWithDate>>() {
         };
@@ -92,7 +92,7 @@ public class RepositoryLoader {
 
     private Map<String, StopsInTripWithDate> loadStopsInTrip(String path) throws IOException {
         File stopsInTripFile = new File(path, "stopsintrips.json");
-        logger.info("Loading expedition data from file: " + stopsInTripFile.getAbsolutePath());
+        logger.info("Loading stopsintrips data from file: " + stopsInTripFile.getAbsolutePath());
         ObjectMapper mapper = getJsonObjectMapper();
         TypeReference mapType = new TypeReference<HashMap<String, StopsInTripWithDate>>() {
         };
@@ -105,7 +105,7 @@ public class RepositoryLoader {
         List<Timetable> list = stopTimesConfig.getStopTimes();
         for (Timetable timetable : list) {
             File stopTimesFile = new File(path, timetable.getFile());
-            logger.info("Loading expedition data from file: " + stopTimesFile.getAbsolutePath());
+            logger.info("Loading stopTimes data from file: " + stopTimesFile.getAbsolutePath());
             ObjectMapper mapper = getJsonObjectMapper();
             stopTimes.put(timetable.getRouteId(), mapper.readValue(stopTimesFile, StopTimesWithDate.class));
         }
@@ -114,7 +114,7 @@ public class RepositoryLoader {
 
     private StopTimesConfig loadConfig(String path) throws IOException {
         File stopTimesConfigFile = new File(path, "config.json");
-        logger.info("Loading expedition data from file: " + stopTimesConfigFile.getAbsolutePath());
+        logger.info("Loading config data from file: " + stopTimesConfigFile.getAbsolutePath());
         ObjectMapper mapper = getJsonObjectMapper();
         return mapper.readValue(stopTimesConfigFile, StopTimesConfig.class);
     }
