@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Witaj!</h1>
-
+<p>Liczba wejsc: ${counter}</p>
 <#list stops>
     <#items as names>
         <ul>
