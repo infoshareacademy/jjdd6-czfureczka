@@ -3,9 +3,11 @@ package com.infoshareacademy.jjdd6.czfureczka.validation;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 
 
+import javax.ejb.Stateless;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+@Stateless
 public class Validation {
 
     public boolean validationOfStopName(String stopName) {

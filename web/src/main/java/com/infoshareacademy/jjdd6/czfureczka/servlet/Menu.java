@@ -1,6 +1,9 @@
 package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
+import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
+import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
+import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -28,6 +31,10 @@ public class Menu extends HttpServlet {
     @Inject
     ListStops listStops;
 
+    @Inject
+    ListRoute listRoute;
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -39,7 +46,22 @@ public class Menu extends HttpServlet {
 
         Template template = templateProvider.getTemplate(getServletContext(), "menu.ftlh");
         Map<String, Object> model = new HashMap<>();
-        List<String> names = listStops.getListStops();
+
+        if (req.getParameter("stop") != null && !req.getParameter("stop").isEmpty()) {
+            String stop = req.getParameter("stop");
+            Boolean result = listStops.checkNameOfStop(stop);
+            model.put("stopDesc", result);
+
+        }
+
+        if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
+            String routeId = req.getParameter("routeId");
+            Boolean result2 = listRoute.checkNameOfRoute(routeId);
+            model.put("routeId", result2);
+
+        }
+
+        List<String> names = listStops.getListAllStops();
 
         model.put("stops", names);
         model.put("counter", newCounter);
