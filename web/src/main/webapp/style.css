@@ -1,0 +1,28 @@
+#logo-background
+{
+    background-color: mediumseagreen;
+    color: white;
+}
+
+.navbar-bg
+{
+    background-color: mediumseagreen !important;
+}
+
+#logo
+{
+    padding: 5px;
+}
+
+.logo-image
+{
+    height: 56px;
+    text-align: left;
+    margin-top: 7px;
+}
+
+#logo-text
+{
+    font-size: 48px;
+    text-align: right;
+}
