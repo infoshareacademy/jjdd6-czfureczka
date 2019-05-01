@@ -13,9 +13,9 @@ public class RouteStatistic {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "routeName")
+    @Column(name = "name")
     @NotNull
-    private String routeName;
+    private String name;
 
     @Column(name = "date")
     @NotNull
@@ -24,7 +24,7 @@ public class RouteStatistic {
     public RouteStatistic(){}
 
     public RouteStatistic(@NotNull String routeName, @NotNull LocalDate date) {
-        this.routeName = routeName;
+        this.name = routeName;
         this.date = date;
     }
 
@@ -36,12 +36,12 @@ public class RouteStatistic {
         this.id = id;
     }
 
-    public String getRouteName() {
-        return routeName;
+    public String getName() {
+        return name;
     }
 
-    public void setRouteName(String routeName) {
-        this.routeName = routeName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDate getDate() {
@@ -56,7 +56,7 @@ public class RouteStatistic {
     public String toString() {
         final StringBuffer sb = new StringBuffer("RouteStatistic{");
         sb.append("id=").append(id);
-        sb.append(", routeName='").append(routeName).append('\'');
+        sb.append(", name='").append(name).append('\'');
         sb.append(", date=").append(date);
         sb.append('}');
         return sb.toString();

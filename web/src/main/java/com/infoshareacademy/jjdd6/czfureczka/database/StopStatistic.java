@@ -13,9 +13,9 @@ public class StopStatistic {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "stopName")
+    @Column(name = "name")
     @NotNull
-    private String stopName;
+    private String name;
 
     @Column(name = "date")
     @NotNull
@@ -24,7 +24,7 @@ public class StopStatistic {
     private StopStatistic(){}
 
     public StopStatistic(@NotNull String stopName, @NotNull LocalDate date) {
-        this.stopName = stopName;
+        this.name = stopName;
         this.date = date;
     }
 
@@ -36,12 +36,12 @@ public class StopStatistic {
         this.id = id;
     }
 
-    public String getStopName() {
-        return stopName;
+    public String getName() {
+        return name;
     }
 
-    public void setStopName(String stopName) {
-        this.stopName = stopName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDate getDate() {
@@ -56,7 +56,7 @@ public class StopStatistic {
     public String toString() {
         final StringBuffer sb = new StringBuffer("StopStatistic{");
         sb.append("id=").append(id);
-        sb.append(", stopName='").append(stopName).append('\'');
+        sb.append(", name='").append(name).append('\'');
         sb.append(", date=").append(date);
         sb.append('}');
         return sb.toString();

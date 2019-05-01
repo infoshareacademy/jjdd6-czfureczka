@@ -4,4 +4,5 @@ import javax.ejb.Stateless;
 
 @Stateless
 public class StopStatisticDao extends GenericDao<StopStatistic, Integer> {
+
 }

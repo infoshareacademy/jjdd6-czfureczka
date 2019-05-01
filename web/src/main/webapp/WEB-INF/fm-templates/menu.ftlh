@@ -21,23 +21,15 @@
 
     <form enctype="multipart/form-data">
         Przystanek: <input type="text" name="stop" placeholder="Przystanek"><br/><br/>
-        Linia: <input type="number" min="1" name="routeId" placeholder="2"><br/><br/>
+        Linia: <input type="number" min="2" name="routeId" placeholder="2"><br/><br/>
         <input type="submit" name="save" value="Sprawdź"/><br/><br/>
     </form>
 
     <p>Przystanek: ${(stopDesc?string('yes', 'no'))! ""}</p>
     <p> Linia: ${(routeId?string('yes', 'no'))! ""}</p>
 
-    <#--<#list stops>-->
-    <#--    <#items as names>-->
-    <#--        <ul>-->
-    <#--            <li>${names}</li>-->
-    <#--        </ul>-->
-    <#--    </#items>-->
-    <#--</#list>-->
     <#include "copyright-footer.ftlh">
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -46,7 +38,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script src="/js/menu.js"></script>
-
 </body>
 </html>

@@ -9,6 +9,25 @@
     background-color: mediumseagreen !important;
 }
 
+.nav-image
+{
+    height: 40px;
+    width: 35px;
+}
+
+.heading-statistics
+{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.form-statistics
+{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
 #logo
 {
     padding: 5px;
@@ -16,7 +35,7 @@
 
 .logo-image
 {
-    height: 56px;
+    height: 50px;
     text-align: left;
     margin-top: 7px;
 }

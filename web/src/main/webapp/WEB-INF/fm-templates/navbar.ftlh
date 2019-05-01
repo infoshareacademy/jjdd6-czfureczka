@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-dark navbar-bg navbar-expand-md">
-        <img class="navbar-brand d-inline-block align-bottom logo-image" src="/image/autobus.png" alt="Bus">
+        <img class="navbar-brand d-inline-block align-bottom nav-image mr-0" src="/image/autobus.png" alt="Bus">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>

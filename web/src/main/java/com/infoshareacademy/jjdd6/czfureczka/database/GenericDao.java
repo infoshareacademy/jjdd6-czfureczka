@@ -4,7 +4,9 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Stateless
 public class GenericDao<K, T> {
@@ -36,5 +38,15 @@ public class GenericDao<K, T> {
         final Query query = entityManager.createQuery("SELECT t FROM " + c.getName() +" t");
 
         return query.getResultList();
+    }
+
+    public Map<String, String> findPopular(Class<K> c){
+        final Query query = entityManager.createQuery("select name, count (*) from " + c.getName() + " k group by name");
+        List<Object[]> listObjects = query.getResultList();
+        Map<String, String> result = new HashMap<>();
+        for (int i = 0; i < listObjects.size(); i++) {
+            result.put(listObjects.get(i)[0].toString(), listObjects.get(i)[1].toString());
+        }
+        return result;
     }
 }
