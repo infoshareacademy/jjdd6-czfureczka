@@ -4,10 +4,12 @@ import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.RouteIdForS
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.RouteShortNamesForRouteId;
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.StopIdForStopDesc;
 
+import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Stateless
 public class DirectConnection {
 
     public List<String> checkSharedTrip(String startingStop, String endingStop) {

@@ -21,7 +21,7 @@ public class StopStatistic {
     @NotNull
     private LocalDate date;
 
-    private StopStatistic(){}
+    public StopStatistic(){}
 
     public StopStatistic(@NotNull String stopName, @NotNull LocalDate date) {
         this.name = stopName;

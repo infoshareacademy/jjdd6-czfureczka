@@ -1,47 +1,53 @@
-#logo-background
-{
+.content{
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+#logo-background {
     background-color: mediumseagreen;
     color: white;
 }
 
-.navbar-bg
-{
+.navbar-bg {
     background-color: mediumseagreen !important;
 }
 
-.nav-image
-{
+.nav-image {
     height: 40px;
     width: 35px;
 }
 
-.heading-statistics
-{
+.heading-statistics {
     text-align: center;
     margin-top: 40px;
     margin-bottom: 10px;
 }
-.form-statistics
-{
+
+.form-statistics {
     text-align: center;
     margin-top: 60px;
     margin-bottom: 10px;
 }
 
-#logo
-{
+.form-sidebar {
+    background-color: mediumseagreen;
+    padding-top: 6vh;
+    padding-bottom: 60vh;
+    text-align: left;
+    color: white;
+}
+
+#logo {
     padding: 5px;
 }
 
-.logo-image
-{
+.logo-image {
     height: 50px;
     text-align: left;
     margin-top: 7px;
 }
 
-#logo-text
-{
+#logo-text {
     font-size: 48px;
     text-align: right;
 }

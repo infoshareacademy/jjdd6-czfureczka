@@ -2,6 +2,8 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
 import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
+import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStop;
+import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStopDao;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -27,6 +29,9 @@ public class StopsServlet extends HttpServlet {
     TemplateProvider templateProvider;
 
     @Inject
+    PromotedStopDao promotedStopDao;
+
+    @Inject
     ListStops listStops;
 
     @Inject
@@ -50,5 +55,12 @@ public class StopsServlet extends HttpServlet {
         } catch (TemplateException e) {
             logger.severe(e.getMessage());
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        logger.info("Method doPost; request parameters: 'nameStop': " +req.getParameter("nameStop") + " and 'tag': "+ req.getParameter("tag"));
+        TransferServlet.savePromotedStop(req, listStops, promotedStopDao);
+
     }
 }
