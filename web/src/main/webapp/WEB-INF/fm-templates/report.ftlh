@@ -60,13 +60,15 @@
         </div>
     </div>
     <div class="row">
-        <form enctype="multipart/form-data"  class="form-statistics col-12">
+        <form enctype="multipart/form-data" class="form-statistics col-12">
 
-            <p>Ilość przystanków w rankingu: <input type="number" min="1" name="popularStops" value="1"></p>
-
-            <p>Ilość linii w rankingu: <input type="number" min="1" name="popularRoutes" value="1"></p>
-
-            <input type="submit" value="Wyświetl"/>
+            <label class="align-baseline mr-1">Ilość przystanków w rankingu:</label>
+            <label> <input type="number" min="1" name="popularStops" value="1"></label>
+            <br/>
+            <label class="align-baseline mr-1">Ilość linii w rankingu:</label>
+            <label><input type="number" min="1" name="popularRoutes" value="1"></label>
+            <br/>
+            <label><input type="submit" value="Wyświetl"/></label>
         </form>
 
 

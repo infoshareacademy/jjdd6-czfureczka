@@ -3,7 +3,7 @@
         <h3 class="heading-statistics">Ulubiony przystanek</h3>
 
         <div class="form-group">
-            <label for="nameStopText">Nazwa przystanku: </label>
+            <label for="nameStopText" class="align-baseline mr-1">Nazwa przystanku: </label>
             <input type="text" name="nameStop" placeholder="Przystanek" list="stopsList" />
             <#if stops??>
             <datalist id="stopsList">
@@ -16,7 +16,8 @@
             </#if>
         </div>
         <div class="form-group">
-            <label for="tagStop">Tag przystanku:
+            <label for="tagStop" class="align-baseline mr-1">Tag przystanku:</label>
+            <label>
             <input type="text" name="tag" class="form-control" value="Ulubiony">
             </label>
         </div>
