@@ -2,6 +2,7 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
 import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
+import com.infoshareacademy.jjdd6.czfureczka.core.Trip;
 import com.infoshareacademy.jjdd6.czfureczka.database.*;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
@@ -17,10 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @WebServlet("/menu")
 public class Menu extends HttpServlet {
@@ -45,6 +48,9 @@ public class Menu extends HttpServlet {
     @Inject
     PromotedStopDao promotedStopDao;
 
+    @Inject
+    Trip trip;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -57,9 +63,11 @@ public class Menu extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "menu.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        if (req.getParameter("stop") != null && !req.getParameter("stop").isEmpty()) {
-            String stop = req.getParameter("stop");
+        if (req.getParameter("initialStop") != null && !req.getParameter("initialStop").isEmpty()) {
+            String stop = req.getParameter("initialStop");
+            stop = trip.cropTagFromStopName(stop);
             Boolean result = listStops.checkNameOfStop(stop);
+            logger.info("The given stop exists: " + result.toString());
             model.put("stopDesc", result);
             if (result){
                 LocalDate now = LocalDate.now();
@@ -70,6 +78,7 @@ public class Menu extends HttpServlet {
         if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
             String routeId = req.getParameter("routeId");
             Boolean result = listRoute.checkNameOfRoute(routeId);
+            logger.info("The given route exists: " + result.toString());
             model.put("routeId", result);
             if (result){
                 LocalDate now = LocalDate.now();
@@ -80,6 +89,10 @@ public class Menu extends HttpServlet {
         List<String> names = listStops.getListAllStops();
 
         model.put("stops", names);
+        model.put("promotedStops", promotedStopDao.findAll(PromotedStop.class).stream()
+                .sorted(Comparator.comparing(PromotedStop::getTag))
+                .distinct()
+                .collect(Collectors.toList()));
         model.put("counter", newCounter);
 
         try {

@@ -33,7 +33,8 @@
                     </span>
                         </li>
                     </ol>
-
+                <#else>
+                    <p>Brak danych</p>
                 </#if>
             </div>
         </div>
@@ -54,7 +55,8 @@
                     </span>
                         </li>
                     </ol>
-
+                <#else>
+                    <p>Brak danych</p>
                 </#if>
             </div>
         </div>
@@ -68,7 +70,7 @@
             <label class="align-baseline mr-1">Ilość linii w rankingu:</label>
             <label><input type="number" min="1" name="popularRoutes" value="1"></label>
             <br/>
-            <label><input type="submit" value="Wyświetl"/></label>
+            <label><input class="btn" type="submit" value="Wyświetl" id="button-check"/></label>
         </form>
 
 
@@ -91,6 +93,8 @@
 
                             </#items>
                         </#list>
+                    <#else>
+                        <p>Brak danych</p>
                     </#if>
 
                 </ol>
@@ -116,6 +120,8 @@
 
                             </#items>
                         </#list>
+                    <#else>
+                        <p>Brak danych</p>
                     </#if>
 
                 </ol>

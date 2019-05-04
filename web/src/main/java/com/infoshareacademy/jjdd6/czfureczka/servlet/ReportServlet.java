@@ -39,19 +39,28 @@ public class ReportServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "report.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        model.put("result", popularStop.getMostPopularStop());
+        if (popularStop.getAll().size() != 0) {
+            model.put("result", popularStop.getMostPopularStop());
 
-        if (req.getParameter("popularStops") != null && !req.getParameter("popularStops").isEmpty()){
-            Integer limit = Integer.valueOf(req.getParameter("popularStops"));
-            model.put("popularStops", popularStop.getSortStops(limit));
+            if (req.getParameter("popularStops") != null && !req.getParameter("popularStops").isEmpty()) {
+                Integer limit = Integer.valueOf(req.getParameter("popularStops"));
+                model.put("popularStops", popularStop.getSortStops(limit));
+            } else {
+                model.put("popularStops", popularStop.getSortStops(1));
+            }
         }
 
-        model.put("resultRoute", popularRoute.getMostPopularRoute());
+        if (popularRoute.getAll().size() != 0) {
+            model.put("resultRoute", popularRoute.getMostPopularRoute());
 
-        if (req.getParameter("popularRoutes") != null && !req.getParameter("popularRoutes").isEmpty()){
-            Integer limit = Integer.valueOf(req.getParameter("popularRoutes"));
-            model.put("popularRoutes", popularRoute.getSortRoutes(limit));
+            if (req.getParameter("popularRoutes") != null && !req.getParameter("popularRoutes").isEmpty()) {
+                Integer limit = Integer.valueOf(req.getParameter("popularRoutes"));
+                model.put("popularRoutes", popularRoute.getSortRoutes(limit));
+            } else {
+                model.put("popularRoutes", popularRoute.getSortRoutes(1));
+            }
         }
+
         logger.info("Keys in template model: " + model.keySet().stream().collect(Collectors.joining(", ")));
 
         try {

@@ -15,14 +15,16 @@
 
 
 <div class="container content">
-    <h3>Wyznaczanie trasy</h3>
 
+    <div class="col-12">
+        <h3 class="heading-statistics">Wyznaczanie trasy</h3>
+    </div>
 
     <div class="row">
         <form class="col-12" id="trip">
             <#include "initialStop.ftlh">
             <#include "destinationStop.ftlh">
-            <input type="submit" name="search" value="Szukaj"/>
+            <input class="btn" type="submit" name="search" value="Szukaj" id="button-check"/>
         </form>
     </div>
 

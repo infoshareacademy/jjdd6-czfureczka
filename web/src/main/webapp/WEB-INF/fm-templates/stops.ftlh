@@ -24,48 +24,51 @@
 <#include "logo.ftlh">
 <#include "navbar.ftlh">
 
-<div class="container">
+<div class="container content">
     <h3 class="heading-statistics">Najbliższy odjazd</h3>
 
     <div class="row">
         <form class="col-12">
             <#include "initialStop.ftlh">
             <#include "timePicker.ftlh">
-            <input type="submit" name="search" value="Szukaj"/>
+            <input class="btn" type="submit" name="search" value="Szukaj" id="button-check"/>
         </form>
     </div>
 
-    <#if result??>
-        <div class="row">
-            <div class="col-12">
+    <div>
+        <#if result??>
+            <div class="row">
+                <div class="col-12">
 
-                <ol>
+                    <ol>
 
-                    <#list result>
-                        <#items as timetableForStop>
-                            <li>
-                                Możesz pojechać następującą linią:
-                                <span>${timetableForStop.routeId}, </span><br/>
+                        <#list result>
+                            <#items as timetableForStop>
+                                <li>
+                                    Możesz pojechać następującą linią:
+                                    <span>${timetableForStop.routeId}, </span><br/>
 
-                                Odjazdy są o:
+                                    Odjazdy są o:
 
-                                <#list timetableForStop.time>
-                                    <#items as time>
-                                        <span>${time},</span>
-                                    </#items>
-                                </#list>
-                                <br/><br/>
-                            </li>
-                        </#items>
-                    </#list>
+                                    <#list timetableForStop.time>
+                                        <#items as time>
+                                            <span>${time},</span>
+                                        </#items>
+                                    </#list>
+                                    <br/><br/>
+                                </li>
+                            </#items>
+                        </#list>
 
-                </ol>
+                    </ol>
 
+                </div>
             </div>
-        </div>
-    </#if>
-
-    <#include "copyright-footer.ftlh">
+        </#if>
+    </div>
+    <div style="margin-top: 20px">
+        <#include "copyright-footer.ftlh">
+    </div>
 </div>
 
 

@@ -16,16 +16,16 @@ public class PopularStop {
     @Inject
     StopStatisticDao statisticDao;
 
-    public StopCount getMostPopularStop(){
+    public StopCount getMostPopularStop() {
         List<StopCount> test = getSortStops(1);
         return test.get(0);
     }
 
-    public List<StopStatistic> getAll(){
+    public List<StopStatistic> getAll() {
         return statisticDao.findAll(StopStatistic.class);
     }
 
-    public List<StopCount> getSortStops(Integer limit){
+    public List<StopCount> getSortStops(Integer limit) {
         List<StopCount> result = new ArrayList<>();
         Map<String, String> popularStops = statisticDao.findPopular(StopStatistic.class);
         Integer iter = popularStops.size();

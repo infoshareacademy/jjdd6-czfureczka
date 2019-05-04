@@ -1,6 +1,5 @@
 package com.infoshareacademy.jjdd6.czfureczka.core;
 
-import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStopDao;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
 import com.infoshareacademy.jjdd6.czfureczka.departureTimes.DepartureTimes;
@@ -13,10 +12,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 @Stateless
 public class DepartureWithTime {
 
+    private static final Logger logger = Logger.getLogger(DepartureWithTime.class.getName());
 
     @Inject
     StopStatisticDao stopStatisticDao;
@@ -32,6 +33,7 @@ public class DepartureWithTime {
 
     public List<TimetableForStop> getTimetableForStop(String name, String time) {
         Map<String, List<String>> timetable = getTimetable(name, time);
+        logger.info("Timetable size: " + timetable.size());
         List<String> routes = new ArrayList<>(timetable.keySet());
         List<TimetableForStop> result = new ArrayList<>();
 
@@ -59,7 +61,9 @@ public class DepartureWithTime {
                 stopStatisticDao.save(new StopStatistic(name, now));
                 return departureTimes.departureTimes(name, time);
             }
+            logger.info("Incorrect name of the stop.");
         }
+        logger.info("Incorrect time.");
         return new HashMap<>();
     }
 }

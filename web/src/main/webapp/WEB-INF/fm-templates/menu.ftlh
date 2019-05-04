@@ -17,19 +17,52 @@
 
 
 <div class="container">
+
     <#include "sidebar.ftlh">
-    <p>Liczba wejsc: ${counter}</p>
 
-    <form enctype="multipart/form-data">
-        Przystanek: <input type="text" name="stop" placeholder="Przystanek"><br/><br/>
-        Linia: <input type="number" min="2" name="routeId" placeholder="2"><br/><br/>
-        <input type="submit" name="save" value="Sprawdź"/><br/><br/>
-    </form>
+    <div class="row">
 
-    <p>Przystanek: ${(stopDesc?string('yes', 'no'))! ""}</p>
-    <p> Linia: ${(routeId?string('yes', 'no'))! ""}</p>
+        <div class="col-12">
+            <h3 class="heading-statistics">Sprawdź czy podany przystanek/linia istnieje</h3>
+        </div>
 
-    <#include "copyright-footer.ftlh">
+        <div class="col-12">
+            <form class="menu-form">
+                <div class="form-group">
+                    <label for="initialStop" class="align-baseline mr-1">Przystanek:</label>
+                    <label><#include "inputListStopsWithTags.ftlh"></label>
+                </div>
+
+                <div class="form-group">
+                    <label for="routeId" class="align-baseline mr-1">Linia:</label>
+                    <label><input type="number" min="2" name="routeId" id="routeId" class="form-control"
+                                  placeholder="2"></label>
+                </div>
+
+                <input class="btn" type="submit" name="save" value="Sprawdź" id="button-check"/>
+
+            </form>
+        </div>
+
+        <div class="col-12" style="text-align: center; margin-top: 2%">
+            <#if stopDesc??>
+                <p>Przystanek: ${(stopDesc?string('TAK', 'NIE'))! ""}</p>
+            </#if>
+            <#if routeId??>
+                <p> Linia: ${(routeId?string('TAK', 'NIE'))! ""}</p>
+            </#if>
+        </div>
+
+        <div class="col-12 counter">
+            <p>
+                <small>Liczba wejść: ${counter}</small>
+            </p>
+        </div>
+
+        <div class="col-12" style="text-align: center">
+            <#include "copyright-footer.ftlh">
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>

@@ -1,6 +1,7 @@
 .content{
     padding-left: 5%;
     margin-top: 40px;
+    text-align: center;
 }
 
 #logo-background {
@@ -52,4 +53,19 @@
 #button-save{
     color: white;
     background-color: mediumseagreen !important;
+}
+
+#button-check{
+    color: white;
+    background-color: mediumseagreen !important;
+}
+
+.menu-form{
+    text-align: center;
+}
+
+.counter{
+    margin-top: 5%;
+    color: darkgrey;
+    text-align: center;
 }
