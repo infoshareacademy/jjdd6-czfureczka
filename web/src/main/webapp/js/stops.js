@@ -2,10 +2,10 @@ $(function () {
 
     $(document).ready(function () {
 
-        $('#trip').submit(function () {
+        $('form').submit(function () {
 
             $.ajax({
-                url: '/transfer',
+                url: '/stops',
                 type: 'GET',
                 data: $(this).serializeArray(),
             });

@@ -2,10 +2,7 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
 import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
-import com.infoshareacademy.jjdd6.czfureczka.database.RouteStatistic;
-import com.infoshareacademy.jjdd6.czfureczka.database.RouteStatisticDao;
-import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
-import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
+import com.infoshareacademy.jjdd6.czfureczka.database.*;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import freemarker.template.Template;
@@ -44,6 +41,9 @@ public class Menu extends HttpServlet {
 
     @Inject
     RouteStatisticDao routeStatisticDao;
+
+    @Inject
+    PromotedStopDao promotedStopDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -87,6 +87,13 @@ public class Menu extends HttpServlet {
         } catch (TemplateException e) {
             logger.severe(e.getMessage());
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        logger.info("Method doPost; request parameters: 'nameStop': " +req.getParameter("nameStop") + " and 'tag': "+ req.getParameter("tag"));
+        TransferServlet.savePromotedStop(req, listStops, promotedStopDao);
+
     }
 
     private Cookie getCounterCookie(Cookie[] cookies) {

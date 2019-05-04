@@ -83,15 +83,6 @@ public class TransferServlet extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        logger.info("Method doPost; request parameters: 'nameStop': " + req.getParameter("nameStop") + " and 'tag': " + req.getParameter("tag"));
-
-        if (req.getParameter("nameStop") != null && !req.getParameter("nameStop").isEmpty()) {
-            savePromotedStop(req, listStops, promotedStopDao);
-        }
-
-    }
 
     static void savePromotedStop(HttpServletRequest req, ListStops listStops, PromotedStopDao promotedStopDao) {
         PromotedStop stop = new PromotedStop();

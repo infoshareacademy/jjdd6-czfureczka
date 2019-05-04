@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @WebServlet("/report")
 public class ReportServlet extends HttpServlet {
@@ -51,6 +52,7 @@ public class ReportServlet extends HttpServlet {
             Integer limit = Integer.valueOf(req.getParameter("popularRoutes"));
             model.put("popularRoutes", popularRoute.getSortRoutes(limit));
         }
+        logger.info("Keys in template model: " + model.keySet().stream().collect(Collectors.joining(", ")));
 
         try {
             template.process(model, resp.getWriter());

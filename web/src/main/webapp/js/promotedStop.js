@@ -5,7 +5,7 @@ $(function () {
         $('#sidebar').submit(function () {
 
             $.ajax({
-                url: '/stops',
+                url: '/menu',
                 type: 'POST',
                 data: $(this).serializeArray(),
                 success: function (result) {

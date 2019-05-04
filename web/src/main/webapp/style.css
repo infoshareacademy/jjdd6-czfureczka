@@ -1,6 +1,6 @@
 .content{
     padding-left: 5%;
-    padding-top: 5%;
+    margin-top: 40px;
 }
 
 #logo-background {
@@ -30,11 +30,8 @@
 }
 
 .form-sidebar {
-    background-color: mediumseagreen;
-    padding-top: 6vh;
-    padding-bottom: 60vh;
-    text-align: left;
-    color: white;
+    margin-top: 40px;
+    text-align: center;
 }
 
 #logo {
@@ -50,4 +47,9 @@
 #logo-text {
     font-size: 48px;
     text-align: right;
+}
+
+#button-save{
+    color: white;
+    background-color: mediumseagreen !important;
 }

@@ -57,10 +57,4 @@ public class StopsServlet extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        logger.info("Method doPost; request parameters: 'nameStop': " +req.getParameter("nameStop") + " and 'tag': "+ req.getParameter("tag"));
-        TransferServlet.savePromotedStop(req, listStops, promotedStopDao);
-
-    }
 }
