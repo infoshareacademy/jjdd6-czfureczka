@@ -42,7 +42,7 @@ public class FileUploadServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
 
-        Template template = templateProvider.getTemplate(getServletContext(), "uploadfile.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "upload.ftlh");
         Map<String, Object> model = new HashMap<>();
 
         try {
@@ -53,22 +53,28 @@ public class FileUploadServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
 
-        response.setContentType("text/html;charset=UTF-8");
+        resp.setContentType("text/html;charset=UTF-8");
 
-        Template template = templateProvider.getTemplate(getServletContext(), "uploadfile.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "uploadFile.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        final Part filePart = request.getPart("file");
+        try {
+            template.process(model, resp.getWriter());
+        } catch (TemplateException e) {
+            logger.severe(e.getMessage());
+        }
+
+        final Part filePart = req.getPart("file");
         String fileName = getFileName(filePart);
         String fileName1 = fileName.replaceAll("[a-zA-Z]+", "");
         int routeId = Integer.parseInt(fileName1.replaceAll("[.]", ""));
 
         OutputStream out = null;
         InputStream filecontent = null;
-        final PrintWriter writer = response.getWriter();
+        final PrintWriter writer = resp.getWriter();
 
         try {
             out = new FileOutputStream(new File(serverPath + File.separator + fileName));
@@ -80,12 +86,14 @@ public class FileUploadServlet extends HttpServlet {
             while ((read = filecontent.read(bytes)) != -1) {
                 out.write(bytes, 0, read);
             }
-            writer.println("Plik " + fileName + " został zapisany w " + serverPath);
+           logger.info("Plik " + fileName + " został zapisany pomyślnie");
+
 
         } catch (FileNotFoundException fne) {
-            writer.println("Missing file or no insufficient permissions.");
-            writer.println(" ERROR: " + fne.getMessage());
-        } finally {
+            logger.info("Missing file or no insufficient permissions.");
+            logger.severe(" ERROR: " + fne.getMessage());
+        }
+        finally {
             if (out != null) {
                 out.close();
             }
@@ -95,6 +103,8 @@ public class FileUploadServlet extends HttpServlet {
             if (writer != null) {
                 writer.close();
             }
+
+
         }
 
         try {
@@ -131,10 +141,8 @@ public class FileUploadServlet extends HttpServlet {
 
         if (repositoryLoader.load("data")) {
             logger.info("Data loaded");
-            writer.println("Data loaded");
         } else {
             logger.severe("Data could not be loaded");
-            writer.println("Data could not be loaded");
         }
     }
 
