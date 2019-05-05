@@ -4,6 +4,7 @@ import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
 import com.infoshareacademy.jjdd6.czfureczka.departureTimes.DepartureTimes;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
+import com.infoshareacademy.jjdd6.czfureczka.viewModel.TimetableForStop;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

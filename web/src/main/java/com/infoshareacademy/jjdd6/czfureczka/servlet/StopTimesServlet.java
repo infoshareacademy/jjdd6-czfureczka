@@ -1,5 +1,7 @@
 package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
+import com.infoshareacademy.jjdd6.czfureczka.agency.ModeOfTransportation;
+import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -23,12 +25,19 @@ public class StopTimesServlet extends HttpServlet {
     @Inject
     TemplateProvider templateProvider;
 
+    @Inject
+    ListRoute listRoute;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
 
         Template template = templateProvider.getTemplate(getServletContext(), "stopTimes.ftlh");
         Map<String, Object> model = new HashMap<>();
+
+        model.put("bus", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.BUS));
+        model.put("tram", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.TRAM));
+        model.put("trolleybus", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.TROLLEYBUS));
 
         try {
             template.process(model, resp.getWriter());

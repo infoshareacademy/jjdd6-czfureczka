@@ -14,9 +14,18 @@
 <#include "navbar.ftlh">
 
 
-<div class="container">
-    <h1>Rozkład jazdy</h1>
+<div class="container content">
+    <div class="row">
 
+        <div class="col-12">
+            <h3 class="heading-statistics">Rozkład jazdy</h3>
+        </div>
+
+            <#include "listTram.ftlh">
+            <#include "listBus.ftlh">
+            <#include "listTrolleybus.ftlh">
+
+    </div>
 
     <#include "copyright-footer.ftlh">
 </div>
@@ -28,6 +37,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
+<script src="/js/modeOfTransportation.js"></script>
 </body>
 </html>

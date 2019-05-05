@@ -1,4 +1,4 @@
-package com.infoshareacademy.jjdd6.czfureczka.core;
+package com.infoshareacademy.jjdd6.czfureczka.viewModel;
 
 import java.util.List;
 import java.util.Objects;

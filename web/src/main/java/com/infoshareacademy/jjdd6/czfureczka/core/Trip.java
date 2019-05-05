@@ -4,6 +4,7 @@ import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
 import com.infoshareacademy.jjdd6.czfureczka.directconnection.DirectConnection;
 import com.infoshareacademy.jjdd6.czfureczka.transfer.Transfer;
+import com.infoshareacademy.jjdd6.czfureczka.viewModel.TripWithTransfer;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
