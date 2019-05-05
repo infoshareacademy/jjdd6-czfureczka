@@ -17,7 +17,7 @@ public class DataProvider {
     public void initialize() {
         RepositoryLoader repositoryLoader = new RepositoryLoader();
 
-        if (repositoryLoader.load(System.getProperty("settingsPath"))) {
+        if (repositoryLoader.load("data")) {
             logger.info("Data loaded");
         } else {
             logger.severe("Data could not be loaded");

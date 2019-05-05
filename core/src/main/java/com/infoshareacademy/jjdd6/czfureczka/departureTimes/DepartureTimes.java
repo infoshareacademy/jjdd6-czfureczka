@@ -37,7 +37,7 @@ public class DepartureTimes {
 
         List<Integer> routShortNames = routShortNames(routeIds);
 
-        Map<String, List<String>> departure = new HashMap<>();
+        Map<String, List<String>> departure = new TreeMap<>();
 
         for (int i = 0; i < routShortNames.size(); i++) {
 
@@ -108,7 +108,7 @@ public class DepartureTimes {
 
         List<Integer> routShortNames = routShortNames(routeIds);
 
-        Map<String, List<String>> departure = new HashMap<>();
+        Map<String, List<String>> departure = new TreeMap<>();
 
         for (int i = 0; i < routShortNames.size(); i++) {
 

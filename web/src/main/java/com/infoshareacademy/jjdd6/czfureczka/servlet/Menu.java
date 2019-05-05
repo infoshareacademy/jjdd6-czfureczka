@@ -10,12 +10,12 @@ import freemarker.template.TemplateException;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import javax.servlet.http.*;
+import java.io.*;
+import java.net.URLDecoder;
+import java.nio.file.Files;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 @WebServlet("/menu")
+@MultipartConfig
 public class Menu extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(Menu.class.getName());
@@ -45,6 +46,9 @@ public class Menu extends HttpServlet {
     @Inject
     PromotedStopDao promotedStopDao;
 
+    private final static String serverPath = "/home/paula/wildfly-16.0.0.Final/data/";
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -57,11 +61,12 @@ public class Menu extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "menu.ftlh");
         Map<String, Object> model = new HashMap<>();
 
+
         if (req.getParameter("stop") != null && !req.getParameter("stop").isEmpty()) {
             String stop = req.getParameter("stop");
             Boolean result = listStops.checkNameOfStop(stop);
             model.put("stopDesc", result);
-            if (result){
+            if (result) {
                 LocalDate now = LocalDate.now();
                 stopStatisticDao.save(new StopStatistic(stop, now));
             }
@@ -71,7 +76,7 @@ public class Menu extends HttpServlet {
             String routeId = req.getParameter("routeId");
             Boolean result = listRoute.checkNameOfRoute(routeId);
             model.put("routeId", result);
-            if (result){
+            if (result) {
                 LocalDate now = LocalDate.now();
                 routeStatisticDao.save(new RouteStatistic(routeId, now));
             }
@@ -90,11 +95,18 @@ public class Menu extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        logger.info("Method doPost; request parameters: 'nameStop': " +req.getParameter("nameStop") + " and 'tag': "+ req.getParameter("tag"));
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        logger.info("Method doPost; request parameters: 'nameStop': " + req.getParameter("nameStop") + " and 'tag': " + req.getParameter("tag"));
         TransferServlet.savePromotedStop(req, listStops, promotedStopDao);
 
     }
+
+    private String getFileName(Part filePart) {
+        String header = filePart.getHeader("content-disposition");
+        String name = header.substring(header.indexOf("filename=\"") + 10);
+        return name.substring(0, name.indexOf("\""));
+    }
+
 
     private Cookie getCounterCookie(Cookie[] cookies) {
         if (cookies != null) {

@@ -1,6 +1,7 @@
 package com.infoshareacademy.jjdd6.czfureczka.model;
 
 public class Stop {
+
     private int stopId; //identyfikator słupka przystankowego unikalny w skali Trójmiasta
     private String stopCode; //numer słupka przystankowego unikalny w ramach przystanku
     private String stopName; //nazwa przystanku pochodząca z programu do układania rozkładu jazdy

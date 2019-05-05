@@ -42,6 +42,10 @@
                     <a class="nav-link" href="http://localhost:8080/report">Raport</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/upload">Dodawanie rozkładu</a>
+                </li>
+
             </ul>
 
         </div>
