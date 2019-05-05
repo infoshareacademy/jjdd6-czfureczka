@@ -14,16 +14,8 @@
                     <a class="nav-link" href="http://localhost:8080/menu">Start</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true">Rozkład jazdy</a>
-
-                    <div class="dropdown-menu" aria-labelledby="submenu">
-
-                        <a class="dropdown-item" href="http://localhost:8080/stopTimes">Autobusy</a>
-                        <a class="dropdown-item" href="http://localhost:8080/stopTimes">Tramwaje</a>
-
-                    </div>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/stopTimes">Rozkład jazdy</a>
                 </li>
 
                 <li class="nav-item">

@@ -3,6 +3,7 @@ package com.infoshareacademy.jjdd6.czfureczka.core;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
 import com.infoshareacademy.jjdd6.czfureczka.directconnection.DirectConnection;
+import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.transfer.Transfer;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.TripWithTransfer;
 
@@ -79,23 +80,23 @@ public class Trip {
                         if (processingStage == 0) {
                             if (!word.equals("przesiadka na:")) {
                                 routeStart.add(word);
-                            }else {
+                            } else {
                                 processingStage = 1;
                                 continue;
                             }
                         }
 
-                        if (processingStage == 1){
-                            if (!word.equals("następnie pojedź:")){
+                        if (processingStage == 1) {
+                            if (!word.equals("następnie pojedź:")) {
                                 tripWithTransfer.setStop(word);
-                            }else {
+                            } else {
                                 processingStage = 2;
                                 continue;
                             }
                         }
 
-                        if (processingStage == 2){
-                            if (!word.equals("Jesteś u celu!")){
+                        if (processingStage == 2) {
+                            if (!word.equals("Jesteś u celu!")) {
                                 routeEnd.add(word);
                             }
                         }
@@ -120,4 +121,10 @@ public class Trip {
         return longName;
     }
 
+    public boolean checkTripId(String tripId) {
+        if (Repository.getInstance().getTrips().stream().anyMatch(t -> t.getTripId() == Integer.valueOf(tripId))) {
+            return true;
+        }
+        return false;
+    }
 }

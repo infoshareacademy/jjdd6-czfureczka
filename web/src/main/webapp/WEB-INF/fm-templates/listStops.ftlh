@@ -17,8 +17,9 @@
 
                     <#list tripWithStops.stops>
                         <#items as stop>
-                            <button type="button" class="list-group-item list-group-item-action"
-                                    style="color: black;">${stop}</button>
+                            <button type="button" class="list-group-item list-group-item-action stop-button"
+                                    style="color: black;"
+                                    data="?stop=${stop}&routeId=${tripWithStops.routeId}&tripId=${tripWithStops.tripId}">${stop}</button>
                         </#items>
                     </#list>
 

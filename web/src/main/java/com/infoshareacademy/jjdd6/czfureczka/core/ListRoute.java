@@ -37,7 +37,14 @@ public class ListRoute {
     }
 
     public List<RouteWithModeOfTransportation> getListOfAllLinesForTypeVehicle(ModeOfTransportation type) {
+        List<Integer> stops = Repository.getInstance().getStopsInTrip().stream()
+                .filter(s -> s.getStopId() != 0)
+                .map(s->s.getRouteId())
+                .distinct()
+                .collect(Collectors.toList());
+
         return Repository.getInstance().getRoutes().stream()
+                .filter(r0 -> stops.contains(r0.getRouteId()))
                 .map(r -> new RouteWithModeOfTransportation(r.getRouteId(), r.getRouteShortName(), AgenciesModeOfTransportation.mapping.get(r.getAgencyId())))
                 .filter(r1 -> r1.getModeOfTransportation() == type)
                 .sorted()
@@ -62,7 +69,7 @@ public class ListRoute {
     }
 
     public List<TripWithStops> getListStopsInTrip(String route) {
-        if (checkNameOfRoute(route)) {
+        if (checkRouteId(route)) {
 
             Integer routeId = Integer.valueOf(route);
             List<Integer> tripsId = Repository.getInstance().getTrips().stream()
@@ -109,5 +116,18 @@ public class ListRoute {
             return tripWithStopsList;
         }
         return new ArrayList<>();
+    }
+
+    public boolean checkRouteId(String route){
+        if (Repository.getInstance().getRoutes().stream().anyMatch(r -> Integer.valueOf(route) == r.getRouteId())){
+            LocalDate now = LocalDate.now();
+            routeStatisticDao.save(new RouteStatistic(Repository.getInstance().getRoutes().stream()
+                    .filter(r -> r.getRouteId() == Integer.valueOf(route))
+                    .map(r -> r.getRouteShortName())
+                    .distinct()
+                    .collect(Collectors.toList()).get(0), now));
+            return true;
+        }
+        return false;
     }
 }

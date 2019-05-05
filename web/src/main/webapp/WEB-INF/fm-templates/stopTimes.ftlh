@@ -25,10 +25,15 @@
         <#include "listBus.ftlh">
         <#include "listTrolleybus.ftlh">
     </div>
+    <#if time??>
+        <#include "timetable.ftlh">
+    <#else>
         <#include "listStops.ftlh">
+    </#if>
 
-
-    <#include "copyright-footer.ftlh">
+    <div class="col-12" style="margin-top: 3%">
+        <#include "copyright-footer.ftlh">
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
