@@ -3,10 +3,9 @@ $(function () {
     $(document).ready(function () {
 
         $(".modeOfTransportation").click(function () {
-            $.ajax({
-                url: '/stopTimes?routeId=' + $(this).attr('data-id'),
-                type: 'GET'
-            })
+
+            window.location.replace('/stopTimes?routeId=' + $(this).attr('data-id'))
+
         })
     })
 });

@@ -21,11 +21,12 @@
             <h3 class="heading-statistics">Rozkład jazdy</h3>
         </div>
 
-            <#include "listTram.ftlh">
-            <#include "listBus.ftlh">
-            <#include "listTrolleybus.ftlh">
-
+        <#include "listTram.ftlh">
+        <#include "listBus.ftlh">
+        <#include "listTrolleybus.ftlh">
     </div>
+        <#include "listStops.ftlh">
+
 
     <#include "copyright-footer.ftlh">
 </div>

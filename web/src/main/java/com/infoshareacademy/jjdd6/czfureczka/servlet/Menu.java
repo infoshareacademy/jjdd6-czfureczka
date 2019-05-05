@@ -43,9 +43,6 @@ public class Menu extends HttpServlet {
     StopStatisticDao stopStatisticDao;
 
     @Inject
-    RouteStatisticDao routeStatisticDao;
-
-    @Inject
     PromotedStopDao promotedStopDao;
 
     @Inject
@@ -80,10 +77,7 @@ public class Menu extends HttpServlet {
             Boolean result = listRoute.checkNameOfRoute(routeId);
             logger.info("The given route exists: " + result.toString());
             model.put("routeId", result);
-            if (result){
-                LocalDate now = LocalDate.now();
-                routeStatisticDao.save(new RouteStatistic(routeId, now));
-            }
+
         }
 
         List<String> names = listStops.getListAllStops();
