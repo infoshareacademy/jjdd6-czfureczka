@@ -2,22 +2,24 @@ package com.infoshareacademy.jjdd6.czfureczka.service;
 
 import com.infoshareacademy.jjdd6.czfureczka.repository.RepositoryLoader;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 import java.util.logging.Logger;
 
-@Singleton
-@Startup
-public class DataProvider {
+@WebListener
+public class DataProvider implements ServletContextListener {
 
     private static final Logger logger = Logger.getLogger(DataProvider.class.getName());
 
-    @PostConstruct
-    public void initialize() {
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
         RepositoryLoader repositoryLoader = new RepositoryLoader();
 
-        if (repositoryLoader.load(System.getProperty("settingsPath"))) {
+        String path = sce.getServletContext().getRealPath("/WEB-INF/data");
+        logger.info("Path to the data: " + path);
+
+        if (repositoryLoader.load(path)) {
             logger.info("Data loaded");
         } else {
             logger.severe("Data could not be loaded");

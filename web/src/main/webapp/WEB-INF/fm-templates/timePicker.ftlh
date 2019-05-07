@@ -8,7 +8,7 @@
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3"
                            name="time"/>
                     <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i>⌛</i></div>
+                        <div class="input-group-text">⏰</div>
                     </div>
                 </div>
             </label>

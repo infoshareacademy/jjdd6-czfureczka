@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -51,8 +53,16 @@ public class StopTimesServlet extends HttpServlet {
         if (req.getParameter("tripId") != null && !req.getParameter("tripId").isEmpty()) {
             if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
                 if (req.getParameter("stop") != null && !req.getParameter("stop").isEmpty()) {
-                    model.put("time", departureWithTime.getFullTimetableForView(req.getParameter("stop"),req.getParameter("tripId"), req.getParameter("routeId")));
+
+                    try {
+                        model.put("time", departureWithTime.getFullTimetableForView(req.getParameter("stop"), req.getParameter("tripId"), req.getParameter("routeId")));
+                    } catch (Exception e) {
+                        List<String> error = new ArrayList<>();
+                        error.add("Brak danych");
+                        model.put("time", error);
+                    }
                     model.put("routeId", listRoute.getNameRoute(req.getParameter("routeId")));
+
                     model.put("stop", req.getParameter("stop"));
                 }
             }
