@@ -6,9 +6,11 @@ import com.infoshareacademy.jjdd6.czfureczka.model.StopInTrip;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.StopIdForStopDesc;
 
+import javax.ejb.Stateless;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Stateless
 public class Transfer {
 
     public Map<Integer, List<String>> transfer(String startingStop, String endingStop) {

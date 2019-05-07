@@ -1,0 +1,71 @@
+.content{
+    padding-left: 5%;
+    margin-top: 40px;
+    text-align: center;
+}
+
+#logo-background {
+    background-color: mediumseagreen;
+    color: white;
+}
+
+.navbar-bg {
+    background-color: mediumseagreen !important;
+}
+
+.nav-image {
+    height: 40px;
+    width: 35px;
+}
+
+.heading-statistics {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.form-statistics {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+.form-sidebar {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#logo {
+    padding: 5px;
+}
+
+.logo-image {
+    height: 50px;
+    text-align: left;
+    margin-top: 7px;
+}
+
+#logo-text {
+    font-size: 48px;
+    text-align: right;
+}
+
+#button-save{
+    color: white;
+    background-color: mediumseagreen !important;
+}
+
+#button-check{
+    color: white;
+    background-color: mediumseagreen !important;
+}
+
+.menu-form{
+    text-align: center;
+}
+
+.counter{
+    margin-top: 5%;
+    color: darkgrey;
+    text-align: center;
+}

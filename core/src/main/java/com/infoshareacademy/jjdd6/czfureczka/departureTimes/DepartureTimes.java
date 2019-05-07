@@ -5,11 +5,13 @@ import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.RouteIdForStopId;
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.StopIdForStopDesc;
 
+import javax.ejb.Stateless;
 import java.sql.Time;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+@Stateless
 public class DepartureTimes {
 
 

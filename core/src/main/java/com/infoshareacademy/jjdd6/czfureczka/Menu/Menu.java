@@ -7,9 +7,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class Menu {
+
+    private static final Logger logger = Logger.getLogger(Menu.class.getName());
 
     public void run() {
 
@@ -35,11 +38,13 @@ public class Menu {
             System.out.print("                               WPISZ NUMER: ");
 
             Integer option = run2();
+            logger.fine("Selected option: " + option);
 
             while (option != 1 && option != 2 && option != 3 && option != 4) {
-                System.out.println("Wybrales zle, sprobuj ponownie");
+                System.out.println("Wybrałeś źle, spróbuj ponownie");
                 System.out.print("Twoj wybor: ");
                 option = run2();
+                logger.fine("Selected option: " + option);
             }
             switch (option) {
                 case 1:
@@ -75,6 +80,7 @@ public class Menu {
     public Integer run2() {
         Scanner scanner = new Scanner(System.in);
         String option = scanner.nextLine().trim();
+        logger.info("Selected option before validation: " + option);
         List<String> cyferki = new ArrayList<>();
         cyferki.add("0");
         cyferki.add("1");

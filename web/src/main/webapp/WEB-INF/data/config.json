@@ -1,0 +1,68 @@
+{
+  "stopTimes": [
+    {
+      "routeId": 3,
+      "file": "stopTimes3.json"
+    },
+    {
+      "routeId": 8,
+      "file": "stopTimes8.json"
+    },
+    {
+      "routeId": 167,
+      "file": "stopTimes167.json"
+    },
+    {
+      "routeId": 2,
+      "file": "stopTimes2.json"
+    },
+    {
+      "routeId": 4,
+      "file": "stopTimes4.json"
+    },
+    {
+      "routeId": 5,
+      "file": "stopTimes5.json"
+    },
+    {
+      "routeId": 6,
+      "file": "stopTimes6.json"
+    },
+    {
+      "routeId": 7,
+      "file": "stopTimes7.json"
+    },
+    {
+      "routeId": 9,
+      "file": "stopTimes9.json"
+    },
+    {
+      "routeId": 10,
+      "file": "stopTimes10.json"
+    },
+    {
+      "routeId": 11,
+      "file": "stopTimes11.json"
+    },
+    {
+      "routeId": 12,
+      "file": "stopTimes12.json"
+    },
+    {
+      "routeId": 122,
+      "file": "stopTimes122.json"
+    },
+    {
+      "routeId": 127,
+      "file": "stopTimes127.json"
+    },
+    {
+      "routeId": 168,
+      "file": "stopTimes168.json"
+    },
+    {
+      "routeId": 210,
+      "file": "stopTimes210.json"
+    }
+  ]
+}
