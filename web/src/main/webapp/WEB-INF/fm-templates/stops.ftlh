@@ -28,7 +28,7 @@
     <h3 class="heading-statistics">Najbliższy odjazd</h3>
 
     <div class="row">
-        <form class="col-12">
+        <form class="col-12" method="get">
             <#include "initialStop.ftlh">
             <#include "timePicker.ftlh">
             <input class="btn" type="submit" name="search" value="Szukaj" id="button-check"/>
@@ -78,6 +78,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script src="/js/stops.js"></script>
+<#--<script src="/js/stops.js"></script>-->
 </body>
 </html>
