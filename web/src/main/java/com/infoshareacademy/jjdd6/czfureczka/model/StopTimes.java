@@ -1,5 +1,9 @@
 package com.infoshareacademy.jjdd6.czfureczka.model;
 
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class StopTimes {
 
     private int routeId; //identyfikator linii, której dotyczy wpis; wartość routeId z zasobu Lista linii

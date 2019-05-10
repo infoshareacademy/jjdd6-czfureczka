@@ -3,7 +3,9 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 import com.infoshareacademy.jjdd6.czfureczka.agency.ModeOfTransportation;
 import com.infoshareacademy.jjdd6.czfureczka.core.DepartureWithTime;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
+import com.infoshareacademy.jjdd6.czfureczka.core.Upload;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
+import com.infoshareacademy.jjdd6.czfureczka.model.GetStopTimes;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -34,6 +36,12 @@ public class StopTimesServlet extends HttpServlet {
     @Inject
     DepartureWithTime departureWithTime;
 
+    @Inject
+    GetStopTimes getStopTimes;
+
+    @Inject
+    Upload upload;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -45,10 +53,12 @@ public class StopTimesServlet extends HttpServlet {
         model.put("tram", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.TRAM));
         model.put("trolleybus", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.TROLLEYBUS));
 
+
         if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
             model.put("listStops", listRoute.getListStopsInTrip(req.getParameter("routeId")));
             model.put("routeId", listRoute.getNameRoute(req.getParameter("routeId")));
         }
+
 
         if (req.getParameter("tripId") != null && !req.getParameter("tripId").isEmpty()) {
             if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
