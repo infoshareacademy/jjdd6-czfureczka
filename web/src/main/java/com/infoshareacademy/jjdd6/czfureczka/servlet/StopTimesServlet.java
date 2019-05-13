@@ -3,9 +3,7 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 import com.infoshareacademy.jjdd6.czfureczka.agency.ModeOfTransportation;
 import com.infoshareacademy.jjdd6.czfureczka.core.DepartureWithTime;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
-import com.infoshareacademy.jjdd6.czfureczka.core.Upload;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
-import com.infoshareacademy.jjdd6.czfureczka.model.GetStopTimes;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -36,11 +34,6 @@ public class StopTimesServlet extends HttpServlet {
     @Inject
     DepartureWithTime departureWithTime;
 
-    @Inject
-    GetStopTimes getStopTimes;
-
-    @Inject
-    Upload upload;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -59,7 +52,6 @@ public class StopTimesServlet extends HttpServlet {
             model.put("routeId", listRoute.getNameRoute(req.getParameter("routeId")));
         }
 
-
         if (req.getParameter("tripId") != null && !req.getParameter("tripId").isEmpty()) {
             if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
                 if (req.getParameter("stop") != null && !req.getParameter("stop").isEmpty()) {
@@ -72,7 +64,6 @@ public class StopTimesServlet extends HttpServlet {
                         model.put("time", error);
                     }
                     model.put("routeId", listRoute.getNameRoute(req.getParameter("routeId")));
-
                     model.put("stop", req.getParameter("stop"));
                 }
             }

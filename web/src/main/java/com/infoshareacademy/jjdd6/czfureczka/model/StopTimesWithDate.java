@@ -1,10 +1,9 @@
 package com.infoshareacademy.jjdd6.czfureczka.model;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class StopTimesWithDate {
 
     private String lastUpdate;

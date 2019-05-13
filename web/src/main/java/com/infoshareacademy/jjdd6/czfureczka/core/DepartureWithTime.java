@@ -3,12 +3,14 @@ package com.infoshareacademy.jjdd6.czfureczka.core;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
 import com.infoshareacademy.jjdd6.czfureczka.departureTimes.DepartureTimes;
+import com.infoshareacademy.jjdd6.czfureczka.model.GetStopTimes;
 import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
 import com.infoshareacademy.jjdd6.czfureczka.model.StopTimes;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.TimetableForStop;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.time.LocalDate;
@@ -38,6 +40,10 @@ public class DepartureWithTime {
 
     @Inject
     ListRoute listRoute;
+
+    @Inject
+    GetStopTimes getStopTimes;
+
 
     public List<TimetableForStop> getTimetableForStop(String name, String time) {
         Map<String, List<String>> timetable = getTimetable(name, time);
@@ -95,7 +101,9 @@ public class DepartureWithTime {
                 .distinct()
                 .collect(Collectors.toList());
 
-        List<String> result = Repository.getInstance().getStopTimes().get(routeId).stream()
+        String route=String.valueOf(routeId);
+
+        List<String> result = getStopTimes.getStopTimes(route).stream()
                 .filter(s -> s.getTripId() == tripId)
                 .filter(s -> stop.contains(s.getStopId()))
                 .map(StopTimes::getDepartureTime)
