@@ -43,7 +43,7 @@ public class GetStopTimes {
 
         response.close();
 
-        logger.info("URLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLll");
+        logger.info("Read json form url");
 
         return responseValue.getStopTimes();
     }
