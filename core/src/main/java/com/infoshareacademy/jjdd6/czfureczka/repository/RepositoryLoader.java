@@ -131,7 +131,7 @@ public class RepositoryLoader {
                 .collect(Collectors.toList());
     }
 
-    private List<Trip> getMainTripForTrip(Map<String, TripsWithDate> tripsWithDate, List<RouteTrip> mainTrips) {
+    private List<Trips> getMainTripForTrip(Map<String, TripsWithDate> tripsWithDate, List<RouteTrip> mainTrips) {
         return tripsWithDate.get(date).getTrips().stream()
                 .filter(t ->
                         mainTrips.stream().anyMatch(rt ->

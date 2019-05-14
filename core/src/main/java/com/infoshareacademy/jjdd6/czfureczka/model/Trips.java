@@ -1,6 +1,9 @@
 package com.infoshareacademy.jjdd6.czfureczka.model;
 
-public class Trip {
+import javax.ejb.Stateless;
+
+
+public class Trips {
 
     private String id; //identyfikator, tworzony według zasady „R” + routeId + „T” + tripId
     private int routeId; //identyfikator linii, do której przynależy wariant; wartość routeId z zasobu Lista linii;

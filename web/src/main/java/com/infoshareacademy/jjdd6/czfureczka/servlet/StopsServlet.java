@@ -1,6 +1,7 @@
 package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
-import com.infoshareacademy.jjdd6.czfureczka.core.DepartureWithTime;
+
+import com.infoshareacademy.jjdd6.czfureczka.core.Departure;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStop;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStopDao;
@@ -31,7 +32,7 @@ public class StopsServlet extends HttpServlet {
     TemplateProvider templateProvider;
 
     @Inject
-    DepartureWithTime departureWithTime;
+    Departure departureWithTime;
 
     @Inject
     ListStops listStops;

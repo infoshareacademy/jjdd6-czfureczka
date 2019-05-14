@@ -41,9 +41,6 @@ public class DepartureWithTime {
     @Inject
     ListRoute listRoute;
 
-    @Inject
-    GetStopTimes getStopTimes;
-
 
     public List<TimetableForStop> getTimetableForStop(String name, String time) {
         Map<String, List<String>> timetable = getTimetable(name, time);

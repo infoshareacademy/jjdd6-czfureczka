@@ -14,7 +14,7 @@ public class Repository {
     private ExpeditionDataWithDate expeditionData = new ExpeditionDataWithDate();
     private List<Stop> stops = new ArrayList<>();
     private List<Route> routes = new ArrayList<>();
-    private List<Trip> trips = new ArrayList<>();
+    private List<Trips> trips = new ArrayList<>();
     private List<StopInTrip> stopsInTrip = new ArrayList<>();
     private Map<Integer, List<StopTimes>> stopTimes = new HashMap<>();
 
@@ -54,11 +54,11 @@ public class Repository {
         this.routes = routes;
     }
 
-    public void setTrips(List<Trip> trips) {
+    public void setTrips(List<Trips> trips) {
         this.trips = trips;
     }
 
-    public List<Trip> getTrips() {
+    public List<Trips> getTrips() {
         return trips;
     }
 

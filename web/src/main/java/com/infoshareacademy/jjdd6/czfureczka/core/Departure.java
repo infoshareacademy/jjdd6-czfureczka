@@ -2,12 +2,15 @@ package com.infoshareacademy.jjdd6.czfureczka.core;
 
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
-import com.infoshareacademy.jjdd6.czfureczka.departureTimes.DepartureTimes;
 import com.infoshareacademy.jjdd6.czfureczka.model.GetStopTimes;
 import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
 import com.infoshareacademy.jjdd6.czfureczka.model.StopTimes;
+
+
+import com.infoshareacademy.jjdd6.czfureczka.model.Trips;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.RouteIdForStopId;
+import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.RouteShortNamesForRouteId;
 import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.StopIdForStopDesc;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.TimetableForStop;
@@ -30,8 +33,6 @@ public class Departure {
     @Inject
     Validation validation;
 
-    @Inject
-    DepartureTimes departureTimes;
 
     @Inject
     Trip trip;
@@ -47,6 +48,9 @@ public class Departure {
 
     @Inject
     RouteIdForStopId routeIdForStopId;
+
+    @Inject
+    RouteShortNamesForRouteId shortNamesForRouteId;
 
 
     public List<TimetableForStop> getTimetableForStop(String name, String time) {
@@ -90,7 +94,7 @@ public class Departure {
             if (validation.validationOfStopName(name)) {
                 LocalDate now = LocalDate.now();
                 stopStatisticDao.save(new StopStatistic(name, now));
-                return departureTimes.departureTimes(name, time);
+                return departure(name, time);
             }
             logger.info("Incorrect name of the stop.");
         }
@@ -134,42 +138,47 @@ public class Departure {
     }
 
 
-    private Map<String, List<String>> departureTime(String name, String time) {
-
-        time = time.trim() + ":00";
+    private Map<String, List<String>> departure(String name, String time) {
 
         List<Integer> stopIds = stopIdForStopDesc.stopIdForStopsDesc(name);
         List<Integer> routeIds = routeIdForStopId.routeIdForStopId(stopIds);
 
         List<Integer> routShortNames = routShortNames(routeIds);
-        List<String>  route=routShortNames.stream().map(m->m.toString()).collect(Collectors.toList());
+        List<String> route = routShortNames.stream().map(m -> m.toString()).collect(Collectors.toList());
 
-        Map<String, List<String>> departure = new HashMap<>();
+        Map<String, List<String>> departure = new TreeMap<>();
 
 
         for (int i = 0; i < routShortNames.size(); i++) {
 
-            List<StopTimes> stops = getStopTimes.getStopTimes(route.get(i));
+            Integer routeID = routShortNames.get(i);
+            String routeId = routeID.toString();
 
-            List<com.infoshareacademy.jjdd6.czfureczka.model.Trip> newTrip = Repository
+            List<StopTimes> stops = getStopTimes.getStopTimes(routeId);
+
+            List<Trips> newTrip = Repository
                     .getInstance()
                     .getTrips();
 
-            List<Integer> tripId = tripId(stops);
+            List<Integer> tripIds = tripId(stops);
 
-            Integer routeID = routShortNames.get(i);
 
-            String routeId = routeID.toString();
+            List<Integer> tripId = Repository.getInstance().getExpeditionData().getExpeditionData().stream()
+                    .filter(ex -> ex.getMainRoute() == 1)
+                    .distinct()
+                    .filter(f-> routeID.equals(f.getRouteId()))
+                    .map(m -> m.getTripId())
+                    .distinct()
+                    .collect(Collectors.toList());
+
 
             for (int j = 0; j < tripId.size(); j++) {
 
                 Integer trip = tripId.get(j);
 
-                String tripHeadsign = tripHeadsing(newTrip, routeID, trip);
-
                 List<String> firstTime = firstTime(stops, stopIds, trip);
 
-                List<String> secondTime = cropDateFromTime(firstTime);
+                List<String> secondTime = secondTime(firstTime);
 
                 List<Time> times = secondTime.stream()
                         .map(Time::valueOf)
@@ -196,7 +205,18 @@ public class Departure {
                     timeOfDeparture.addAll(timeOfDeparture2);
                 }
 
-                departure.put(routeId + tripHeadsign, timeOfDeparture);
+                List<String> stopEnds = listRoute.getListStopsInTrip(routeId).stream()
+                        .filter(f -> trip.equals(f.getTripId()))
+                        .map(m -> m.getStopEnd())
+                        .distinct()
+                        .collect(Collectors.toList());
+
+                String stopEnd = stopEnds.get(0);
+
+                List<Integer> listRoute = Arrays.asList(routeID);
+                String nameRoute = shortNamesForRouteId.routeShortNameForRouteId(listRoute).get(0);
+
+                departure.put(nameRoute + " Kierunek " + stopEnd, timeOfDeparture);
             }
         }
 
@@ -205,15 +225,19 @@ public class Departure {
 
     private List<Integer> routShortNames(List<Integer> routeIds) {
 
-        List<Integer> allStopTimes = Repository
-                .getInstance()
-                .getStopTimes()
-                .keySet().stream()
-                .collect(Collectors.toList());
+        List<Integer> routShortNames = new ArrayList<>();
 
-        List<Integer> routShortNames = allStopTimes.stream()
-                .filter(routeIds::contains)
-                .collect(Collectors.toList());
+        for (int i = 0; i < routeIds.size(); i++) {
+
+            String route = routeIds.get(i).toString().trim();
+
+            List<Integer> allStopTime = getStopTimes.getStopTimes(route).stream()
+                    .map(m -> m.getRouteId())
+                    .distinct()
+                    .collect(Collectors.toList());
+
+            routShortNames.addAll(allStopTime);
+        }
 
         return routShortNames;
     }
@@ -227,18 +251,6 @@ public class Departure {
         return tripId;
     }
 
-    private String tripHeadsing(List<com.infoshareacademy.jjdd6.czfureczka.model.Trip> newTrip, Integer routeID, Integer trip) {
-
-        List<String> name = newTrip.stream()
-                .filter(f -> routeID.equals(f.getRouteId()))
-                .filter(l -> trip.equals(l.getTripId()))
-                .map(o -> o.getTripHeadsign().replaceAll("[(0-9)]", "").trim())
-                .collect(Collectors.toList());
-
-        String tripHeadsign = name.toString();
-
-        return tripHeadsign;
-    }
 
     private List<String> firstTime(List<StopTimes> stops, List<Integer> stopIds, Integer trip) {
 
@@ -249,6 +261,20 @@ public class Departure {
                 .collect(Collectors.toList());
 
         return firstTime;
+    }
+
+    private List<String> secondTime(List<String> firstTime) {
+
+        final String date = "1899-12-30";
+        final String date1 = "1899-12-31";
+
+        List<String> secondTime = firstTime.stream()
+                .map(s -> s.split("T"))
+                .flatMap(Arrays::stream)
+                .filter(f -> !f.contains(date) && !f.contains(date1))
+                .sorted()
+                .collect(Collectors.toList());
+        return secondTime;
     }
 
 
