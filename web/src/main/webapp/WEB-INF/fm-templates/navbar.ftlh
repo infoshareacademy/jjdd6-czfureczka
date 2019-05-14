@@ -11,27 +11,27 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/menu">Start</a>
+                    <a class="nav-link" href="http://localhost:8080/menu"><b>Start</b></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/stopTimes">Rozkład jazdy</a>
+                    <a class="nav-link" href="http://localhost:8080/stopTimes"><b>Rozkład jazdy</b></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/stops">Najbliższy odjazd</a>
+                    <a class="nav-link" href="http://localhost:8080/stops"><b>Najbliższy odjazd</b></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/transfer">Wyznaczanie trasy</a>
+                    <a class="nav-link" href="http://localhost:8080/transfer"><b>Wyznaczanie trasy</b></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Losowa podróż</a>
+                    <a class="nav-link disabled" href="#"><b>Losowa podróż</b></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/report">Raport</a>
+                    <a class="nav-link" href="http://localhost:8080/report"><b>Raport</b></a>
                 </li>
 
             </ul>

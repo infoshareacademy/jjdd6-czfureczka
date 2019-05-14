@@ -13,6 +13,10 @@
     background-color: mediumseagreen !important;
 }
 
+.nav-item .nav-link{
+    color: white !important;
+}
+
 .nav-image {
     height: 40px;
     width: 35px;
@@ -68,4 +72,10 @@
     margin-top: 5%;
     color: darkgrey;
     text-align: center;
+}
+
+.custom-fa:before {
+    content: "\f25b";
+    font-family: FontAwesome;
+    font-size: 100px;
 }

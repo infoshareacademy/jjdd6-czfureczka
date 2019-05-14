@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Szybko do celu</title>
+    <title> 🚋 Szybko do celu!</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -22,7 +22,7 @@
 
     <div class="row">
 
-        <div class="col-12">
+        <div class="col-12" >
             <h3 class="heading-statistics">Sprawdź czy podany przystanek/linia istnieje</h3>
         </div>
 
