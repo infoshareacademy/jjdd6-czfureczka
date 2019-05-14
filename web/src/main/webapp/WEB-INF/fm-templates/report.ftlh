@@ -15,6 +15,9 @@
 
 
 <div class="container">
+    <#if google_name??>
+        <h1>Zalogowany jako: ${google_name}</h1>
+    </#if>
     <div class="row">
 
         <div class="col-12 col-sm-6">
