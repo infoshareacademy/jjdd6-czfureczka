@@ -11,6 +11,7 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
+
                     <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/menu">Start</a>
                 </li>
 
@@ -23,7 +24,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://http://czfureczka.jjdd6.is-academy.pl/transfer">Wyznaczanie trasy</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/transfer">Wyznaczanie trasy</a>
+
                 </li>
 
                 <li class="nav-item">
@@ -31,7 +33,9 @@
                 </li>
 
                 <li class="nav-item">
+
                     <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/report">Raport</a>
+
                 </li>
 
             </ul>
