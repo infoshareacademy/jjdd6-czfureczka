@@ -137,47 +137,55 @@ public class Departure {
         return result;
     }
 
+    private List<StopTimes> stopTime(List<Integer> routeIds) {
+
+        List<StopTimes> stops = new ArrayList<>();
+
+        for (int i = 0; i < routeIds.size(); i++) {
+            String route = routeIds.get(i).toString().trim();
+            List<StopTimes> stop = getStopTimes.getStopTimes(route);
+            stops.addAll(stop);
+        }
+
+        return stops;
+    }
 
     private Map<String, List<String>> departure(String name, String time) {
+
+        Map<String, List<String>> departure = new TreeMap<>();
 
         List<Integer> stopIds = stopIdForStopDesc.stopIdForStopsDesc(name);
         List<Integer> routeIds = routeIdForStopId.routeIdForStopId(stopIds);
 
-        List<Integer> routShortNames = routShortNames(routeIds);
-        List<String> route = routShortNames.stream().map(m -> m.toString()).collect(Collectors.toList());
+        List<StopTimes> stops=stopTime(routeIds);
 
-        Map<String, List<String>> departure = new TreeMap<>();
+        List<Integer> allStopTime = stops.stream()
+                .map(m -> m.getRouteId())
+                .distinct()
+                .collect(Collectors.toList());
 
+        for (int i = 0; i < allStopTime.size(); i++) {
 
-        for (int i = 0; i < routShortNames.size(); i++) {
-
-            Integer routeID = routShortNames.get(i);
+            Integer routeID = allStopTime.get(i);
             String routeId = routeID.toString();
 
-            List<StopTimes> stops = getStopTimes.getStopTimes(routeId);
-
-            List<Trips> newTrip = Repository
-                    .getInstance()
-                    .getTrips();
-
-            List<Integer> tripIds = tripId(stops);
-
+            List<StopTimes> stop = stops.stream()
+                    .filter(f -> routeID.equals(f.getRouteId()))
+                    .collect(Collectors.toList());
 
             List<Integer> tripId = Repository.getInstance().getExpeditionData().getExpeditionData().stream()
                     .filter(ex -> ex.getMainRoute() == 1)
                     .distinct()
-                    .filter(f-> routeID.equals(f.getRouteId()))
+                    .filter(f -> routeID.equals(f.getRouteId()))
                     .map(m -> m.getTripId())
                     .distinct()
                     .collect(Collectors.toList());
-
 
             for (int j = 0; j < tripId.size(); j++) {
 
                 Integer trip = tripId.get(j);
 
-                List<String> firstTime = firstTime(stops, stopIds, trip);
-
+                List<String> firstTime = firstTime(stop, stopIds, trip);
                 List<String> secondTime = secondTime(firstTime);
 
                 List<Time> times = secondTime.stream()
@@ -221,25 +229,6 @@ public class Departure {
         }
 
         return departure;
-    }
-
-    private List<Integer> routShortNames(List<Integer> routeIds) {
-
-        List<Integer> routShortNames = new ArrayList<>();
-
-        for (int i = 0; i < routeIds.size(); i++) {
-
-            String route = routeIds.get(i).toString().trim();
-
-            List<Integer> allStopTime = getStopTimes.getStopTimes(route).stream()
-                    .map(m -> m.getRouteId())
-                    .distinct()
-                    .collect(Collectors.toList());
-
-            routShortNames.addAll(allStopTime);
-        }
-
-        return routShortNames;
     }
 
     private List<Integer> tripId(List<StopTimes> stops) {
