@@ -1,7 +1,8 @@
 package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
 import com.infoshareacademy.jjdd6.czfureczka.agency.ModeOfTransportation;
-import com.infoshareacademy.jjdd6.czfureczka.core.Departure;
+
+import com.infoshareacademy.jjdd6.czfureczka.core.DepartureWithTime;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -32,7 +33,7 @@ public class StopTimesServlet extends HttpServlet {
     ListRoute listRoute;
 
     @Inject
-    Departure departureWithTime;
+    DepartureWithTime departureWithTime;
 
 
     @Override

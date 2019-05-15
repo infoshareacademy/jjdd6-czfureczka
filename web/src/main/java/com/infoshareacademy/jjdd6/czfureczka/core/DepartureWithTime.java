@@ -2,22 +2,21 @@ package com.infoshareacademy.jjdd6.czfureczka.core;
 
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatistic;
 import com.infoshareacademy.jjdd6.czfureczka.database.StopStatisticDao;
-import com.infoshareacademy.jjdd6.czfureczka.departureTimes.DepartureTimes;
 import com.infoshareacademy.jjdd6.czfureczka.model.GetStopTimes;
 import com.infoshareacademy.jjdd6.czfureczka.model.Stop;
 import com.infoshareacademy.jjdd6.czfureczka.model.StopTimes;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
+import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.RouteIdForStopId;
+import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.RouteShortNamesForRouteId;
+import com.infoshareacademy.jjdd6.czfureczka.searchForRouteShortName.StopIdForStopDesc;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.TimetableForStop;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.sql.Time;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -32,14 +31,24 @@ public class DepartureWithTime {
     @Inject
     Validation validation;
 
-    @Inject
-    DepartureTimes departureTimes;
 
     @Inject
     Trip trip;
 
     @Inject
     ListRoute listRoute;
+
+    @Inject
+    GetStopTimes getStopTimes;
+
+    @Inject
+    StopIdForStopDesc stopIdForStopDesc;
+
+    @Inject
+    RouteIdForStopId routeIdForStopId;
+
+    @Inject
+    RouteShortNamesForRouteId shortNamesForRouteId;
 
 
     public List<TimetableForStop> getTimetableForStop(String name, String time) {
@@ -83,15 +92,13 @@ public class DepartureWithTime {
             if (validation.validationOfStopName(name)) {
                 LocalDate now = LocalDate.now();
                 stopStatisticDao.save(new StopStatistic(name, now));
-                return departureTimes.departureTimes(name, time);
+                return departure(name, time);
             }
             logger.info("Incorrect name of the stop.");
         }
         logger.info("Incorrect time.");
         return new HashMap<>();
     }
-
-
 
     private List<String> getFullTimetable(String stopDesc, Integer tripId, Integer routeId) {
         List<Integer> stop = Repository.getInstance().getStops().stream()
@@ -100,8 +107,9 @@ public class DepartureWithTime {
                 .distinct()
                 .collect(Collectors.toList());
 
+        String route = String.valueOf(routeId);
 
-        List<String> result = Repository.getInstance().getStopTimes().get(routeId).stream()
+        List<String> result = getStopTimes.getStopTimes(route).stream()
                 .filter(s -> s.getTripId() == tripId)
                 .filter(s -> stop.contains(s.getStopId()))
                 .map(StopTimes::getDepartureTime)
@@ -124,5 +132,133 @@ public class DepartureWithTime {
                 .map(s -> s.split(":00")[0])
                 .collect(Collectors.toList());
         return result;
+    }
+
+    private List<StopTimes> stopTime(List<Integer> routeIds) {
+
+        List<StopTimes> stops = new ArrayList<>();
+
+        for (int i = 0; i < routeIds.size(); i++) {
+            String route = routeIds.get(i).toString().trim();
+            List<StopTimes> stop = getStopTimes.getStopTimes(route);
+            stops.addAll(stop);
+        }
+
+        return stops;
+    }
+
+    private Map<String, List<String>> departure(String name, String time) {
+
+        Map<String, List<String>> departure = new TreeMap<>();
+
+        List<Integer> stopIds = stopIdForStopDesc.stopIdForStopsDesc(name);
+        List<Integer> routeIds = routeIdForStopId.routeIdForStopId(stopIds);
+
+        List<StopTimes> stops = stopTime(routeIds);
+
+        List<Integer> allStopTime = stops.stream()
+                .map(m -> m.getRouteId())
+                .distinct()
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < allStopTime.size(); i++) {
+
+            Integer routeID = allStopTime.get(i);
+            String routeId = routeID.toString();
+
+            List<StopTimes> stop = stops.stream()
+                    .filter(f -> routeID.equals(f.getRouteId()))
+                    .collect(Collectors.toList());
+
+            List<Integer> tripId = Repository.getInstance().getExpeditionData().getExpeditionData().stream()
+                    .filter(ex -> ex.getMainRoute() == 1)
+                    .distinct()
+                    .filter(f -> routeID.equals(f.getRouteId()))
+                    .map(m -> m.getTripId())
+                    .distinct()
+                    .collect(Collectors.toList());
+
+            for (int j = 0; j < tripId.size(); j++) {
+
+                Integer trip = tripId.get(j);
+
+                List<String> firstTime = firstTime(stop, stopIds, trip);
+                List<String> secondTime = secondTime(firstTime);
+
+                List<Time> times = secondTime.stream()
+                        .map(Time::valueOf)
+                        .collect(Collectors.toList());
+
+                Time timee = Time.valueOf(time);
+
+                List<String> timeOfDeparture = times.stream()
+                        .filter(s -> s.after(timee))
+                        .limit(5)
+                        .map(m -> m.toString())
+                        .collect(Collectors.toList());
+
+                if (timeOfDeparture.size() < 5) {
+
+                    Time time2 = Time.valueOf("00:00:00");
+
+                    List<String> timeOfDeparture2 = times.stream()
+                            .filter(s -> s.after(time2))
+                            .limit(5 - timeOfDeparture.size())
+                            .map(m -> m.toString())
+                            .collect(Collectors.toList());
+
+                    timeOfDeparture.addAll(timeOfDeparture2);
+                }
+
+                List<String> stopEnds = listRoute.getListStopsInTrip(routeId).stream()
+                        .filter(f -> trip.equals(f.getTripId()))
+                        .map(m -> m.getStopEnd())
+                        .distinct()
+                        .collect(Collectors.toList());
+
+                String stopEnd = stopEnds.get(0);
+
+                List<Integer> listRoute = Arrays.asList(routeID);
+                String nameRoute = shortNamesForRouteId.routeShortNameForRouteId(listRoute).get(0);
+
+                departure.put(nameRoute + " Kierunek " + stopEnd, timeOfDeparture);
+            }
+        }
+
+        return departure;
+    }
+
+    private List<Integer> tripId(List<StopTimes> stops) {
+
+        List<Integer> tripId = stops.stream()
+                .map(StopTimes::getTripId)
+                .distinct()
+                .collect(Collectors.toList());
+        return tripId;
+    }
+
+    private List<String> firstTime(List<StopTimes> stops, List<Integer> stopIds, Integer trip) {
+
+        List<String> firstTime = stops.stream()
+                .filter(s -> stopIds.contains(s.getStopId()))
+                .filter(f -> trip.equals(f.getTripId()))
+                .map(StopTimes::getDepartureTime)
+                .collect(Collectors.toList());
+
+        return firstTime;
+    }
+
+    private List<String> secondTime(List<String> firstTime) {
+
+        final String date = "1899-12-30";
+        final String date1 = "1899-12-31";
+
+        List<String> secondTime = firstTime.stream()
+                .map(s -> s.split("T"))
+                .flatMap(Arrays::stream)
+                .filter(f -> !f.contains(date) && !f.contains(date1))
+                .sorted()
+                .collect(Collectors.toList());
+        return secondTime;
     }
 }
