@@ -63,7 +63,7 @@ public class TransferServlet extends HttpServlet {
 
                     if (transfer.size() != 0) {
                         model.put("transfer", transfer);
-                    }else {
+                    } else {
                         model.put("noConnection", "No connection");
                     }
 

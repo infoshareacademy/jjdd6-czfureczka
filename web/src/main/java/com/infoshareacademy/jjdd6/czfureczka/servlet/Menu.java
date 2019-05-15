@@ -66,7 +66,7 @@ public class Menu extends HttpServlet {
             Boolean result = listStops.checkNameOfStop(stop);
             logger.info("The given stop exists: " + result.toString());
             model.put("stopDesc", result);
-            if (result){
+            if (result) {
                 LocalDate now = LocalDate.now();
                 stopStatisticDao.save(new StopStatistic(stop, now));
             }
@@ -98,7 +98,7 @@ public class Menu extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        logger.info("Method doPost; request parameters: 'nameStop': " +req.getParameter("nameStop") + " and 'tag': "+ req.getParameter("tag"));
+        logger.info("Method doPost; request parameters: 'nameStop': " + req.getParameter("nameStop") + " and 'tag': " + req.getParameter("tag"));
         TransferServlet.savePromotedStop(req, listStops, promotedStopDao);
 
     }

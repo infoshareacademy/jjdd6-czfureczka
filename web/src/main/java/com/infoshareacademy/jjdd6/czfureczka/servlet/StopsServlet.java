@@ -1,7 +1,6 @@
 package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
-
-import com.infoshareacademy.jjdd6.czfureczka.core.Departure;
+import com.infoshareacademy.jjdd6.czfureczka.core.DepartureWithTime;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStop;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStopDao;
@@ -32,7 +31,7 @@ public class StopsServlet extends HttpServlet {
     TemplateProvider templateProvider;
 
     @Inject
-    Departure departureWithTime;
+    DepartureWithTime departureWithTime;
 
     @Inject
     ListStops listStops;
@@ -60,7 +59,6 @@ public class StopsServlet extends HttpServlet {
                 model.put("result", departureWithTime.getTimetableForStop(req.getParameter("initialStop"), req.getParameter("time")));
             }
         }
-
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
