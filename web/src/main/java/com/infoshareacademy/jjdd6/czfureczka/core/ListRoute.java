@@ -71,6 +71,9 @@ public class ListRoute {
     public List<TripWithStops> getListStopsInTrip(String route) {
         if (checkRouteId(route)) {
 
+            LocalDate now = LocalDate.now();
+            routeStatisticDao.save(new RouteStatistic(route,now));
+
             Integer routeId = Integer.valueOf(route);
             List<Integer> tripsId = Repository.getInstance().getTrips().stream()
                     .filter(t -> t.getRouteId() == routeId)
@@ -120,12 +123,6 @@ public class ListRoute {
 
     public boolean checkRouteId(String route){
         if (Repository.getInstance().getRoutes().stream().anyMatch(r -> Integer.valueOf(route) == r.getRouteId())){
-            LocalDate now = LocalDate.now();
-            routeStatisticDao.save(new RouteStatistic(Repository.getInstance().getRoutes().stream()
-                    .filter(r -> r.getRouteId() == Integer.valueOf(route))
-                    .map(r -> r.getRouteShortName())
-                    .distinct()
-                    .collect(Collectors.toList()).get(0), now));
             return true;
         }
         return false;

@@ -46,8 +46,10 @@ public class StopTimesServlet extends HttpServlet {
         model.put("trolleybus", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.TROLLEYBUS));
 
         if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
-            model.put("listStops", listRoute.getListStopsInTrip(req.getParameter("routeId")));
-            model.put("routeId", listRoute.getNameRoute(req.getParameter("routeId")));
+            if (req.getParameter("stop") == null || req.getParameter("stop").isEmpty()) {
+                model.put("listStops", listRoute.getListStopsInTrip(req.getParameter("routeId")));
+                model.put("routeId", listRoute.getNameRoute(req.getParameter("routeId")));
+            }
         }
 
         if (req.getParameter("tripId") != null && !req.getParameter("tripId").isEmpty()) {
