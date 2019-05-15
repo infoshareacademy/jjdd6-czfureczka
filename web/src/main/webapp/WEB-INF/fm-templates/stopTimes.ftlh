@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
@@ -15,10 +16,53 @@
 
 
 <div class="container content">
+    <#--<button type="button" class="btn btn-primary btn-lg btn-block">TRAMWAJE</button>-->
+    <#--<br>-->
+    <#--<button type="button" class="btn btn-secondary btn-lg btn-block">AUTOBUSY</button>-->
+    <#--<br>-->
+    <#--<button type="button" class="btn btn-secondary btn-lg btn-block">TROLEJBUSY</button>-->
+    <#--<br>-->
+
+    <div class="w3-card-4 w3-dark-white">
+
+        <div class="w3-container w3-center">
+            <h3>Friend request</h3>
+            <img src="" alt="Avatar" style="width:80%">
+            <h5>John Doe</h5>
+            <button class="w3-button w3-green">Accept</button>
+        </div>
+
+    </div>
+    <br>
+
+    <div class="w3-card-4 w3-dark-white">
+
+        <div class="w3-container w3-center">
+            <h3>Friend request</h3>
+            <img src="" alt="Avatar" style="width:80%">
+            <h5>John Doe</h5>
+            <button class="w3-button w3-green">Accept</button>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="w3-card-4 w3-dark-white">
+
+        <div class="w3-container w3-center">
+            <h3>Friend request</h3>
+            <img src="/image/bus.png" alt="bus" style="width: 60px;%">
+            <h5>John Doe</h5>
+            <button class="w3-button w3-green">Accept</button>
+        </div>
+
+    </div>
+
     <div class="row">
 
         <div class="col-12">
-            <h3 class="heading-statistics">Rozkład jazdy</h3>
+            <h1 class="heading-statistics">Rozkład jazdy</h1>
         </div>
 
         <#include "listTram.ftlh">

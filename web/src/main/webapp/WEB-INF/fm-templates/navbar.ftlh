@@ -8,7 +8,7 @@
 
         <div class="collapse navbar-collapse" id="mainmenu">
 
-            <ul class="navbar-nav">
+            <ul class="nav nav-pills">
 
                 <li class="nav-item">
                     <a class="nav-link" href="http://localhost:8080/menu"><b>Start</b></a>
@@ -35,7 +35,7 @@
                 </li>
 
             </ul>
-
         </div>
     </nav>
+
 </header>
