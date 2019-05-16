@@ -5,16 +5,16 @@
 }
 
 #logo-background {
-    background-color: purple;
+    background-color: black;
     color: white;
 }
 
 .navbar-bg {
-    background-color: purple !important;
+    background-color: black !important;
 }
 
 .nav-item .nav-link{
-    color: black !important;
+    color: white !important;
 }
 
 .nav-image {

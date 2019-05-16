@@ -23,7 +23,8 @@
                 <h1 class="w3-xlarge"><b>Witaj w aplikacji "Szybko do Celu"!</b></h1>
                 <hr class="w3-opacity">
                 <p><b>Dziś na pewno dojedziesz na czas!</b></p>
-                <a href="http://localhost:8080/menu" class="w3-button w3-block w3-white w3-round" onclick="document.getElementById('download').style.display='block'">START</i></button></a>
+                <a href="http://localhost:8080/menu" class="w3-button w3-block w3-white w3-round"
+                   onclick="document.getElementById('download').style.display='block'">START</i></button></a>
             </div>
         </div>
     </div>

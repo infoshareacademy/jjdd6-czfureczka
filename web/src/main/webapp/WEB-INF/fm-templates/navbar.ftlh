@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-dark navbar-bg navbar-expand-md">
-        <img class="navbar-brand d-inline-block align-bottom nav-image mr-0" src="/image/autobus.png" alt="Bus">
+
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
 
         <div class="collapse navbar-collapse" id="mainmenu">
 
-            <ul class="nav nav-pills">
+            <ul class="nav nav-pills mx-auto" style= "width: 200">
 
                 <li class="nav-item">
                     <a class="nav-link" href="http://localhost:8080/menu"><b>Start</b></a>
