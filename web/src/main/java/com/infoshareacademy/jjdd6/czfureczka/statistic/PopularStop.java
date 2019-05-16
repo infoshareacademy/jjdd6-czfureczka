@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class PopularStop {
 
     @Inject
-    StopStatisticDao statisticDao;
+    private StopStatisticDao statisticDao;
 
     public StopCount getMostPopularStop() {
         List<StopCount> test = getSortStops(1);

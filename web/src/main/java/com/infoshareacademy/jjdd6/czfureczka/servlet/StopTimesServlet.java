@@ -26,13 +26,13 @@ public class StopTimesServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(StopTimesServlet.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    ListRoute listRoute;
+    private ListRoute listRoute;
 
     @Inject
-    DepartureWithTime departureWithTime;
+    private DepartureWithTime departureWithTime;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,6 +44,7 @@ public class StopTimesServlet extends HttpServlet {
         model.put("bus", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.BUS));
         model.put("tram", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.TRAM));
         model.put("trolleybus", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.TROLLEYBUS));
+
 
         if (req.getParameter("routeId") != null && !req.getParameter("routeId").isEmpty()) {
             model.put("listStops", listRoute.getListStopsInTrip(req.getParameter("routeId")));
@@ -62,7 +63,6 @@ public class StopTimesServlet extends HttpServlet {
                         model.put("time", error);
                     }
                     model.put("routeId", listRoute.getNameRoute(req.getParameter("routeId")));
-
                     model.put("stop", req.getParameter("stop"));
                 }
             }

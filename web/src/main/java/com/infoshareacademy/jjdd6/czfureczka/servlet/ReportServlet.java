@@ -24,13 +24,13 @@ public class ReportServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(ReportServlet.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    PopularStop popularStop;
+    private PopularStop popularStop;
 
     @Inject
-    PopularRoute popularRoute;
+    private PopularRoute popularRoute;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

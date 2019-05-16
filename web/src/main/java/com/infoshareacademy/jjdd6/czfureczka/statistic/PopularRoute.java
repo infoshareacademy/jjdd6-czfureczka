@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class PopularRoute {
 
     @Inject
-    RouteStatisticDao statisticDao;
+    private RouteStatisticDao statisticDao;
 
     public RouteCount getMostPopularRoute(){
         List<RouteCount> test = getSortRoutes(1);

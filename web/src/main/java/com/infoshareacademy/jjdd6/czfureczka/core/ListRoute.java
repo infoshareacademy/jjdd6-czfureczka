@@ -6,7 +6,6 @@ import com.infoshareacademy.jjdd6.czfureczka.database.RouteStatistic;
 import com.infoshareacademy.jjdd6.czfureczka.database.RouteStatisticDao;
 import com.infoshareacademy.jjdd6.czfureczka.model.StopInTrip;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
-import com.infoshareacademy.jjdd6.czfureczka.transfer.Transfer;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.RouteWithModeOfTransportation;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.TripWithStops;
@@ -23,10 +22,10 @@ import java.util.stream.Collectors;
 public class ListRoute {
 
     @Inject
-    Validation validation;
+    private Validation validation;
 
     @Inject
-    RouteStatisticDao routeStatisticDao;
+    private RouteStatisticDao routeStatisticDao;
 
     public List<String> getListAllRoute() {
         return Repository.getInstance().getRoutes().stream()
