@@ -1,5 +1,6 @@
 package com.infoshareacademy.jjdd6.czfureczka.model;
 
+
 public class Trip {
 
     private String id; //identyfikator, tworzony według zasady „R” + routeId + „T” + tripId

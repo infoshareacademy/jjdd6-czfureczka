@@ -20,16 +20,16 @@ import java.util.stream.Collectors;
 public class Trip {
 
     @Inject
-    ListStops listStops;
+    private ListStops listStops;
 
     @Inject
-    DirectConnection directConnection;
+    private DirectConnection directConnection;
 
     @Inject
-    Transfer transfer;
+    private Transfer transfer;
 
     @Inject
-    StopStatisticDao stopStatisticDao;
+    private StopStatisticDao stopStatisticDao;
 
     private static final Logger logger = Logger.getLogger(Trip.class.getName());
 

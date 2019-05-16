@@ -5,7 +5,6 @@ import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
 import com.infoshareacademy.jjdd6.czfureczka.core.Trip;
 import com.infoshareacademy.jjdd6.czfureczka.database.*;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
-import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -31,22 +30,22 @@ public class Menu extends HttpServlet {
     private static final Logger logger = Logger.getLogger(Menu.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    ListStops listStops;
+    private ListStops listStops;
 
     @Inject
-    ListRoute listRoute;
+    private ListRoute listRoute;
 
     @Inject
-    StopStatisticDao stopStatisticDao;
+    private StopStatisticDao stopStatisticDao;
 
     @Inject
-    PromotedStopDao promotedStopDao;
+    private PromotedStopDao promotedStopDao;
 
     @Inject
-    Trip trip;
+    private Trip trip;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -70,7 +69,7 @@ public class Menu extends HttpServlet {
             Boolean result = listStops.checkNameOfStop(stop);
             logger.info("The given stop exists: " + result.toString());
             model.put("stopDesc", result);
-            if (result){
+            if (result) {
                 LocalDate now = LocalDate.now();
                 stopStatisticDao.save(new StopStatistic(stop, now));
             }
@@ -102,7 +101,7 @@ public class Menu extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        logger.info("Method doPost; request parameters: 'nameStop': " +req.getParameter("nameStop") + " and 'tag': "+ req.getParameter("tag"));
+        logger.info("Method doPost; request parameters: 'nameStop': " + req.getParameter("nameStop") + " and 'tag': " + req.getParameter("tag"));
         TransferServlet.savePromotedStop(req, listStops, promotedStopDao);
 
     }

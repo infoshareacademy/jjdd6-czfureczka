@@ -140,8 +140,6 @@ public class DepartureTimes {
                 departure.put(routeId + tripHeadsign, secondTime);
             }
         }
-
-        // System.out.println(Collections.singletonList(departure));
         return departure;
     }
 

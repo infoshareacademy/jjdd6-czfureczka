@@ -11,24 +11,22 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/menu">Start</a>
+
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/menu">Start</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/stopTimes">Rozkład jazdy</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/stopTimes">Rozkład jazdy</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/stops">Najbliższy odjazd</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/stops">Najbliższy odjazd</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/transfer">Wyznaczanie trasy</a>
-                </li>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/transfer">Wyznaczanie trasy</a>
 
-                <#if google_name??>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080/logout">Wyloguj</a>
+                    <a class="nav-link" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://czfureczka.jjdd6.is-academy.pl/logout">Wyloguj</a>
                 </li>
                 <#else>
                 <li class="nav-item">
@@ -37,7 +35,9 @@
                 </#if>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/report">Raport</a>
+
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/report">Raport</a>
+
                 </li>
 
             </ul>

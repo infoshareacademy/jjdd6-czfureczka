@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class ListStops {
 
     @Inject
-    Validation validation;
+    private Validation validation;
 
     public boolean checkNameOfStop(String name){
 
