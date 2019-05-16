@@ -14,60 +14,44 @@
 <#include "logo.ftlh">
 <#include "navbar.ftlh">
 
-
+<br>
 <div class="container content">
-    <#--<button type="button" class="btn btn-primary btn-lg btn-block">TRAMWAJE</button>-->
-    <#--<br>-->
-    <#--<button type="button" class="btn btn-secondary btn-lg btn-block">AUTOBUSY</button>-->
-    <#--<br>-->
-    <#--<button type="button" class="btn btn-secondary btn-lg btn-block">TROLEJBUSY</button>-->
-    <#--<br>-->
-
-    <div class="w3-card-4 w3-dark-white">
-
-        <div class="w3-container w3-center">
-            <h3>Friend request</h3>
-            <img src="" alt="Avatar" style="width:80%">
-            <h5>John Doe</h5>
-            <button class="w3-button w3-green">Accept</button>
+    <div class="w3-card-4">
+        <div class="w3-container ">
+            <br>
+            <img src="/image/bus.png" alt="Avatar" class="w3-left" style="width:10%">
+            <br>
+            <h1> <b>AUTOBUSY</b></h1>
         </div>
-
+        <br>
+        <button class="w3-button w3-block w3-blue "> <b>Rozwiń</b> </button>
     </div>
     <br>
 
-    <div class="w3-card-4 w3-dark-white">
-
-        <div class="w3-container w3-center">
-            <h3>Friend request</h3>
-            <img src="" alt="Avatar" style="width:80%">
-            <h5>John Doe</h5>
-            <button class="w3-button w3-green">Accept</button>
+    <div class="w3-card-4">
+        <div class="w3-container ">
+            <br>
+            <img src="/image/tramcar.png" alt="Avatar" class="w3-left" style="width:10%">
+            <br>
+            <h1> <b>TRAMWAJE</b></h1>
         </div>
-
+        <br>
+        <button class="w3-button w3-block w3-blue "> <b>Rozwiń</b> </button>
     </div>
 
     <br>
 
-    <div class="w3-card-4 w3-dark-white">
-
-        <div class="w3-container w3-center">
-            <h3>Friend request</h3>
-            <img src="/image/bus.png" alt="bus" style="width: 60px;%">
-            <h5>John Doe</h5>
-            <button class="w3-button w3-green">Accept</button>
+    <div class="w3-card-4">
+        <div class="w3-container ">
+            <br>
+            <img src="/image/frontbus.png" alt="Avatar" class="w3-left" style="width:10%">
+            <br>
+            <h1><b>TROLEJBUSY</b></h1>
         </div>
-
+        <br>
+        <button class="w3-button w3-block w3-blue "> <b>Rozwiń</b> </button>
     </div>
-
     <div class="row">
-
-        <div class="col-12">
-            <h1 class="heading-statistics">Rozkład jazdy</h1>
-        </div>
-
-        <#include "listTram.ftlh">
-        <#include "listBus.ftlh">
-        <#include "listTrolleybus.ftlh">
     </div>
     <#if time??>
         <#include "timetable.ftlh">
@@ -79,6 +63,7 @@
         <#include "copyright-footer.ftlh">
     </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
