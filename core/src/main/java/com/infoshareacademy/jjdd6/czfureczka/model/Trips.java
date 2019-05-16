@@ -1,7 +1,5 @@
 package com.infoshareacademy.jjdd6.czfureczka.model;
 
-import javax.ejb.Stateless;
-
 
 public class Trips {
 

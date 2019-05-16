@@ -34,7 +34,6 @@ public class DepartureWithTime {
     @Inject
     Validation validation;
 
-
     @Inject
     Trip trip;
 
@@ -52,6 +51,7 @@ public class DepartureWithTime {
 
     @Inject
     RouteShortNamesForRouteId shortNamesForRouteId;
+
 
     public List<TimetableForStop> getTimetableForStop(String name, String time) {
         Map<String, List<String>> timetable = getTimetable(name, time);
@@ -230,16 +230,6 @@ public class DepartureWithTime {
 
         return departure;
     }
-
-    private List<Integer> tripId(List<StopTimes> stops) {
-
-        List<Integer> tripId = stops.stream()
-                .map(StopTimes::getTripId)
-                .distinct()
-                .collect(Collectors.toList());
-        return tripId;
-    }
-
 
     private List<String> firstTime(List<StopTimes> stops, List<Integer> stopIds, Integer trip) {
 
