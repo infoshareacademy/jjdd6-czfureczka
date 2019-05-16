@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 public class GoogleLoginCommons {
     private static final List<String> scopes = List.of("openid", "email", "profile");
 
-    private static final String clientId = "PLACE YOUR CLIENT ID HERE";
+    private static final String clientId = "649230442291-rp5fkj2r37t9ljbjn05sj19ahgeq5rp0.apps.googleusercontent.com";
 
-    private static final String secret = "PLACE YOUR CLIENT SECRET HERE";
+    private static final String secret = "WRd2haO_yMJ0KJAqXChdxuiy";
 
     private static final String redirectUrl = "/oauth2callback";
 

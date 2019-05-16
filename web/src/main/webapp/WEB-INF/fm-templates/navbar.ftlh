@@ -25,7 +25,10 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/transfer">Wyznaczanie trasy</a>
+                </li>
 
+                <#if google_name??>
+                <li class="nav-item">
                     <a class="nav-link" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://czfureczka.jjdd6.is-academy.pl/logout">Wyloguj</a>
                 </li>
                 <#else>
