@@ -76,9 +76,10 @@ public class DepartureWithTime {
     public List<String> getFullTimetableForView(String stopDesc, String tripId, String routeId) {
         if (validation.validationOfStopName(stopDesc)) {
             if (listRoute.checkRouteId(routeId)) {
-                LocalDate now = LocalDate.now();
-                stopStatisticDao.save(new StopStatistic(stopDesc, now));
+
                 if (trip.checkTripId(tripId)) {
+                    LocalDate now = LocalDate.now();
+                    stopStatisticDao.save(new StopStatistic(stopDesc, now));
                     return cropDateFromTime(getFullTimetable(stopDesc, Integer.valueOf(tripId), Integer.valueOf(routeId)));
                 }
             }

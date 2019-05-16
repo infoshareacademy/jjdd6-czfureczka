@@ -56,8 +56,12 @@ public class Menu extends HttpServlet {
 
         resp.addCookie(new Cookie("counter", String.valueOf(newCounter)));
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+
         Template template = templateProvider.getTemplate(getServletContext(), "menu.ftlh");
         Map<String, Object> model = new HashMap<>();
+
+        model.put("google_name", googleUserName);
 
         if (req.getParameter("initialStop") != null && !req.getParameter("initialStop").isEmpty()) {
             String stop = req.getParameter("initialStop");

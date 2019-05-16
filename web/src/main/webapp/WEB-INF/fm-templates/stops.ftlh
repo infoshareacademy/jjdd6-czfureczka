@@ -28,7 +28,7 @@
     <h3 class="heading-statistics">Najbliższy odjazd</h3>
 
     <div class="row">
-        <form class="col-12">
+        <form class="col-12" method="get">
             <#include "initialStop.ftlh">
             <#include "timePicker.ftlh">
             <input class="btn" type="submit" name="search" value="Szukaj" id="button-check"/>

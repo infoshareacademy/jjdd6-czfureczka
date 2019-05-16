@@ -18,6 +18,10 @@
 
 <div class="container">
 
+    <#if google_name??>
+        <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
+    </#if>
+
     <#include "sidebar.ftlh">
 
     <div class="row">

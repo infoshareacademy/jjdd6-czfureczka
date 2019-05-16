@@ -39,6 +39,10 @@ public class ReportServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "report.ftlh");
         Map<String, Object> model = new HashMap<>();
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+
+        model.put("google_name", googleUserName);
+
         if (popularStop.getAll().size() != 0) {
             model.put("result", popularStop.getMostPopularStop());
 
