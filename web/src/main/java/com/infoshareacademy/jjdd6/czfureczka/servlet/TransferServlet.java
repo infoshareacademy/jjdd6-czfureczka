@@ -29,16 +29,16 @@ public class TransferServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(TransferServlet.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    PromotedStopDao promotedStopDao;
+    private PromotedStopDao promotedStopDao;
 
     @Inject
-    ListStops listStops;
+    private ListStops listStops;
 
     @Inject
-    Trip trip;
+    private Trip trip;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

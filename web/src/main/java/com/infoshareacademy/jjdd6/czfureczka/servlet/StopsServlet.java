@@ -28,16 +28,16 @@ public class StopsServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(StopsServlet.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    DepartureWithTime departureWithTime;
+    private DepartureWithTime departureWithTime;
 
     @Inject
-    ListStops listStops;
+    private ListStops listStops;
 
     @Inject
-    PromotedStopDao promotedStopDao;
+    private PromotedStopDao promotedStopDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

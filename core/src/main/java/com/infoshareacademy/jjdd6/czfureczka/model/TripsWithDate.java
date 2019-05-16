@@ -5,13 +5,13 @@ import java.util.List;
 
 public class TripsWithDate {
     private String lastUpdate;
-    private List<Trips> trips; //zawiera obiekty reprezentujące trasy (warianty)
+    private List<Trip> trips; //zawiera obiekty reprezentujące trasy (warianty)
 
     public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public List<Trips> getTrips() {
+    public List<Trip> getTrips() {
         return trips;
     }
 

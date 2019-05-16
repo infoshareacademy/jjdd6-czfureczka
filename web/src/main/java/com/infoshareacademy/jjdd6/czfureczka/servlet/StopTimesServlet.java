@@ -26,14 +26,13 @@ public class StopTimesServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(StopTimesServlet.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    ListRoute listRoute;
+    private ListRoute listRoute;
 
     @Inject
-    DepartureWithTime departureWithTime;
-
+    private DepartureWithTime departureWithTime;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

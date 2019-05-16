@@ -14,7 +14,6 @@ import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.TimetableForStop;
 
 import javax.ejb.Stateless;
-
 import javax.inject.Inject;
 import java.sql.Time;
 import java.time.LocalDate;
@@ -29,28 +28,28 @@ public class DepartureWithTime {
     private static final Logger logger = Logger.getLogger(DepartureWithTime.class.getName());
 
     @Inject
-    StopStatisticDao stopStatisticDao;
+    private StopStatisticDao stopStatisticDao;
 
     @Inject
-    Validation validation;
+    private Validation validation;
 
     @Inject
-    Trip trip;
+    private Trip trip;
 
     @Inject
-    ListRoute listRoute;
+    private ListRoute listRoute;
 
     @Inject
-    GetStopTimes getStopTimes;
+    private GetStopTimes getStopTimes;
 
     @Inject
-    StopIdForStopDesc stopIdForStopDesc;
+    private StopIdForStopDesc stopIdForStopDesc;
 
     @Inject
-    RouteIdForStopId routeIdForStopId;
+    private RouteIdForStopId routeIdForStopId;
 
     @Inject
-    RouteShortNamesForRouteId shortNamesForRouteId;
+    private RouteShortNamesForRouteId shortNamesForRouteId;
 
 
     public List<TimetableForStop> getTimetableForStop(String name, String time) {
@@ -102,7 +101,6 @@ public class DepartureWithTime {
         return new HashMap<>();
     }
 
-
     private List<String> getFullTimetable(String stopDesc, Integer tripId, Integer routeId) {
         List<Integer> stop = Repository.getInstance().getStops().stream()
                 .filter(s -> s.getStopDesc().equals(stopDesc))
@@ -133,8 +131,23 @@ public class DepartureWithTime {
                     return s;
                 })
                 .map(s -> s.split(":00")[0])
+                .sorted()
                 .collect(Collectors.toList());
         return result;
+    }
+
+    private List<String> secondTime(List<String> firstTime) {
+
+        final String date = "1899-12-30";
+        final String date1 = "1899-12-31";
+
+        List<String> secondTime = firstTime.stream()
+                .map(s -> s.split("T"))
+                .flatMap(Arrays::stream)
+                .filter(f -> !f.contains(date) && !f.contains(date1))
+                .sorted()
+                .collect(Collectors.toList());
+        return secondTime;
     }
 
     private List<StopTimes> stopTime(List<Integer> routeIds) {
@@ -185,10 +198,9 @@ public class DepartureWithTime {
 
                 Integer trip = tripId.get(j);
 
-                List<String> firstTime = firstTime(stop, stopIds, trip);
-                List<String> secondTime = secondTime(firstTime);
+                List<String> departureTimes = secondTime(firstTime(stop, stopIds, trip));
 
-                List<Time> times = secondTime.stream()
+                List<Time> times = departureTimes.stream()
                         .map(Time::valueOf)
                         .collect(Collectors.toList());
 
@@ -240,19 +252,5 @@ public class DepartureWithTime {
                 .collect(Collectors.toList());
 
         return firstTime;
-    }
-
-    private List<String> secondTime(List<String> firstTime) {
-
-        final String date = "1899-12-30";
-        final String date1 = "1899-12-31";
-
-        List<String> secondTime = firstTime.stream()
-                .map(s -> s.split("T"))
-                .flatMap(Arrays::stream)
-                .filter(f -> !f.contains(date) && !f.contains(date1))
-                .sorted()
-                .collect(Collectors.toList());
-        return secondTime;
     }
 }

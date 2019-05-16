@@ -140,10 +140,10 @@ public class FakeData {
         return stopTimes;
     }
 
-    public List<Trips> fakeTrip() {
-        List<Trips> trips = new ArrayList<>();
+    public List<Trip> fakeTrip() {
+        List<Trip> trips = new ArrayList<>();
 
-        Trips s1 = new Trips();
+        Trip s1 = new Trip();
         s1.setRouteId(2);
         s1.setTripId(1);
         s1.setTripHeadsign("Pruszcz Komarowo(171) - Pruszcz Rondo Kociewskie(5831)");

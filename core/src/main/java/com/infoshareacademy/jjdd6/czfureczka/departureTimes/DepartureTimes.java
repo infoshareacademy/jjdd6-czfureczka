@@ -46,7 +46,7 @@ public class DepartureTimes {
                     .getStopTimes()
                     .get(routShortNames.get(i));
 
-            List<Trips> newTrip = Repository
+            List<Trip> newTrip = Repository
                     .getInstance()
                     .getTrips();
 
@@ -117,7 +117,7 @@ public class DepartureTimes {
                     .getStopTimes()
                     .get(routShortNames.get(i));
 
-            List<Trips> newTrip = Repository
+            List<Trip> newTrip = Repository
                     .getInstance()
                     .getTrips();
 
@@ -140,8 +140,6 @@ public class DepartureTimes {
                 departure.put(routeId + tripHeadsign, secondTime);
             }
         }
-
-        // System.out.println(Collections.singletonList(departure));
         return departure;
     }
 
@@ -169,7 +167,7 @@ public class DepartureTimes {
         return tripId;
     }
 
-    private String tripHeadsing(List<Trips> newTrip, Integer routeID, Integer trip) {
+    private String tripHeadsing(List<Trip> newTrip, Integer routeID, Integer trip) {
 
         List<String> name = newTrip.stream()
                 .filter(f -> routeID.equals(f.getRouteId()))
