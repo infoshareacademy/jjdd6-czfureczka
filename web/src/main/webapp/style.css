@@ -84,3 +84,21 @@
     color: cadetblue;
 }
 
+.roll {
+    width:40%;
+    height:80px;
+    background-color:white;
+    padding:15px;
+    font-size:1.2em;
+    border:3px solid #000;
+    transition-duration:4s;
+    transition-timing-function:linear;
+}
+
+.roll:hover {
+    width:80%;
+    background-color:red;
+}
+
+
+
