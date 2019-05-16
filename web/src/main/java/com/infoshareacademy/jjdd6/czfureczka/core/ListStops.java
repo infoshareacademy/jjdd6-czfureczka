@@ -1,7 +1,5 @@
 package com.infoshareacademy.jjdd6.czfureczka.core;
 
-import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStop;
-import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStopDao;
 import com.infoshareacademy.jjdd6.czfureczka.repository.Repository;
 import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 

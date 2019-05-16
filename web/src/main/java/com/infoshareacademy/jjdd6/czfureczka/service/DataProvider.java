@@ -25,4 +25,9 @@ public class DataProvider implements ServletContextListener {
             logger.severe("Data could not be loaded");
         }
     }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+
+    }
 }
