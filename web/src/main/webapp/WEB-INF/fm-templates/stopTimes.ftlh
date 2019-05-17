@@ -8,8 +8,6 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    
 </head>
 <body>
 
