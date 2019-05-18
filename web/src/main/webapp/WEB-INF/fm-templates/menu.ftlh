@@ -20,9 +20,10 @@
 
     <#if google_name??>
         <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
-    </#if>
 
-    <#include "sidebar.ftlh">
+        <#include "sidebar.ftlh">
+
+    </#if>
 
     <div class="row">
 

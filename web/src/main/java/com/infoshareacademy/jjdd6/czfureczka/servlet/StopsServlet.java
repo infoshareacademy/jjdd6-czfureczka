@@ -46,10 +46,14 @@ public class StopsServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "stops.ftlh");
         Map<String, Object> model = new HashMap<>();
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        String email = (String) req.getSession().getAttribute("email");
+        model.put("google_name", googleUserName);
+
         List<String> names = listStops.getListAllStops();
         model.put("stops", names);
 
-        model.put("promotedStops", promotedStopDao.findAll(PromotedStop.class).stream()
+        model.put("promotedStops", promotedStopDao.findByEmail(PromotedStop.class, email).stream()
                 .sorted(Comparator.comparing(PromotedStop::getTag))
                 .distinct()
                 .collect(Collectors.toList()));

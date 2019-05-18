@@ -69,6 +69,8 @@ public class StopTimesServlet extends HttpServlet {
                 }
             }
         }
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        model.put("google_name", googleUserName);
 
         try {
             template.process(model, resp.getWriter());

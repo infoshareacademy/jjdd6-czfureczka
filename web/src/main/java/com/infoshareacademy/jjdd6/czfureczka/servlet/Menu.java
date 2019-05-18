@@ -56,11 +56,11 @@ public class Menu extends HttpServlet {
 
         resp.addCookie(new Cookie("counter", String.valueOf(newCounter)));
 
-        String googleUserName = (String) req.getSession().getAttribute("google_name");
-
         Template template = templateProvider.getTemplate(getServletContext(), "menu.ftlh");
         Map<String, Object> model = new HashMap<>();
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        String email = (String) req.getSession().getAttribute("email");
         model.put("google_name", googleUserName);
 
         if (req.getParameter("initialStop") != null && !req.getParameter("initialStop").isEmpty()) {
@@ -86,7 +86,7 @@ public class Menu extends HttpServlet {
         List<String> names = listStops.getListAllStops();
 
         model.put("stops", names);
-        model.put("promotedStops", promotedStopDao.findAll(PromotedStop.class).stream()
+        model.put("promotedStops", promotedStopDao.findByEmail(PromotedStop.class, email).stream()
                 .sorted(Comparator.comparing(PromotedStop::getTag))
                 .distinct()
                 .collect(Collectors.toList()));

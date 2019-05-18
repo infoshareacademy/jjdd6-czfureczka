@@ -49,4 +49,9 @@ public class GenericDao<K, T> {
         }
         return result;
     }
+
+    public List<K> findByEmail(Class<K> c, String email){
+        final Query query = entityManager.createQuery("select t from " + c.getName() + " t where email = " + "'" + email +"'");
+        return query.getResultList();
+    }
 }
