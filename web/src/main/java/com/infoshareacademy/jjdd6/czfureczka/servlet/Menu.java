@@ -47,6 +47,9 @@ public class Menu extends HttpServlet {
     @Inject
     private Trip trip;
 
+    @Inject
+    private AdministratorDao administratorDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -84,6 +87,13 @@ public class Menu extends HttpServlet {
         }
 
         List<String> names = listStops.getListAllStops();
+
+        if (email != null && !email.isEmpty()){
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()){
+                model.put("administrator", "yes");
+            }
+        }
 
         model.put("stops", names);
         model.put("promotedStops", promotedStopDao.findByEmail(PromotedStop.class, email).stream()

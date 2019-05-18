@@ -2,6 +2,8 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
 import com.infoshareacademy.jjdd6.czfureczka.core.Trip;
+import com.infoshareacademy.jjdd6.czfureczka.database.Administrator;
+import com.infoshareacademy.jjdd6.czfureczka.database.AdministratorDao;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.TripWithTransfer;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStop;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStopDao;
@@ -35,6 +37,9 @@ public class TransferServlet extends HttpServlet {
     private PromotedStopDao promotedStopDao;
 
     @Inject
+    private AdministratorDao administratorDao;
+
+    @Inject
     private ListStops listStops;
 
     @Inject
@@ -55,6 +60,13 @@ public class TransferServlet extends HttpServlet {
                 .sorted(Comparator.comparing(PromotedStop::getTag))
                 .distinct()
                 .collect(Collectors.toList()));
+
+        if (email != null && !email.isEmpty()){
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()){
+                model.put("administrator", "yes");
+            }
+        }
 
         if (req.getParameter("initialStop") != null && !req.getParameter("initialStop").isEmpty()) {
             if (req.getParameter("destinationStop") != null && !req.getParameter("destinationStop").isEmpty()) {
