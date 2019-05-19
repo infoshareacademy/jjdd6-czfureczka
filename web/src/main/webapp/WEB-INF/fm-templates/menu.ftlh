@@ -39,7 +39,7 @@
 
                 <div class="form-group">
                     <label for="routeId" class="align-baseline mr-1">Linia:</label>
-                    <label><input type="text" name="routeId" required maxlength="4" id="routeId" class="form-control"
+                    <label><input type="text" name="routeId" maxlength="4" id="routeId" class="form-control"
                                   placeholder="2"></label>
                 </div>
 

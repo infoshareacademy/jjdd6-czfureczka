@@ -1,13 +1,11 @@
 package com.infoshareacademy.jjdd6.czfureczka.model;
 
-import com.infoshareacademy.jjdd6.czfureczka.servlet.Menu;
-
 import javax.ejb.Stateless;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.time.DayOfWeek;
@@ -27,15 +25,14 @@ public class GetStopTimes {
         LocalDate lD = LocalDate.now();
 
         if (DayOfWeek.SATURDAY == lD.getDayOfWeek() || DayOfWeek.SUNDAY == lD.getDayOfWeek()) {
-            lD.plus(2, ChronoUnit.DAYS);
+            lD = lD.plus(2, ChronoUnit.DAYS);
         }
 
         String date = String.valueOf(lD);
 
-        Client client = ClientBuilder.newClient();
+        final Client client = ClientBuilder.newClient();
 
-        WebTarget webTarget = client.target("http://87.98.237.99:88/stopTimes?date=" + date + "&routeId=" + routeId);
-
+        final WebTarget webTarget = client.target("http://87.98.237.99:88/stopTimes?date=" + date + "&routeId=" + routeId);
 
         Response response = webTarget.request().accept(MediaType.APPLICATION_JSON_TYPE).get();
 
@@ -44,6 +41,10 @@ public class GetStopTimes {
         response.close();
 
         logger.info("Read json form url");
+
+        if (response.getStatus() != 200) {
+            throw new IllegalArgumentException("The server at (" + "http://87.98.237.99:88/stopTimes?date=" + date + "&routeId=" + routeId + ") did not respond.");
+        }
 
         return responseValue.getStopTimes();
     }
