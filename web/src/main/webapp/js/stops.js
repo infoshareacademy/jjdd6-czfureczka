@@ -2,13 +2,9 @@ $(function () {
 
     $(document).ready(function () {
 
-        $('form').submit(function () {
+        $('#stops-form').submit(function () {
 
-            $.ajax({
-                url: '/stops',
-                type: 'GET',
-                data: $(this).serializeArray(),
-            });
+            $("#spinner").show();
 
         });
     });

@@ -3,11 +3,11 @@
         <h3>Linia ${routeId}</h3>
         <h4>Przystanek: ${stop}</h4>
     </div>
-    <div>
+    <div class="content">
         <b>Odjazy: </b>
     <#list time>
         <#items as x>
-            <span>${x}, </span>
+            <span>${x}<#sep>,</#sep></span>
         </#items>
     </#list>
     </div>

@@ -11,7 +11,9 @@ $(function () {
                 type: 'POST',
                 data: $(this).serializeArray(),
                 success: function (result) {
-                    location.reload();
+                    $("#success-alert").show();
+                    setTimeout(function() { $("#success-alert").hide(); }, 5000);
+                    document.getElementById("sidebar").reset();
                 }
             });
 

@@ -9,10 +9,10 @@
         <#list listStops>
             <#items as tripWithStops>
 
-                <div class="list-group col-6">
+                <div class="list-group col-6" style="text-align: center">
 
                     <button type="button" class="list-group-item list-group-item-action"
-                            style="background-color: mediumseagreen !important; color: white; cursor: auto;">
+                            style="background-color: #15400e !important; color: white; cursor: auto;">
                         <b>Kierunek: ${tripWithStops.stopEnd}</b></button>
 
                     <#list tripWithStops.stops>

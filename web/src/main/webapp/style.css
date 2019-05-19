@@ -1,16 +1,24 @@
 .content{
-    padding-left: 5%;
     margin-top: 40px;
     text-align: center;
 }
 
 #logo-background {
-    background-color: mediumseagreen;
+    background-color: #15400e;
     color: white;
 }
 
 .navbar-bg {
-    background-color: mediumseagreen !important;
+    background-color: #15400e !important;
+    font-weight: 600;
+}
+
+.nav-link{
+    color: rgba(255,255,255,.7) !important;
+}
+
+.nav-link:hover{
+    color: rgba(255,255,255,.9) !important;
 }
 
 .nav-image {
@@ -52,12 +60,17 @@
 
 #button-save{
     color: white;
-    background-color: mediumseagreen !important;
+    background-color: #15400e !important;
 }
 
 #button-check{
     color: white;
-    background-color: mediumseagreen !important;
+    background-color: #15400e !important;
+}
+.button-admin{
+    color: white;
+    background-color: #15400e !important;
+    border-color: #15400e !important;
 }
 
 .menu-form{

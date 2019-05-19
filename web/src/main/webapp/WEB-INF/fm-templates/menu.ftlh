@@ -23,6 +23,11 @@
 
         <#include "sidebar.ftlh">
 
+        <div class="row" style="margin-top: 2%">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-success" id="success-alert" style="display:none">Tag dodany</div>
+            </div>
+        </div>
     </#if>
 
     <div class="row">

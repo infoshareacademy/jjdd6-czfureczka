@@ -33,6 +33,9 @@
     </div>
 
     <div class="row" style="margin-top: 30px">
+        <div class="col-12" style="text-align: center">
+            <div class="spinner-border " role="status" id="spinner" style="display:none"></div>
+        </div>
 
         <#if deficiency??>
             <div class="col-12">
@@ -49,47 +52,44 @@
         <#if trip??>
             <div class="col-12">
                 Możesz pojechać:
-                <ul>
-                    <#list trip>
-                        <#items as route>
-                            <li>${route}</li>
-                        </#items>
-                    </#list>
-                </ul>
+                <#list trip>
+                    <#items as route>
+                        <span>${route}<#sep>, </#sep></span>
+                    </#items>
+                </#list>
             </div>
         </#if>
 
         <#if transfer??>
             <div class="col-12">
-                <ol>
 
-                    <#list transfer>
-                        <#items as tripWithTransfer>
-                            <li>
-                                Należy pojechać linią:
 
-                                <#list tripWithTransfer.routeStart>
-                                    <#items as route>
-                                        <span>${route}, </span>
-                                    </#items>
-                                </#list>
-                                <br/>
+                <#list transfer>
+                    <#items as tripWithTransfer>
+                        <div>
+                            Należy pojechać linią:
 
-                                Przesiadka na: ${tripWithTransfer.stop}<br/>
+                            <#list tripWithTransfer.routeStart>
+                                <#items as route>
+                                    <span>${route}<#sep>, </#sep></span>
+                                </#items>
+                            </#list>
+                            <br/>
 
-                                Następnie jedź:
+                            Przesiadka na: ${tripWithTransfer.stop}<br/>
 
-                                <#list tripWithTransfer.routeEnd>
-                                    <#items as routeEnd>
-                                        <span>${routeEnd}</span>
-                                    </#items>
-                                </#list>
-                                <br/><br/>
-                            </li>
-                        </#items>
-                    </#list>
+                            Następnie jedź:
 
-                </ol>
+                            <#list tripWithTransfer.routeEnd>
+                                <#items as routeEnd>
+                                    <span>${routeEnd}<#sep>, </#sep></span>
+                                </#items>
+                            </#list>
+                            <br/><br/>
+                        </div>
+                    </#items>
+                </#list>
+
             </div>
         </#if>
 
@@ -106,7 +106,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<#--<script src="/js/trip.js"></script>-->
+<script src="/js/trip.js"></script>
 
 </body>
 </html>
