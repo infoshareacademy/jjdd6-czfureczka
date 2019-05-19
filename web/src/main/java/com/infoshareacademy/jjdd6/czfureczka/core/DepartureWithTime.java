@@ -77,15 +77,18 @@ public class DepartureWithTime {
     }
 
     public List<String> getFullTimetableForView(String stopDesc, String tripId, String routeId) {
+
+        String checkroute=routeId.replaceAll("[\\.$|,|;|']", "");
+
         if (validation.validationOfStopName(stopDesc)) {
-            if (listRoute.checkRouteId(routeId)) {
+            if (listRoute.checkRouteId(checkroute)) {
 
                 if (trip.checkTripId(tripId)) {
                     LocalDate now = LocalDate.now();
                     stopStatisticDao.save(new StopStatistic(stopDesc, now));
 
-                    List<String> timeTable=cropDateFromTime(getFullTimetable(stopDesc, Integer.valueOf(tripId), Integer.valueOf(routeId)));
-                    logger.info(timeTable.toString()+"timetable");
+                    List<String> timeTable=cropDateFromTime(getFullTimetable(stopDesc, Integer.valueOf(tripId), Integer.valueOf(checkroute)));
+
                     if (timeTable.isEmpty() || timeTable.size()==0){
                         timeTable.add("Brak danych");
                     }

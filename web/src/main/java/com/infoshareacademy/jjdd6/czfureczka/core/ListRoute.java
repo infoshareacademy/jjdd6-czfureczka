@@ -65,8 +65,11 @@ public class ListRoute {
     }
 
     public String getNameRoute(String routeId) {
+
+        String checkroute=routeId.replaceAll("[\\.$|,|;|']", "");
+
         return Repository.getInstance().getRoutes().stream()
-                .filter(r -> r.getRouteId() == Integer.valueOf(routeId))
+                .filter(r -> r.getRouteId() == Integer.valueOf(checkroute))
                 .map(r1 -> r1.getRouteShortName())
                 .distinct()
                 .collect(Collectors.joining());
@@ -142,7 +145,10 @@ public class ListRoute {
     }
 
     public boolean checkRouteId(String route) {
-        if (Repository.getInstance().getRoutes().stream().anyMatch(r -> Integer.valueOf(route) == r.getRouteId())) {
+
+        String checkroute=route.replaceAll("[\\.$|,|;|']", "");
+
+        if (Repository.getInstance().getRoutes().stream().anyMatch(r -> Integer.valueOf(checkroute) == r.getRouteId())) {
             return true;
         }
         return false;
