@@ -2,6 +2,8 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
 import com.infoshareacademy.jjdd6.czfureczka.core.Trip;
+import com.infoshareacademy.jjdd6.czfureczka.database.Administrator;
+import com.infoshareacademy.jjdd6.czfureczka.database.AdministratorDao;
 import com.infoshareacademy.jjdd6.czfureczka.viewModel.TripWithTransfer;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStop;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStopDao;
@@ -35,6 +37,9 @@ public class TransferServlet extends HttpServlet {
     private PromotedStopDao promotedStopDao;
 
     @Inject
+    private AdministratorDao administratorDao;
+
+    @Inject
     private ListStops listStops;
 
     @Inject
@@ -49,10 +54,19 @@ public class TransferServlet extends HttpServlet {
 
         List<String> names = listStops.getListAllStops();
         model.put("stops", names);
-        model.put("promotedStops", promotedStopDao.findAll(PromotedStop.class).stream()
+
+        String email = (String) req.getSession().getAttribute("email");
+        model.put("promotedStops", promotedStopDao.findByEmail(PromotedStop.class, email).stream()
                 .sorted(Comparator.comparing(PromotedStop::getTag))
                 .distinct()
                 .collect(Collectors.toList()));
+
+        if (email != null && !email.isEmpty()){
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()){
+                model.put("administrator", "yes");
+            }
+        }
 
         if (req.getParameter("initialStop") != null && !req.getParameter("initialStop").isEmpty()) {
             if (req.getParameter("destinationStop") != null && !req.getParameter("destinationStop").isEmpty()) {
@@ -76,6 +90,9 @@ public class TransferServlet extends HttpServlet {
             }
         }
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        model.put("google_name", googleUserName);
+
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
@@ -83,21 +100,24 @@ public class TransferServlet extends HttpServlet {
         }
     }
 
-
     static void savePromotedStop(HttpServletRequest req, ListStops listStops, PromotedStopDao promotedStopDao) {
         PromotedStop stop = new PromotedStop();
-        if (req.getParameter("nameStop") != null && !req.getParameter("nameStop").isEmpty()) {
-            if (listStops.checkNameOfStop(req.getParameter("nameStop"))) {
-                stop.setName(req.getParameter("nameStop"));
-            }
+        if (req.getSession().getAttribute("email") != null) {
+            if (req.getParameter("nameStop") != null && !req.getParameter("nameStop").isEmpty()) {
+                if (listStops.checkNameOfStop(req.getParameter("nameStop"))) {
+                    stop.setName(req.getParameter("nameStop"));
+                    String email = (String) req.getSession().getAttribute("email");
+                    stop.setEmail(email);
+                }
 
-            if (req.getParameter("tag") != null && !req.getParameter("tag").isEmpty()) {
-                stop.setTag(req.getParameter("tag"));
-            } else {
-                stop.setTag("Ulubiony");
-            }
+                if (req.getParameter("tag") != null && !req.getParameter("tag").isEmpty()) {
+                    stop.setTag(req.getParameter("tag"));
+                } else {
+                    stop.setTag("Ulubiony");
+                }
 
-            promotedStopDao.save(stop);
+                promotedStopDao.save(stop);
+            }
         }
     }
 }

@@ -40,6 +40,7 @@ public class GoogleLoginCallbackServlet extends AbstractAuthorizationCodeCallbac
         String name = info.getName();
         String email = info.getEmail();
         req.getSession().setAttribute("google_name", name);
+        req.getSession().setAttribute("email", email);
         resp.sendRedirect("/menu");
     }
 

@@ -33,15 +33,19 @@
                 </li>
                 <#else>
                 <li class="nav-item">
-                    <a class="nav-link" href="/googlelogin">Zaloguj</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/googlelogin">Zaloguj</a>
                 </li>
                 </#if>
 
+                <#if administrator??>
                 <li class="nav-item">
-
                     <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/report">Raport</a>
-
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/admin">Administratorzy</a>
+                </li>
+                </#if>
 
             </ul>
 

@@ -25,6 +25,10 @@
 <#include "navbar.ftlh">
 
 <div class="container content">
+    <#if google_name??>
+        <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
+    </#if>
+
     <h3 class="heading-statistics">Najbliższy odjazd</h3>
 
     <div class="row">

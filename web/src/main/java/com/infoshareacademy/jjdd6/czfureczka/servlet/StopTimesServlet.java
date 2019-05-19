@@ -3,6 +3,8 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 import com.infoshareacademy.jjdd6.czfureczka.agency.ModeOfTransportation;
 import com.infoshareacademy.jjdd6.czfureczka.core.DepartureWithTime;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListRoute;
+import com.infoshareacademy.jjdd6.czfureczka.database.Administrator;
+import com.infoshareacademy.jjdd6.czfureczka.database.AdministratorDao;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -34,12 +36,23 @@ public class StopTimesServlet extends HttpServlet {
     @Inject
     private DepartureWithTime departureWithTime;
 
+    @Inject
+    private AdministratorDao administratorDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
 
         Template template = templateProvider.getTemplate(getServletContext(), "stopTimes.ftlh");
         Map<String, Object> model = new HashMap<>();
+
+        String email = (String) req.getSession().getAttribute("email");
+        if (email != null && !email.isEmpty()){
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()){
+                model.put("administrator", "yes");
+            }
+        }
 
         model.put("bus", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.BUS));
         model.put("tram", listRoute.getListOfAllLinesForTypeVehicle(ModeOfTransportation.TRAM));
@@ -69,6 +82,8 @@ public class StopTimesServlet extends HttpServlet {
                 }
             }
         }
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        model.put("google_name", googleUserName);
 
         try {
             template.process(model, resp.getWriter());

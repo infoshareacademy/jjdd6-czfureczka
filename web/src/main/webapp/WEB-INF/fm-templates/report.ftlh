@@ -19,6 +19,7 @@
         <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
     </#if>
 
+    <#if administrator??>
     <div class="row">
 
         <div class="col-12 col-sm-6">
@@ -138,6 +139,9 @@
 
     </div>
 </div>
+<#else>
+    <h2 class="heading-statistics">Brak uprawnień</h2>
+</#if>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

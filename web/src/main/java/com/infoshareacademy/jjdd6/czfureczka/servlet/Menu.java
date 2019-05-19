@@ -47,6 +47,9 @@ public class Menu extends HttpServlet {
     @Inject
     private Trip trip;
 
+    @Inject
+    private AdministratorDao administratorDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -56,11 +59,11 @@ public class Menu extends HttpServlet {
 
         resp.addCookie(new Cookie("counter", String.valueOf(newCounter)));
 
-        String googleUserName = (String) req.getSession().getAttribute("google_name");
-
         Template template = templateProvider.getTemplate(getServletContext(), "menu.ftlh");
         Map<String, Object> model = new HashMap<>();
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        String email = (String) req.getSession().getAttribute("email");
         model.put("google_name", googleUserName);
 
         if (req.getParameter("initialStop") != null && !req.getParameter("initialStop").isEmpty()) {
@@ -85,8 +88,15 @@ public class Menu extends HttpServlet {
 
         List<String> names = listStops.getListAllStops();
 
+        if (email != null && !email.isEmpty()){
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()){
+                model.put("administrator", "yes");
+            }
+        }
+
         model.put("stops", names);
-        model.put("promotedStops", promotedStopDao.findAll(PromotedStop.class).stream()
+        model.put("promotedStops", promotedStopDao.findByEmail(PromotedStop.class, email).stream()
                 .sorted(Comparator.comparing(PromotedStop::getTag))
                 .distinct()
                 .collect(Collectors.toList()));

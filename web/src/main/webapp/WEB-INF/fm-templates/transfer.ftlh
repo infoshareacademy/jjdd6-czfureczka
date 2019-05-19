@@ -16,6 +16,10 @@
 
 <div class="container content">
 
+    <#if google_name??>
+        <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
+    </#if>
+
     <div class="col-12">
         <h3 class="heading-statistics">Wyznaczanie trasy</h3>
     </div>

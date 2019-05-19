@@ -4,6 +4,8 @@ $(function () {
 
         $('#sidebar').submit(function () {
 
+            event.preventDefault();
+
             $.ajax({
                 url: '/menu',
                 type: 'POST',
