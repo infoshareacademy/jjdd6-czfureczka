@@ -16,88 +16,106 @@
 <#include "navbar.ftlh">
 <div class="container">
     <#if administrator??>
-    <div class="row">
-        <div class="col-12">
-            <h3 class="heading-statistics">Dodaj nowego administratora</h3>
-        </div>
-    </div>
-
-    <form id="addNewAdministrator">
-        <div class="form-group row">
-            <label for="email" class="col-md-1 offset-md-2 col-form-label mr-0">Email:</label>
-            <div class="col-md-6">
-                <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="heading-statistics">Dodaj nowego administratora</h3>
             </div>
         </div>
 
-        <#include "permissions.ftlh">
-
-        <div class="form-group row">
-            <div class="col-sm-6 offset-4">
-                <button type="submit" class="btn btn-primary button-admin">Dodaj</button>
-            </div>
-        </div>
-    </form>
-
-    <div class="row">
-        <div class="col-12">
-            <h3 class="heading-statistics">Edytuj dane administratora</h3>
-        </div>
-    </div>
-
-    <form id="edit">
-        <div class="form-group row">
-            <label for="email1" class="col-md-1 offset-md-2 col-form-label mr-0">Email:</label>
-            <div class="col-md-6">
-                <input type="email" class="form-control" id="email1" placeholder="Email" name="email">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-md-2 offset-md-2 mr-0">Uprawnienia:</div>
-            <div class="col-md-6">
-                <div class="form-check custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="switch3" name="addNewAdministrator">
-                    <label class="custom-control-label" for="switch3">Dodawanie nowego administartora</label>
-                </div>
-                <div class="form-check custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="switch4" name="deleteAdministrator">
-                    <label class="custom-control-label" for="switch4">Usuwanie/edycja administratora</label>
+        <form id="addNewAdministrator">
+            <div class="form-group row">
+                <label for="email" class="col-md-1 offset-md-2 col-form-label mr-0">Email:</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                 </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <div class="col-sm-6 offset-4">
-                <button type="submit" class="btn btn-primary button-admin">Edytuj</button>
+            <#include "permissions.ftlh">
+
+            <div class="form-group row">
+                <div class="col-sm-6 offset-4">
+                    <button type="submit" class="btn btn-primary button-admin">Dodaj</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
 
-    <div class="row">
-        <div class="col-12">
-            <h3 class="heading-statistics">Usuń administratora</h3>
-        </div>
-    </div>
-
-    <form id="delete">
-        <div class="form-group row">
-            <label for="email2" class="col-md-1 offset-md-2 col-form-label mr-0">Email:</label>
-            <div class="col-md-6">
-                <input type="email" class="form-control" id="email2" placeholder="Email" name="email">
+        <div class="row" style="margin-top: 2%">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-success" id="success-alert-add" style="display:none">Nowy administrator dodany</div>
             </div>
         </div>
 
-        <div class="form-group row">
-            <div class="col-sm-6 offset-4">
-                <button type="submit" class="btn btn-primary button-admin">Usuń</button>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="heading-statistics">Edytuj dane administratora</h3>
             </div>
         </div>
-    </form>
 
-<#else>
-    <h2 class="heading-statistics">Brak uprawnień</h2>
-</#if>
+        <form id="edit">
+            <div class="form-group row">
+                <label for="email1" class="col-md-1 offset-md-2 col-form-label mr-0">Email:</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" id="email1" placeholder="Email" name="email">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-2 offset-md-2 mr-0">Uprawnienia:</div>
+                <div class="col-md-6">
+                    <div class="form-check custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="switch3" name="addNewAdministrator">
+                        <label class="custom-control-label" for="switch3">Dodawanie nowego administartora</label>
+                    </div>
+                    <div class="form-check custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="switch4" name="deleteAdministrator">
+                        <label class="custom-control-label" for="switch4">Usuwanie/edycja administratora</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6 offset-4">
+                    <button type="submit" class="btn btn-primary button-admin">Edytuj</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="row" style="margin-top: 2%">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-success" id="success-alert-edit" style="display:none">Edycja zakończona sukcesem</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h3 class="heading-statistics">Usuń administratora</h3>
+            </div>
+        </div>
+
+        <form id="delete">
+            <div class="form-group row">
+                <label for="email2" class="col-md-1 offset-md-2 col-form-label mr-0">Email:</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" id="email2" placeholder="Email" name="email">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6 offset-4">
+                    <button type="submit" class="btn btn-primary button-admin">Usuń</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="row" style="margin-top: 2%">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-success" id="success-alert-delete" style="display:none">Administrator usunięty</div>
+            </div>
+        </div>
+
+    <#else>
+        <h2 class="heading-statistics">Brak uprawnień</h2>
+    </#if>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>

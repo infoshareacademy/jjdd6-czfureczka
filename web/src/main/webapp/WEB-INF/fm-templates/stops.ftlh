@@ -39,32 +39,28 @@
         </form>
     </div>
 
-    <div>
+    <div style="margin-top: 2%" id="stops-result">
         <#if result??>
             <div class="row">
                 <div class="col-12">
 
-                    <ol>
+                    <#list result>
+                        <#items as timetableForStop>
+                            <div>
+                                Możesz pojechać następującą linią:
+                                <span>${timetableForStop.routeId}, </span><br/>
 
-                        <#list result>
-                            <#items as timetableForStop>
-                                <li>
-                                    Możesz pojechać następującą linią:
-                                    <span>${timetableForStop.routeId}, </span><br/>
+                                Odjazdy są o:
 
-                                    Odjazdy są o:
-
-                                    <#list timetableForStop.time>
-                                        <#items as time>
-                                            <span>${time},</span>
-                                        </#items>
-                                    </#list>
-                                    <br/><br/>
-                                </li>
-                            </#items>
-                        </#list>
-
-                    </ol>
+                                <#list timetableForStop.time>
+                                    <#items as time>
+                                        <span>${time},</span>
+                                    </#items>
+                                </#list>
+                                <br/><br/>
+                            </div>
+                        </#items>
+                    </#list>
 
                 </div>
             </div>

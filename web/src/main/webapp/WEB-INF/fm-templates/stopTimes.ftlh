@@ -14,28 +14,31 @@
 <#include "navbar.ftlh">
 
 
-<div class="container content">
+<div class="container">
 
-        <#if google_name??>
-            <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
-        </#if>
+    <#if google_name??>
+        <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
+    </#if>
 
     <div class="row">
         <div class="col-12">
             <h3 class="heading-statistics">Rozkład jazdy</h3>
         </div>
-
-        <#include "listTram.ftlh">
-        <#include "listBus.ftlh">
-        <#include "listTrolleybus.ftlh">
     </div>
+
     <#if time??>
         <#include "timetable.ftlh">
     <#else>
         <#include "listStops.ftlh">
     </#if>
 
-    <div class="col-12" style="margin-top: 3%">
+    <div class="content">
+        <#include "listTram.ftlh">
+        <#include "listBus.ftlh">
+        <#include "listTrolleybus.ftlh">
+    </div>
+
+    <div class="col-12 content">
         <#include "copyright-footer.ftlh">
     </div>
 </div>

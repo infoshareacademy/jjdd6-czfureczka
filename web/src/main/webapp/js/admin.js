@@ -11,7 +11,10 @@ $(function () {
                 type: 'POST',
                 data: $(this).serializeArray(),
                 success: function (result) {
-                    location.reload();
+                    $("#success-alert-add").show();
+                    setTimeout(function() { $("#success-alert-add").hide(); }, 5000);
+                    document.getElementById("addNewAdministrator").reset();
+                    //location.reload();
                 }
             });
 
@@ -26,7 +29,10 @@ $(function () {
                 type: 'PUT',
                 data: $(this).serializeArray(),
                 success: function (result) {
-                    location.reload();
+                    $("#success-alert-edit").show();
+                    setTimeout(function() { $("#success-alert-edit").hide(); }, 4000);
+                    document.getElementById("edit").reset();
+                    //location.reload();
                 }
             });
 
@@ -41,7 +47,10 @@ $(function () {
                 type: 'DELETE',
                 data: $(this).serializeArray(),
                 success: function (result) {
-                    location.reload();
+                    $("#success-alert-delete").show();
+                    setTimeout(function() { $("#success-alert-delete").hide(); }, 4000);
+                    document.getElementById("delete").reset();
+                    //location.reload();
                 }
             });
 
