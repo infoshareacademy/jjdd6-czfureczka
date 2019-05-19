@@ -33,6 +33,9 @@
     </div>
 
     <div class="row" style="margin-top: 30px">
+        <div class="col-12" style="text-align: center">
+            <div class="spinner-border " role="status" id="spinner" style="display:none"></div>
+        </div>
 
         <#if deficiency??>
             <div class="col-12">
@@ -103,7 +106,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<#--<script src="/js/trip.js"></script>-->
+<script src="/js/trip.js"></script>
 
 </body>
 </html>

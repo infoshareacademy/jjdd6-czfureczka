@@ -26,6 +26,10 @@
         </div>
     </div>
 
+    <div class="col-12" style="text-align: center; margin-top: 2%">
+        <div class="spinner-border " role="status" id="spinner" style="display:none"></div>
+    </div>
+
     <#if time??>
         <#include "timetable.ftlh">
     <#else>

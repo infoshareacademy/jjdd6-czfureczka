@@ -4,11 +4,7 @@ $(function () {
 
         $('#trip').submit(function () {
 
-            $.ajax({
-                url: '/transfer',
-                type: 'GET',
-                data: $(this).serializeArray(),
-            });
+            $("#spinner").show();
 
         });
     });
