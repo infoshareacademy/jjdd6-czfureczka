@@ -1,6 +1,6 @@
 {
-  "2019-04-18": {
-    "lastUpdate": "2019-04-18 06:05:03",
+  "2019-05-20": {
+    "lastUpdate": "2019-05-20 06:05:03",
     "stops": [
       {
         "stopId": 8,
@@ -9,7 +9,7 @@
         "stopShortName": "8227",
         "stopDesc": "Gdynia Dąbrowa Centrum",
         "subName": " ",
-        "date": "2019-04-12",
+        "date": "2019-05-14",
         "zoneId": 5,
         "zoneName": "Gdynia",
         "stopUrl": "",
@@ -22,7 +22,7 @@
         "depot": 0,
         "ticketZoneBorder": 0,
         "onDemand": 0,
-        "activationDate": "2019-04-12",
+        "activationDate": "2019-05-14",
         "stopLat": 54.47317,
         "stopLon": 18.46509
       },
@@ -33,7 +33,7 @@
         "stopShortName": "8228",
         "stopDesc": "Gdynia Kameliowa",
         "subName": " ",
-        "date": "2019-04-12",
+        "date": "2019-05-14",
         "zoneId": 5,
         "zoneName": "Gdynia",
         "stopUrl": "",
@@ -46,7 +46,7 @@
         "depot": 0,
         "ticketZoneBorder": 0,
         "onDemand": 0,
-        "activationDate": "2019-04-12",
+        "activationDate": "2019-05-14",
         "stopLat": 54.47018,
         "stopLon": 18.4682
       }
