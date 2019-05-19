@@ -12,7 +12,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="/menu">Start</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/menu">Start</a>
                 </li>
 
                 <li class="nav-item">
