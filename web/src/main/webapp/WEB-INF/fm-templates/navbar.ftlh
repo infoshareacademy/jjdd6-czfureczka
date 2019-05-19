@@ -12,19 +12,19 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="http://localhost:8080/menu">Start</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/menu">Start</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/stopTimes">Rozkład jazdy</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/stopTimes">Rozkład jazdy</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/stops">Najbliższy odjazd</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/stops">Najbliższy odjazd</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/transfer">Wyznaczanie trasy</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/transfer">Wyznaczanie trasy</a>
                 </li>
 
                 <#if google_name??>
@@ -39,7 +39,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="http://localhost:8080/report">Raport</a>
+                    <a class="nav-link" href="http://czfureczka.jjdd6.is-academy.pl/report">Raport</a>
 
                 </li>
 
