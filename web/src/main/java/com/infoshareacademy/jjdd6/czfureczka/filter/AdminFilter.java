@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebFilter(
-        filterName = "AuthenticationFilter",
+        filterName = "EmailFilter",
         urlPatterns = {"/admin"})
 public class AdminFilter implements Filter {
 
