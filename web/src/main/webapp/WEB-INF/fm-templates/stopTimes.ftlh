@@ -15,12 +15,12 @@
 
 
 <div class="container content">
-    <div class="row">
 
         <#if google_name??>
             <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
         </#if>
 
+    <div class="row">
         <div class="col-12">
             <h3 class="heading-statistics">Rozkład jazdy</h3>
         </div>

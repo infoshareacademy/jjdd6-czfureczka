@@ -4,7 +4,7 @@
 
         <div class="form-group">
             <label for="nameStopText" class="align-baseline mr-1">Nazwa przystanku: </label>
-            <input type="text" name="nameStop" placeholder="Przystanek" list="stopsList" />
+            <input type="text" name="nameStop" placeholder="Przystanek" list="stopsList" required/>
             <#if stops??>
             <datalist id="stopsList">
                 <#list stops>

@@ -42,10 +42,13 @@ public class ErrorServlet extends HttpServlet {
         model.put("firstPhoto", firstPhoto);
         model.put("images", newImages);
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        model.put("google_name", googleUserName);
+
         Integer statusCode = (Integer) req.getAttribute("javax.servlet.error.status_code");
         String servletName = (String) req.getAttribute("javax.servlet.error.servlet_name");
-        if (servletName == null) {
-            servletName = "Unknown";
+        if (servletName == null || servletName.equals("default")) {
+            servletName = "tajemnica";
         }
 
         model.put("statusCode", statusCode);

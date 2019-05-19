@@ -34,7 +34,7 @@
 
         <div class="form-group row">
             <div class="col-sm-6 offset-4">
-                <button type="submit" class="btn btn-primary">Dodaj</button>
+                <button type="submit" class="btn btn-primary button-admin">Dodaj</button>
             </div>
         </div>
     </form>
@@ -69,7 +69,7 @@
 
         <div class="form-group row">
             <div class="col-sm-6 offset-4">
-                <button type="submit" class="btn btn-primary">Edytuj</button>
+                <button type="submit" class="btn btn-primary button-admin">Edytuj</button>
             </div>
         </div>
     </form>
@@ -90,7 +90,7 @@
 
         <div class="form-group row">
             <div class="col-sm-6 offset-4">
-                <button type="submit" class="btn btn-primary">Usuń</button>
+                <button type="submit" class="btn btn-primary button-admin">Usuń</button>
             </div>
         </div>
     </form>
