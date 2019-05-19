@@ -68,7 +68,7 @@ public class DepartureWithTime {
                 times.add(longTime);
             }
 
-            if(times.size()!=0) {
+            if (times.size() != 0) {
                 timetableForStop.setTime(times);
                 result.add(timetableForStop);
             }
@@ -83,7 +83,14 @@ public class DepartureWithTime {
                 if (trip.checkTripId(tripId)) {
                     LocalDate now = LocalDate.now();
                     stopStatisticDao.save(new StopStatistic(stopDesc, now));
-                    return cropDateFromTime(getFullTimetable(stopDesc, Integer.valueOf(tripId), Integer.valueOf(routeId)));
+
+                    List<String> timeTable=cropDateFromTime(getFullTimetable(stopDesc, Integer.valueOf(tripId), Integer.valueOf(routeId)));
+                    logger.info(timeTable.toString()+"timetable");
+                    if (timeTable.isEmpty() || timeTable.size()==0){
+                        timeTable.add("Brak danych");
+                    }
+                    logger.info(timeTable.toString()+"timetable");
+                    return timeTable;
                 }
             }
         }
@@ -197,10 +204,7 @@ public class DepartureWithTime {
                     .filter(f -> routeID.equals(f.getRouteId()))
                     .map(m -> m.getTripId())
                     .distinct()
-                    .limit(2)
                     .collect(Collectors.toList());
-
-            logger.info(tripId.toString() + "tripId" );
 
             for (int j = 0; j < tripId.size(); j++) {
 
@@ -233,18 +237,20 @@ public class DepartureWithTime {
                     timeOfDeparture.addAll(timeOfDeparture2);
                 }
 
-                List<String> stopEnds = listRoute.getListStopsInTrip(routeId).stream()
-                        .filter(f -> trip.equals(f.getTripId()))
-                        .map(m -> m.getStopEnd())
-                        .distinct()
-                        .collect(Collectors.toList());
+                if (!timeOfDeparture.isEmpty() || timeOfDeparture.size() != 0) {
+                    List<String> stopEnds = listRoute.getListStopsInTrip(routeId).stream()
+                            .filter(f -> trip.equals(f.getTripId()))
+                            .map(m -> m.getStopEnd())
+                            .distinct()
+                            .collect(Collectors.toList());
 
-                String stopEnd = stopEnds.get(0);
+                    String stopEnd = stopEnds.get(0);
 
-                List<Integer> listOfRoute = Arrays.asList(routeID);
-                String nameRoute = shortNamesForRouteId.routeShortNameForRouteId(listOfRoute).get(0);
+                    List<Integer> listOfRoute = Arrays.asList(routeID);
+                    String nameRoute = shortNamesForRouteId.routeShortNameForRouteId(listOfRoute).get(0);
 
-                departure.put(nameRoute + " Kierunek " + stopEnd, timeOfDeparture);
+                    departure.put(nameRoute + " Kierunek " + stopEnd, timeOfDeparture);
+                }
             }
         }
 
