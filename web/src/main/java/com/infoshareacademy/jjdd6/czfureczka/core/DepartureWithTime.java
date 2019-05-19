@@ -192,7 +192,6 @@ public class DepartureWithTime {
         for (int i = 0; i < allStopTime.size(); i++) {
 
             Integer routeID = allStopTime.get(i);
-            String routeId = routeID.toString();
 
             List<StopTimes> stop = stops.stream()
                     .filter(f -> routeID.equals(f.getRouteId()))
@@ -238,7 +237,7 @@ public class DepartureWithTime {
                 }
 
                 if (!timeOfDeparture.isEmpty() || timeOfDeparture.size() != 0) {
-                    List<String> stopEnds = listRoute.getListStopsInTrip(routeId).stream()
+                    List<String> stopEnds = listRoute.getListStopsInTrip(routeID).stream()
                             .filter(f -> trip.equals(f.getTripId()))
                             .map(m -> m.getStopEnd())
                             .distinct()
