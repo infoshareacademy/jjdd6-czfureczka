@@ -1,6 +1,6 @@
 {
-  "2019-04-18": {
-    "lastUpdate": "2019-04-18 06:05:03",
+  "2019-05-20": {
+    "lastUpdate": "2019-05-20 06:05:06",
     "routes": [
       {
         "routeId": 107,
@@ -12,7 +12,7 @@
         "routeUrl": "",
         "routeColor": "",
         "routeTextColor": "",
-        "activationDate": "2019-04-12"
+        "activationDate": "2019-05-14"
       },
       {
         "routeId": 117,
@@ -24,7 +24,7 @@
         "routeUrl": "",
         "routeColor": "",
         "routeTextColor": "",
-        "activationDate": "2019-04-12"
+        "activationDate": "2019-05-14"
       }
     ]
   }

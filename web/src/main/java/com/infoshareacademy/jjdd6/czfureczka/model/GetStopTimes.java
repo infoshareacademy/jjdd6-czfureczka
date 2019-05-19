@@ -27,7 +27,7 @@ public class GetStopTimes {
         LocalDate lD = LocalDate.now();
 
         if (DayOfWeek.SATURDAY == lD.getDayOfWeek() || DayOfWeek.SUNDAY == lD.getDayOfWeek()) {
-            lD.plus(2, ChronoUnit.DAYS);
+            lD=lD.plus(2, ChronoUnit.DAYS);
         }
 
         String date = String.valueOf(lD);
@@ -44,6 +44,7 @@ public class GetStopTimes {
         response.close();
 
         logger.info("Read json form url");
+
 
         return responseValue.getStopTimes();
     }

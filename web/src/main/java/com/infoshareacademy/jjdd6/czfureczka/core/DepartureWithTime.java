@@ -67,8 +67,11 @@ public class DepartureWithTime {
                 longTime = longTime.replaceAll(":00", "");
                 times.add(longTime);
             }
-            timetableForStop.setTime(times);
-            result.add(timetableForStop);
+
+            if(times.size()!=0) {
+                timetableForStop.setTime(times);
+                result.add(timetableForStop);
+            }
         }
         return result;
     }
@@ -118,6 +121,7 @@ public class DepartureWithTime {
                 .distinct()
                 .sorted()
                 .collect(Collectors.toList());
+
         return result;
     }
 
@@ -193,7 +197,10 @@ public class DepartureWithTime {
                     .filter(f -> routeID.equals(f.getRouteId()))
                     .map(m -> m.getTripId())
                     .distinct()
+                    .limit(2)
                     .collect(Collectors.toList());
+
+            logger.info(tripId.toString() + "tripId" );
 
             for (int j = 0; j < tripId.size(); j++) {
 
@@ -234,8 +241,8 @@ public class DepartureWithTime {
 
                 String stopEnd = stopEnds.get(0);
 
-                List<Integer> listRoute = Arrays.asList(routeID);
-                String nameRoute = shortNamesForRouteId.routeShortNameForRouteId(listRoute).get(0);
+                List<Integer> listOfRoute = Arrays.asList(routeID);
+                String nameRoute = shortNamesForRouteId.routeShortNameForRouteId(listOfRoute).get(0);
 
                 departure.put(nameRoute + " Kierunek " + stopEnd, timeOfDeparture);
             }
