@@ -1,7 +1,6 @@
 <div class="col-12">
 
     <#if trolleybus??>
-        <b>Trolejbusy:</b>
         <#setting number_format="computer">
 
         <#list trolleybus>

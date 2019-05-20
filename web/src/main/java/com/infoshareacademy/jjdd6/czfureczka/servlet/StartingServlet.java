@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-@WebServlet("/landingPage")
+@WebServlet("/start")
 public class StartingServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(StartingServlet.class.getName());

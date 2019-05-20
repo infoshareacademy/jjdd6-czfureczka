@@ -1,5 +1,4 @@
 .content{
-    padding-left: 5%;
     margin-top: 40px;
     text-align: center;
 }
@@ -106,10 +105,9 @@
     background-color:red;
 }
 
-
-
-
-
+body {
+    background-image: url("/image/background1.png");
+}
 
 .form-group input[type='text'] {
     padding: .375rem .75rem;

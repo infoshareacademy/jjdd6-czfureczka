@@ -6,25 +6,24 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<#--<style>-->
-    <#--body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}-->
-    <#--body {font-size: 16px;}-->
-    <#--img {margin-bottom: -8px;}-->
-    <#--.mySlides {display: none;}-->
-<#--</style>-->
-<body class="w3-content w3-white" style="max-width:1500px;">
 
-<header class="w3-display-container w3-center">
+
+<body class="w3-content w3-white" style="max-width:1500%;">
+
+<header class="w3-display-container mx-auto">
 
     <div class="mySlides w3-animate-opacity">
-        <img class="w3-image" src="/image/background.jpg" alt="Image 1" style="min-width:500px" width="2500" height="1500">
+        <img class="w3-image" src="/image/background.jpg" alt="Image 1" style="min-width:150%" width="5000" height="3000">
         <div class="w3-display-left" style="width:45%">
             <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
                 <h1 class="w3-xlarge"><b>Witaj w aplikacji "Szybko do Celu"!</b></h1>
                 <hr class="w3-opacity">
                 <p><b>Dziś na pewno dojedziesz na czas!</b></p>
                 <a href="http://localhost:8080/menu" class="w3-button w3-block w3-white w3-round"
-                   onclick="document.getElementById('download').style.display='block'">START</i></button></a>
+                   onclick="document.getElementById('download').style.display='block'"><b>SZYBKI START</b></i></button></a>
+                <br>
+                <a href="http://localhost:8080/googlelogin" class="w3-button w3-block w3-white w3-round"
+                   onclick="document.getElementById('download').style.display='block'"><b>ZALOGUJ</b></i></button></a>
             </div>
         </div>
     </div>
