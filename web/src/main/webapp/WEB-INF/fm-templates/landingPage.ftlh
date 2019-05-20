@@ -19,10 +19,10 @@
                 <h1 class="w3-xlarge "><b>Witaj w aplikacji "Szybko do Celu"!</b></h1>
                 <hr class="w3-opacity ">
                 <p><b>Dziś na pewno dojedziesz na czas!</b></p>
-                <a href="http://localhost:8080/menu" class="w3-button w3-block w3-white w3-round"
+                <a href="http://czfureczka.jjdd6.is-academy.pl/menu" class="w3-button w3-block w3-white w3-round"
                    onclick="document.getElementById('download').style.display='block'"><b>SZYBKI START</b></i></button></a>
                 <br>
-                <a href="http://localhost:8080/googlelogin" class="w3-button w3-block w3-white w3-round"
+                <a href="http://czfureczka.jjdd6.is-academy.pl/googlelogin" class="w3-button w3-block w3-white w3-round"
                    onclick="document.getElementById('download').style.display='block'"><b>ZALOGUJ</b></i></button></a>
             </div>
         </div>
