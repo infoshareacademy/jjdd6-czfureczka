@@ -27,7 +27,7 @@ public class AdministratorServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    AdministratorDao administratorDao;
+    private AdministratorDao administratorDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

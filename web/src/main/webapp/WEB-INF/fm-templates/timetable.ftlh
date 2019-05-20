@@ -4,7 +4,7 @@
         <h4>Przystanek: ${stop}</h4>
     </div>
     <div class="content">
-        <b>Odjazy: </b>
+        <b>Odjazdy: </b>
     <#list time>
         <#items as x>
             <span>${x}<#sep>,</#sep></span>
