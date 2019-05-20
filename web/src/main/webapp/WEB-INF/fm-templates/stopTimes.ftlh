@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-
+<#setting number_format="computer">
 <#include "logo.ftlh">
 <#include "navbar.ftlh">
 

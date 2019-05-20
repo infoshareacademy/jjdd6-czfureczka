@@ -1,5 +1,7 @@
 package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
+import com.infoshareacademy.jjdd6.czfureczka.database.Administrator;
+import com.infoshareacademy.jjdd6.czfureczka.database.AdministratorDao;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -22,6 +24,9 @@ public class ErrorServlet extends HttpServlet {
     @Inject
     private TemplateProvider templateProvider;
 
+    @Inject
+    private AdministratorDao administratorDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -43,6 +48,7 @@ public class ErrorServlet extends HttpServlet {
         model.put("images", newImages);
 
         String googleUserName = (String) req.getSession().getAttribute("google_name");
+        String email = (String) req.getSession().getAttribute("email");
         model.put("google_name", googleUserName);
 
         Integer statusCode = (Integer) req.getAttribute("javax.servlet.error.status_code");
@@ -53,6 +59,13 @@ public class ErrorServlet extends HttpServlet {
 
         model.put("statusCode", statusCode);
         model.put("servletName", servletName);
+
+        if (email != null && !email.isEmpty()) {
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()) {
+                model.put("administrator", "yes");
+            }
+        }
 
         try {
             template.process(model, resp.getWriter());
