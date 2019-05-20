@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
 <body>
-
+<#setting number_format="computer">
 <#include "logo.ftlh">
 <#include "navbar.ftlh">
 
