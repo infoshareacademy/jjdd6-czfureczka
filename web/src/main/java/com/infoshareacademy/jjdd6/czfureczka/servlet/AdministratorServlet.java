@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @WebServlet("/admin")
 public class AdministratorServlet extends HttpServlet {
@@ -79,6 +80,8 @@ public class AdministratorServlet extends HttpServlet {
                             admin.setDeleteAdministrator(false);
                         }
                         administratorDao.save(admin);
+                    }else {
+                        resp.setStatus(404);
                     }
                 }
             }
@@ -92,7 +95,7 @@ public class AdministratorServlet extends HttpServlet {
             List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
             if (!administratorList.isEmpty() && administratorList.get(0).isDeleteAdministrator()) {
 
-                if (req.getAttribute("email") != null) {
+                if (req.getAttribute("email") != null && administratorList.get(0).getEmail().equals(req.getAttribute("email"))) {
                     List<Administrator> admins = administratorDao.findByEmail(Administrator.class, req.getParameter("email"));
                     if (admins != null && admins.size() == 1) {
                         Administrator administrator = admins.get(0);
@@ -108,7 +111,12 @@ public class AdministratorServlet extends HttpServlet {
                         }
                         administratorDao.update(administrator);
                     }
+                }else {
+                    resp.setStatus(404);
                 }
+
+            }else {
+                resp.setStatus(404);
             }
         }
     }
@@ -116,17 +124,41 @@ public class AdministratorServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = (String) req.getSession().getAttribute("email");
+
         if (email != null && !email.isEmpty()) {
-            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
-            if (!administratorList.isEmpty() && administratorList.get(0).isDeleteAdministrator()) {
+            List<Administrator> administratorList = administratorDao.findAll(Administrator.class);
+            List<Administrator> admin = administratorList.stream()
+                    .filter(a -> a.getEmail().equals(email))
+                    .collect(Collectors.toList());
+
+            if (!admin.isEmpty() && admin.get(0).isDeleteAdministrator()) {
+
                 if (req.getAttribute("email") != null) {
-                    List<Administrator> admins = administratorDao.findByEmail(Administrator.class, req.getParameter("email"));
-                    String test = "abc";
+                    List<Administrator> admins = administratorList.stream()
+                            .filter(a -> a.getEmail().equals(req.getAttribute("email")))
+                            .collect(Collectors.toList());
+                    List<Administrator> fullAdmin = administratorList.stream()
+                            .filter(Administrator::isAddNewAdministrator)
+                            .filter(Administrator::isDeleteAdministrator)
+                            .collect(Collectors.toList());
+
                     if (admins != null && admins.size() == 1) {
-                        Administrator administrator = admins.get(0);
-                        administratorDao.delete(Administrator.class, administrator.getId());
+                        if (fullAdmin.size() > 1) {
+
+                            Administrator administrator = admins.get(0);
+                            administratorDao.delete(Administrator.class, administrator.getId());
+                        }else {
+                            if (!fullAdmin.get(0).getEmail().equals(admin.get(0).getEmail())){
+                                Administrator administrator = admins.get(0);
+                                administratorDao.delete(Administrator.class, administrator.getId());
+                            }
+                        }
+                    }else {
+                        resp.setStatus(404);
                     }
                 }
+            }else {
+                resp.setStatus(404);
             }
         }
     }
