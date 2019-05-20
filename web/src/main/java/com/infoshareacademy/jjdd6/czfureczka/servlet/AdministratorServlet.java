@@ -80,7 +80,7 @@ public class AdministratorServlet extends HttpServlet {
                             admin.setDeleteAdministrator(false);
                         }
                         administratorDao.save(admin);
-                    }else {
+                    } else {
                         resp.setStatus(404);
                     }
                 }
@@ -91,14 +91,18 @@ public class AdministratorServlet extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = (String) req.getSession().getAttribute("email");
+
         if (email != null && !email.isEmpty()) {
             List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+
             if (!administratorList.isEmpty() && administratorList.get(0).isDeleteAdministrator()) {
 
-                if (req.getAttribute("email") != null && administratorList.get(0).getEmail().equals(req.getAttribute("email"))) {
+                if (req.getAttribute("email") != null && !email.equals(req.getParameter("email"))) {
                     List<Administrator> admins = administratorDao.findByEmail(Administrator.class, req.getParameter("email"));
+
                     if (admins != null && admins.size() == 1) {
                         Administrator administrator = admins.get(0);
+
                         if (req.getParameter("addNewAdministrator") != null && req.getParameter("addNewAdministrator").equals("on")) {
                             administrator.setAddNewAdministrator(true);
                         } else {
@@ -110,12 +114,16 @@ public class AdministratorServlet extends HttpServlet {
                             administrator.setDeleteAdministrator(false);
                         }
                         administratorDao.update(administrator);
+                    } else {
+                        resp.setStatus(404);
                     }
-                }else {
+                } else {
+                    logger.info("1. String email: " + email + " Parameter: " + req.getParameter("email") + " Attribute: " + req.getAttribute("email"));
                     resp.setStatus(404);
                 }
 
-            }else {
+            } else {
+                logger.info("2. String email: " + email + " Parameter: " + req.getParameter("email") + " Attribute: " + req.getAttribute("email"));
                 resp.setStatus(404);
             }
         }
@@ -135,29 +143,36 @@ public class AdministratorServlet extends HttpServlet {
 
                 if (req.getAttribute("email") != null) {
                     List<Administrator> admins = administratorList.stream()
-                            .filter(a -> a.getEmail().equals(req.getAttribute("email")))
+                            .filter(a -> a.getEmail().equals(req.getParameter("email")))
                             .collect(Collectors.toList());
                     List<Administrator> fullAdmin = administratorList.stream()
                             .filter(Administrator::isAddNewAdministrator)
                             .filter(Administrator::isDeleteAdministrator)
                             .collect(Collectors.toList());
 
-                    if (admins != null && admins.size() == 1) {
+                    logger.info("FullAdmin size: " + fullAdmin.size());
+
+                    if (admins != null && admins.size() == 1 && !admins.get(0).getEmail().equals(email)) {
                         if (fullAdmin.size() > 1) {
 
                             Administrator administrator = admins.get(0);
                             administratorDao.delete(Administrator.class, administrator.getId());
-                        }else {
-                            if (!fullAdmin.get(0).getEmail().equals(admin.get(0).getEmail())){
+                            logger.info("1. Deleted administrator " + administrator.getId());
+                        } else {
+                            logger.info("FullAdmin email: " + fullAdmin.get(0).getEmail() + " Admin email: " + admins.get(0).getEmail());
+                            if (!fullAdmin.get(0).getEmail().equals(admins.get(0).getEmail())) {
                                 Administrator administrator = admins.get(0);
                                 administratorDao.delete(Administrator.class, administrator.getId());
+                                logger.info("2. Deleted administrator " + administrator.getId());
                             }
                         }
-                    }else {
+                    } else {
+                        logger.info("1. String email: " + email + " Parameter: " + req.getParameter("email"));
                         resp.setStatus(404);
                     }
                 }
-            }else {
+            } else {
+                logger.info("2. String email: " + email + " Parameter: " + req.getParameter("email"));
                 resp.setStatus(404);
             }
         }
