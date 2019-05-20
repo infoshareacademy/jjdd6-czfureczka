@@ -2,6 +2,8 @@ package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
 import com.infoshareacademy.jjdd6.czfureczka.core.DepartureWithTime;
 import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
+import com.infoshareacademy.jjdd6.czfureczka.database.Administrator;
+import com.infoshareacademy.jjdd6.czfureczka.database.AdministratorDao;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStop;
 import com.infoshareacademy.jjdd6.czfureczka.database.PromotedStopDao;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
@@ -28,16 +30,19 @@ public class StopsServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(StopsServlet.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    DepartureWithTime departureWithTime;
+    private DepartureWithTime departureWithTime;
 
     @Inject
-    ListStops listStops;
+    private ListStops listStops;
 
     @Inject
-    PromotedStopDao promotedStopDao;
+    private PromotedStopDao promotedStopDao;
+
+    @Inject
+    private AdministratorDao administratorDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,10 +51,21 @@ public class StopsServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "stops.ftlh");
         Map<String, Object> model = new HashMap<>();
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        String email = (String) req.getSession().getAttribute("email");
+        model.put("google_name", googleUserName);
+
         List<String> names = listStops.getListAllStops();
         model.put("stops", names);
 
-        model.put("promotedStops", promotedStopDao.findAll(PromotedStop.class).stream()
+        if (email != null && !email.isEmpty()){
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()){
+                model.put("administrator", "yes");
+            }
+        }
+
+        model.put("promotedStops", promotedStopDao.findByEmail(PromotedStop.class, email).stream()
                 .sorted(Comparator.comparing(PromotedStop::getTag))
                 .distinct()
                 .collect(Collectors.toList()));
@@ -59,7 +75,6 @@ public class StopsServlet extends HttpServlet {
                 model.put("result", departureWithTime.getTimetableForStop(req.getParameter("initialStop"), req.getParameter("time")));
             }
         }
-
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {

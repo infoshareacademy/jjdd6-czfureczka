@@ -1,25 +1,25 @@
 {
-  "lastUpdate": "2019-04-18 06:05:19",
+  "lastUpdate": "2019-05-20 06:05:19",
   "expeditionData": [
     {
-      "startDate": "2019-04-18",
-      "endDate": "2019-04-18",
+      "startDate": "2019-05-20",
+      "endDate": "2019-05-20",
       "routeId": 2,
       "tripId": 1,
       "technicalTrip": 0,
       "mainRoute": 1
     },
     {
-      "startDate": "2019-04-18",
-      "endDate": "2019-04-18",
+      "startDate": "2019-05-20",
+      "endDate": "2019-05-20",
       "routeId": 2,
       "tripId": 1,
       "technicalTrip": 0,
       "mainRoute": 0
     },
     {
-      "startDate": "2019-04-24",
-      "endDate": "2019-04-24",
+      "startDate": "2019-05-24",
+      "endDate": "2019-05-24",
       "routeId": 3,
       "tripId": 2,
       "technicalTrip": 0,

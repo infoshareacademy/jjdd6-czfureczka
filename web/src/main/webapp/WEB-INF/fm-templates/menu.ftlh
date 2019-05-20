@@ -24,7 +24,17 @@
 
 <div class="container">
 
-    <#include "sidebar.ftlh">
+    <#if google_name??>
+        <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
+
+        <#include "sidebar.ftlh">
+
+        <div class="row" style="margin-top: 2%">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-success" id="success-alert" style="display:none">Tag dodany</div>
+            </div>
+        </div>
+    </#if>
 
     <div class="row">
 
@@ -41,7 +51,7 @@
 
                 <div class="form-group">
                     <label for="routeId" class="align-baseline mr-1">Linia:</label>
-                    <label><input type="number" min="2" name="routeId" id="routeId" class="form-control"
+                    <label><input type="text" name="routeId" maxlength="4" id="routeId" class="form-control"
                                   placeholder="2"></label>
                 </div>
 

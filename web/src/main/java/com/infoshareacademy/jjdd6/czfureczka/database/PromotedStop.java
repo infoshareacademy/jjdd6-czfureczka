@@ -20,7 +20,12 @@ public class PromotedStop{
     @Column(name = "tag")
     private String tag;
 
-    public PromotedStop(){}
+    @Column(name = "e_mail")
+    @NotNull
+    private String email;
+
+    public PromotedStop() {
+    }
 
     public PromotedStop(@NotNull String name, String tag) {
         this.name = name;
@@ -51,12 +56,21 @@ public class PromotedStop{
         this.tag = tag;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("PromotedStop{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", tag='").append(tag).append('\'');
+        sb.append(", email='").append(email).append('\'');
         sb.append('}');
         return sb.toString();
     }
@@ -66,13 +80,14 @@ public class PromotedStop{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PromotedStop that = (PromotedStop) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(tag, that.tag);
+        return id.equals(that.id) &&
+                name.equals(that.name) &&
+                tag.equals(that.tag) &&
+                email.equals(that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, tag);
+        return Objects.hash(id, name, tag, email);
     }
 }

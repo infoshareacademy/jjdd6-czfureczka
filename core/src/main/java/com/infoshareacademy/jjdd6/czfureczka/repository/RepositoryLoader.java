@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 public class RepositoryLoader {
 
-    private static final String date = "2019-04-18";
+    private static final String date = "2019-05-20";
     private static final Logger logger = Logger.getLogger(RepositoryLoader.class.getName());
 
     public boolean load(String path) {

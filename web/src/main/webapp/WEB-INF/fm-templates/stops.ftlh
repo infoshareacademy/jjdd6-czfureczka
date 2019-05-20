@@ -33,48 +33,46 @@
 <#include "navbar.ftlh">
 
 <div class="container content">
+    <#if google_name??>
+        <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
+    </#if>
+
     <h3 class="heading-statistics">Najbliższy odjazd</h3>
 
     <div class="row">
-        <form class="col-12">
+        <form class="col-12" method="get" id="stops-form">
             <#include "initialStop.ftlh">
             <#include "timePicker.ftlh">
             <input class="btn" type="submit" name="search" value="Szukaj" id="button-check"/>
         </form>
     </div>
 
-    <div class="col-12" style="text-align: center; margin-top: 1%">
+    <div class="col-12" style="text-align: center; margin-top: 2%">
         <div class="spinner-border " role="status" id="spinner" style="display:none"></div>
     </div>
 
-    <div style="margin-top: 1%" id="stops-result">
-
-    <div>
+    <div style="margin-top: 2%" id="stops-result">
         <#if result??>
             <div class="row">
                 <div class="col-12">
 
-                    <ol>
+                    <#list result>
+                        <#items as timetableForStop>
+                            <div>
+                                Możesz pojechać następującą linią:
+                                <span>${timetableForStop.routeId}, </span><br/>
 
-                        <#list result>
-                            <#items as timetableForStop>
-                                <li>
-                                    Możesz pojechać następującą linią:
-                                    <span>${timetableForStop.routeId}, </span><br/>
+                                Odjazdy są o:
 
-                                    Odjazdy są o:
-
-                                    <#list timetableForStop.time>
-                                        <#items as time>
-                                            <span>${time},</span>
-                                        </#items>
-                                    </#list>
-                                    <br/><br/>
-                                </li>
-                            </#items>
-                        </#list>
-
-                    </ol>
+                                <#list timetableForStop.time>
+                                    <#items as time>
+                                        <span>${time},</span>
+                                    </#items>
+                                </#list>
+                                <br/><br/>
+                            </div>
+                        </#items>
+                    </#list>
 
                 </div>
             </div>

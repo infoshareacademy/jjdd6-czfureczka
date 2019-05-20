@@ -45,24 +45,29 @@
 }
 
 .logo-image {
-    height: 60px;
+    height: 50px;
     text-align: left;
     margin-top: 7px;
 }
 
 #logo-text {
-    font-size: 58px;
+    font-size: 48px;
     text-align: right;
 }
 
 #button-save{
     color: white;
-    background-color: mediumseagreen !important;
+    background-color: #15400e !important;
 }
 
 #button-check{
     color: white;
-    background-color: mediumseagreen !important;
+    background-color: #15400e !important;
+}
+.button-admin{
+    color: white;
+    background-color: #15400e !important;
+    border-color: #15400e !important;
 }
 
 .menu-form{
@@ -103,3 +108,22 @@
 
 
 
+
+
+
+.form-group input[type='text'] {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.errorImage{
+    max-height: 50vmax !important;
+    margin-bottom: 2vmax;
+}

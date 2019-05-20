@@ -19,66 +19,40 @@
 
 <#include "logo.ftlh">
 <#include "navbar.ftlh">
-<br>
-<div class="container content">
-    <div class="w3-card-4">
-        <div class="w3-container ">
-            <br>
-            <img src="/image/bus.png" alt="Avatar" class="w3-left" style="width:10%">
-            <br>
-            <h1> <b>AUTOBUSY</b></h1>
+
+
+<div class="container">
+
+    <#if google_name??>
+        <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
+    </#if>
+
+    <div class="row">
+        <div class="col-12">
+            <h3 class="heading-statistics">Rozkład jazdy</h3>
         </div>
-        <br>
-        <button class="w3-button w3-block w3-blue "> <b>LINIE</b> </button>
-        <br>
-        <#include "listBus.ftlh">
-        <#if time??>
-            <#include "timetable.ftlh">
-        <#else>
-            <#include "listStops.ftlh">
-        </#if>
-        <br>
     </div>
-    <br>
-    <div class="w3-card-4">
-        <div class="w3-container ">
-            <br>
-            <img src="/image/tramcar.png" alt="Avatar" class="w3-left" style="width:10%">
-            <br>
-            <h1> <b>TRAMWAJE</b></h1>
-        </div>
-        <br>
-        <button class="w3-button w3-block w3-blue "> <b>LINIE</b> </button>
+
+    <div class="col-12" style="text-align: center; margin-top: 2%">
+        <div class="spinner-border " role="status" id="spinner" style="display:none"></div>
+    </div>
+
+    <#if time??>
+        <#include "timetable.ftlh">
+    <#else>
+        <#include "listStops.ftlh">
+    </#if>
+
+    <div class="content">
         <#include "listTram.ftlh">
-        <#if time??>
-            <#include "timetable.ftlh">
-        <#else>
-            <#include "listStops.ftlh">
-        </#if>
-    </div>
-    <br>
-    <div class="w3-card-4">
-        <div class="w3-container ">
-            <br>
-            <img src="/image/frontbus.png" alt="Avatar" class="w3-left" style="width:10%">
-            <br>
-            <h1><b>TROLEJBUSY</b></h1>
-        </div>
-        <br>
-        <button class="w3-button w3-block w3-blue "> <b>LINIE</b> </button>
+        <#include "listBus.ftlh">
         <#include "listTrolleybus.ftlh">
-        <#if time??>
-            <#include "timetable.ftlh">
-        <#else>
-            <#include "listStops.ftlh">
-        </#if>
     </div>
-    <br>
-    <div class="col-12" style="margin-top: 3%">
+
+    <div class="col-12 content">
         <#include "copyright-footer.ftlh">
     </div>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

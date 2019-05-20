@@ -5,7 +5,6 @@ import com.infoshareacademy.jjdd6.czfureczka.core.ListStops;
 import com.infoshareacademy.jjdd6.czfureczka.core.Trip;
 import com.infoshareacademy.jjdd6.czfureczka.database.*;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
-import com.infoshareacademy.jjdd6.czfureczka.validation.Validation;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -31,22 +30,25 @@ public class Menu extends HttpServlet {
     private static final Logger logger = Logger.getLogger(Menu.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    ListStops listStops;
+    private ListStops listStops;
 
     @Inject
-    ListRoute listRoute;
+    private ListRoute listRoute;
 
     @Inject
-    StopStatisticDao stopStatisticDao;
+    private StopStatisticDao stopStatisticDao;
 
     @Inject
-    PromotedStopDao promotedStopDao;
+    private PromotedStopDao promotedStopDao;
 
     @Inject
-    Trip trip;
+    private Trip trip;
+
+    @Inject
+    private AdministratorDao administratorDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -60,13 +62,17 @@ public class Menu extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "menu.ftlh");
         Map<String, Object> model = new HashMap<>();
 
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        String email = (String) req.getSession().getAttribute("email");
+        model.put("google_name", googleUserName);
+
         if (req.getParameter("initialStop") != null && !req.getParameter("initialStop").isEmpty()) {
             String stop = req.getParameter("initialStop");
             stop = trip.cropTagFromStopName(stop);
             Boolean result = listStops.checkNameOfStop(stop);
             logger.info("The given stop exists: " + result.toString());
             model.put("stopDesc", result);
-            if (result){
+            if (result) {
                 LocalDate now = LocalDate.now();
                 stopStatisticDao.save(new StopStatistic(stop, now));
             }
@@ -82,8 +88,15 @@ public class Menu extends HttpServlet {
 
         List<String> names = listStops.getListAllStops();
 
+        if (email != null && !email.isEmpty()){
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()){
+                model.put("administrator", "yes");
+            }
+        }
+
         model.put("stops", names);
-        model.put("promotedStops", promotedStopDao.findAll(PromotedStop.class).stream()
+        model.put("promotedStops", promotedStopDao.findByEmail(PromotedStop.class, email).stream()
                 .sorted(Comparator.comparing(PromotedStop::getTag))
                 .distinct()
                 .collect(Collectors.toList()));
@@ -98,7 +111,7 @@ public class Menu extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        logger.info("Method doPost; request parameters: 'nameStop': " +req.getParameter("nameStop") + " and 'tag': "+ req.getParameter("tag"));
+        logger.info("Method doPost; request parameters: 'nameStop': " + req.getParameter("nameStop") + " and 'tag': " + req.getParameter("tag"));
         TransferServlet.savePromotedStop(req, listStops, promotedStopDao);
 
     }

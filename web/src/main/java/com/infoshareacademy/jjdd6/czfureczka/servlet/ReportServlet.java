@@ -1,5 +1,7 @@
 package com.infoshareacademy.jjdd6.czfureczka.servlet;
 
+import com.infoshareacademy.jjdd6.czfureczka.database.Administrator;
+import com.infoshareacademy.jjdd6.czfureczka.database.AdministratorDao;
 import com.infoshareacademy.jjdd6.czfureczka.freemarker.TemplateProvider;
 import com.infoshareacademy.jjdd6.czfureczka.statistic.PopularRoute;
 import com.infoshareacademy.jjdd6.czfureczka.statistic.PopularStop;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -24,13 +27,16 @@ public class ReportServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(ReportServlet.class.getName());
 
     @Inject
-    TemplateProvider templateProvider;
+    private TemplateProvider templateProvider;
 
     @Inject
-    PopularStop popularStop;
+    private PopularStop popularStop;
 
     @Inject
-    PopularRoute popularRoute;
+    private PopularRoute popularRoute;
+
+    @Inject
+    private AdministratorDao administratorDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,6 +44,17 @@ public class ReportServlet extends HttpServlet {
 
         Template template = templateProvider.getTemplate(getServletContext(), "report.ftlh");
         Map<String, Object> model = new HashMap<>();
+
+        String googleUserName = (String) req.getSession().getAttribute("google_name");
+        model.put("google_name", googleUserName);
+
+        String email = (String) req.getSession().getAttribute("email");
+        if (email != null && !email.isEmpty()){
+            List<Administrator> administratorList = administratorDao.findByEmail(Administrator.class, email);
+            if (!administratorList.isEmpty()){
+                model.put("administrator", "yes");
+            }
+        }
 
         if (popularStop.getAll().size() != 0) {
             model.put("result", popularStop.getMostPopularStop());

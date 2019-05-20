@@ -22,12 +22,16 @@
 
 <div class="container content">
 
+    <#if google_name??>
+        <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
+    </#if>
+
     <div class="col-12">
         <h3 class="heading-statistics">Wyznaczanie trasy</h3>
     </div>
 
     <div class="row">
-        <form class="col-12" id="trip">
+        <form class="col-12" id="trip" method="get">
             <#include "initialStop.ftlh">
             <#include "destinationStop.ftlh">
             <input class="btn" type="submit" name="search" value="Szukaj" id="button-check"/>
@@ -35,6 +39,9 @@
     </div>
 
     <div class="row" style="margin-top: 30px">
+        <div class="col-12" style="text-align: center">
+            <div class="spinner-border " role="status" id="spinner" style="display:none"></div>
+        </div>
 
         <#if deficiency??>
             <div class="col-12">
@@ -51,47 +58,44 @@
         <#if trip??>
             <div class="col-12">
                 Możesz pojechać:
-                <ul>
-                    <#list trip>
-                        <#items as route>
-                            <li>${route}</li>
-                        </#items>
-                    </#list>
-                </ul>
+                <#list trip>
+                    <#items as route>
+                        <span>${route}<#sep>, </#sep></span>
+                    </#items>
+                </#list>
             </div>
         </#if>
 
         <#if transfer??>
             <div class="col-12">
-                <ol>
 
-                    <#list transfer>
-                        <#items as tripWithTransfer>
-                            <li>
-                                Należy pojechać linią:
 
-                                <#list tripWithTransfer.routeStart>
-                                    <#items as route>
-                                        <span>${route}, </span>
-                                    </#items>
-                                </#list>
-                                <br/>
+                <#list transfer>
+                    <#items as tripWithTransfer>
+                        <div>
+                            Należy pojechać linią:
 
-                                Przesiadka na: ${tripWithTransfer.stop}<br/>
+                            <#list tripWithTransfer.routeStart>
+                                <#items as route>
+                                    <span>${route}<#sep>, </#sep></span>
+                                </#items>
+                            </#list>
+                            <br/>
 
-                                Następnie jedź:
+                            Przesiadka na: ${tripWithTransfer.stop}<br/>
 
-                                <#list tripWithTransfer.routeEnd>
-                                    <#items as routeEnd>
-                                        <span>${routeEnd}</span>
-                                    </#items>
-                                </#list>
-                                <br/><br/>
-                            </li>
-                        </#items>
-                    </#list>
+                            Następnie jedź:
 
-                </ol>
+                            <#list tripWithTransfer.routeEnd>
+                                <#items as routeEnd>
+                                    <span>${routeEnd}<#sep>, </#sep></span>
+                                </#items>
+                            </#list>
+                            <br/><br/>
+                        </div>
+                    </#items>
+                </#list>
+
             </div>
         </#if>
 
