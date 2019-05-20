@@ -18,7 +18,18 @@
     <#if administrator??>
         <div class="row">
             <div class="col-12">
-                <h3 class="heading-statistics">Dodaj nowego administratora</h3>
+                <h3 class="heading-statistics" style="margin-bottom: 0">Dodaj nowego administratora</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-success" id="success-alert-add" style="display:none">Nowy administrator dodany</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-danger" id="error-alert-add" style="display:none">Podany administrator istnieje</div>
             </div>
         </div>
 
@@ -39,15 +50,21 @@
             </div>
         </form>
 
-        <div class="row" style="margin-top: 2%">
-            <div class="col-12" style="text-align: center">
-                <div class="alert alert-success" id="success-alert-add" style="display:none">Nowy administrator dodany</div>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="heading-statistics" style="margin-top: 2%">Edytuj dane administratora</h3>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12">
-                <h3 class="heading-statistics">Edytuj dane administratora</h3>
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-success" id="success-alert-edit" style="display:none">Edycja zakończona sukcesem</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-danger" id="error-alert-edit" style="display:none">Brak uprawień</div>
             </div>
         </div>
 
@@ -80,15 +97,20 @@
             </div>
         </form>
 
-        <div class="row" style="margin-top: 2%">
-            <div class="col-12" style="text-align: center">
-                <div class="alert alert-success" id="success-alert-edit" style="display:none">Edycja zakończona sukcesem</div>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="heading-statistics" style="margin-top: 2%">Usuń administratora</h3>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12">
-                <h3 class="heading-statistics">Usuń administratora</h3>
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-danger" id="error-alert-delete" style="display:none">Podany email nie istnieje</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="text-align: center">
+                <div class="alert alert-success" id="success-alert-delete" style="display:none">Administrator usunięty</div>
             </div>
         </div>
 
@@ -107,15 +129,13 @@
             </div>
         </form>
 
-        <div class="row" style="margin-top: 2%">
-            <div class="col-12" style="text-align: center">
-                <div class="alert alert-success" id="success-alert-delete" style="display:none">Administrator usunięty</div>
-            </div>
-        </div>
-
     <#else>
         <h2 class="heading-statistics">Brak uprawnień</h2>
     </#if>
+</div>
+
+<div class="col-12" style="text-align: center">
+    <#include "copyright-footer.ftlh">
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>

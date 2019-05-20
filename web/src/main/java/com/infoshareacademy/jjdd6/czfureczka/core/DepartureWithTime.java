@@ -89,7 +89,6 @@ public class DepartureWithTime {
                     if (timeTable.isEmpty() || timeTable.size()==0){
                         timeTable.add("Brak danych");
                     }
-                    logger.info(timeTable.toString()+"timetable");
                     return timeTable;
                 }
             }
