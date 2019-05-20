@@ -8,12 +8,17 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-image: url("/image/background3.png");
+        }
+    </style>
 </head>
 <body>
 
 <#include "logo.ftlh">
 <#include "navbar.ftlh">
-
 <br>
 <div class="container content">
     <div class="w3-card-4">
@@ -24,10 +29,17 @@
             <h1> <b>AUTOBUSY</b></h1>
         </div>
         <br>
-        <button class="w3-button w3-block w3-blue "> <b>Rozwiń</b> </button>
+        <button class="w3-button w3-block w3-blue "> <b>LINIE</b> </button>
+        <br>
+        <#include "listBus.ftlh">
+        <#if time??>
+            <#include "timetable.ftlh">
+        <#else>
+            <#include "listStops.ftlh">
+        </#if>
+        <br>
     </div>
     <br>
-
     <div class="w3-card-4">
         <div class="w3-container ">
             <br>
@@ -36,11 +48,15 @@
             <h1> <b>TRAMWAJE</b></h1>
         </div>
         <br>
-        <button class="w3-button w3-block w3-blue "> <b>Rozwiń</b> </button>
+        <button class="w3-button w3-block w3-blue "> <b>LINIE</b> </button>
+        <#include "listTram.ftlh">
+        <#if time??>
+            <#include "timetable.ftlh">
+        <#else>
+            <#include "listStops.ftlh">
+        </#if>
     </div>
-
     <br>
-
     <div class="w3-card-4">
         <div class="w3-container ">
             <br>
@@ -49,16 +65,15 @@
             <h1><b>TROLEJBUSY</b></h1>
         </div>
         <br>
-        <button class="w3-button w3-block w3-blue "> <b>Rozwiń</b> </button>
+        <button class="w3-button w3-block w3-blue "> <b>LINIE</b> </button>
+        <#include "listTrolleybus.ftlh">
+        <#if time??>
+            <#include "timetable.ftlh">
+        <#else>
+            <#include "listStops.ftlh">
+        </#if>
     </div>
-    <div class="row">
-    </div>
-    <#if time??>
-        <#include "timetable.ftlh">
-    <#else>
-        <#include "listStops.ftlh">
-    </#if>
-
+    <br>
     <div class="col-12" style="margin-top: 3%">
         <#include "copyright-footer.ftlh">
     </div>

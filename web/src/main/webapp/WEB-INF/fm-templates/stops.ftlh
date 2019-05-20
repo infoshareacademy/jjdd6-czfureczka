@@ -17,7 +17,14 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css"/>
+
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-image: url("/image/background3.png");
+        }
+    </style>
 
 </head>
 <body>
@@ -35,6 +42,12 @@
             <input class="btn" type="submit" name="search" value="Szukaj" id="button-check"/>
         </form>
     </div>
+
+    <div class="col-12" style="text-align: center; margin-top: 1%">
+        <div class="spinner-border " role="status" id="spinner" style="display:none"></div>
+    </div>
+
+    <div style="margin-top: 1%" id="stops-result">
 
     <div>
         <#if result??>
