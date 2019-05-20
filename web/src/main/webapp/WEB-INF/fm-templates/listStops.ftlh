@@ -4,12 +4,12 @@
     </div>
 </#if>
 
-<div class="row">
+<div class="row no-gutters">
     <#if listStops??>
         <#list listStops>
             <#items as tripWithStops>
 
-                <div class="list-group col-6" style="text-align: center">
+                <div class="list-group col-5" style="text-align: center; margin-left: 5%; margin-bottom: 1%">
 
                     <button type="button" class="list-group-item list-group-item-action"
                             style="background-color: #15400e !important; color: white; cursor: auto;">

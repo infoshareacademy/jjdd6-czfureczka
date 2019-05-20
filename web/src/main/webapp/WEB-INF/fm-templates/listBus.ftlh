@@ -1,7 +1,6 @@
 <div class="col-12">
 
     <#if bus??>
-        <b>Autobusy:</b>
         <#setting number_format="computer">
 
         <#list bus>

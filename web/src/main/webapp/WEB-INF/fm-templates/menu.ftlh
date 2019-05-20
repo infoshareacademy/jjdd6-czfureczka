@@ -2,12 +2,19 @@
 <html>
 
 <head>
-    <title>Szybko do celu</title>
+    <title>Szybko do celu!</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="icon" href="/image/favicon.ico" type="image/ico" sizes="16x16">
+    <style>
+        body {
+            background-image: url("/image/background1.png");
+        }
+    </style>
 </head>
 
 <body>
@@ -16,12 +23,13 @@
 <#include "navbar.ftlh">
 
 
-<div class="container">
+<div class="container content">
 
     <#if google_name??>
         <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
-
-        <#include "sidebar.ftlh">
+        <div class="w3-card-4 w3-light-gray mx-auto" style="width:80%">
+            <#include "sidebar.ftlh">
+        </div>
 
         <div class="row" style="margin-top: 2%">
             <div class="col-12" style="text-align: center">
@@ -29,30 +37,26 @@
             </div>
         </div>
     </#if>
+    <div class="w3-card-4 w3-light-gray mx-auto col-12" style="width:80%">
+        <br>
+        <h3 class="heading-statistics" style="margin-top: 20px"><b>Sprawdź czy podany przystanek/linia istnieje</b></h3>
+        <br>
 
-    <div class="row">
+        <form class="menu-form">
+            <div class="form-group">
+                <label for="initialStop" class="align-baseline mr-1"><b>Przystanek:</b></label>
+                <label><#include "inputListStopsWithTags.ftlh"></label>
+            </div>
 
-        <div class="col-12">
-            <h3 class="heading-statistics">Sprawdź czy podany przystanek/linia istnieje</h3>
-        </div>
+            <label for="routeId" class="align-baseline mr-1"><b>Linia:</b></label>
+            <label><input type="text" name="routeId" maxlength="4" id="routeId" class="form-control"
+                          placeholder="2"></label>
+            <br>
+            <br>
+            <input class="btn" type="submit" name="save" value="Sprawdź" id="button-check"/>
+            <br>
 
-        <div class="col-12">
-            <form class="menu-form">
-                <div class="form-group">
-                    <label for="initialStop" class="align-baseline mr-1">Przystanek:</label>
-                    <label><#include "inputListStopsWithTags.ftlh"></label>
-                </div>
-
-                <div class="form-group">
-                    <label for="routeId" class="align-baseline mr-1">Linia:</label>
-                    <label><input type="text" name="routeId" maxlength="4" id="routeId" class="form-control"
-                                  placeholder="2"></label>
-                </div>
-
-                <input class="btn" type="submit" name="save" value="Sprawdź" id="button-check"/>
-
-            </form>
-        </div>
+        </form>
 
         <div class="col-12" style="text-align: center; margin-top: 2%">
             <#if stopDesc??>
@@ -61,18 +65,20 @@
             <#if routeId??>
                 <p> Linia: ${(routeId?string('TAK', 'NIE'))! ""}</p>
             </#if>
-        </div>
-
-        <div class="col-12 counter">
-            <p>
-                <small>Liczba wejść: ${counter}</small>
-            </p>
-        </div>
-
-        <div class="col-12" style="text-align: center">
-            <#include "copyright-footer.ftlh">
+            <br>
         </div>
     </div>
+
+    <div class="col-12 counter">
+        <p>
+            <small>Liczba wejść: ${counter}</small>
+        </p>
+    </div>
+
+    <div class="col-12" style="text-align: center">
+        <#include "copyright-footer.ftlh">
+    </div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -85,3 +91,5 @@
 <script src="/js/promotedStop.js"></script>
 </body>
 </html>
+
+

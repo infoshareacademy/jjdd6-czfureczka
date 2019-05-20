@@ -1,8 +1,7 @@
-<div class="col-12">
+<div class="col-12 ">
 
     <#if tram??>
-        <b>Tramwaje:</b>
-        <#setting number_format="computer">
+            <#setting number_format="computer">
 
         <#list tram>
             <#items as routeWithModeOfTransportation>

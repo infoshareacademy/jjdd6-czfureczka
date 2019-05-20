@@ -18,6 +18,15 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css"/>
 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/image/favicon.ico" type ="image/ico" sizes="16x16">
+    <style>
+        body {
+            background-image: url("/image/background1.png");
+        }
+    </style>
+
 </head>
 <body>
 
@@ -28,9 +37,11 @@
     <#if google_name??>
         <h3 class="heading-statistics">Zalogowany jako: ${google_name}</h3>
     </#if>
-
-    <h3 class="heading-statistics">Najbliższy odjazd</h3>
-
+    <br>
+    <div class="w3-card-4 w3-light-gray mx-auto" style="width:80%">
+        <br>
+    <h3 class="heading-statistics"><b>Najbliższy odjazd</b></h3>
+        <br>
     <div class="row">
         <form class="col-12" method="get" id="stops-form">
             <#include "initialStop.ftlh">
@@ -69,12 +80,16 @@
                 </div>
             </div>
         </#if>
+        <br>
     </div>
-    <div style="margin-top: 20px">
-        <#include "copyright-footer.ftlh">
+    </div>
     </div>
 </div>
+    <br>
 
+<div class="col-12" style="text-align: center">
+    <#include "copyright-footer.ftlh">
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

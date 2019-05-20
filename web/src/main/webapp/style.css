@@ -4,21 +4,17 @@
 }
 
 #logo-background {
-    background-color: #15400e;
+    background-color: black;
     color: white;
 }
 
 .navbar-bg {
-    background-color: #15400e !important;
-    font-weight: 600;
+    background-color: black !important;
 }
 
-.nav-link{
-    color: rgba(255,255,255,.7) !important;
-}
 
-.nav-link:hover{
-    color: rgba(255,255,255,.9) !important;
+.nav-item .nav-link{
+    color: white !important;
 }
 
 .nav-image {
@@ -83,6 +79,35 @@
     text-align: center;
 }
 
+.custom-fa:before {
+    content: "\f25b";
+    font-family: FontAwesome;
+    font-size: 100px;
+}
+
+.btn-block {
+    color: cadetblue;
+}
+
+.roll {
+    width:40%;
+    height:80px;
+    background-color:white;
+    padding:15px;
+    font-size:1.2em;
+    border:3px solid #000;
+    transition-duration:4s;
+    transition-timing-function:linear;
+}
+
+.roll:hover {
+    width:80%;
+    background-color:red;
+}
+
+body {
+    background-image: url("/image/background1.png");
+}
 
 .form-group input[type='text'] {
     padding: .375rem .75rem;
